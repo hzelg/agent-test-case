@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BenefitsCal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="BenefitsCal_Logo_Header.svg" alt="BenefitsCal Logo"> 
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Apply For Benefits</a></li>
+                    <li><a href="#">Programs</a></li>
+                    <li><a href="#">Help</a></li>
+                    <li>
+                        <select class="language-select">
+                            <option value="english">English</option>
+                            </select>
+                    </li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="login-btn">Log In</button>
+                <button class="search-btn">Search</button>
+                <a href="#" class="create-account-link">New ? Create An Account</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="main-container">
+            <aside class="sidebar">
+                <div class="progress-bar">
+                    <p>Currently on</p>
+                    <p>Step 1 of 9</p>
+                </div>
+                <div class="sidebar-item active">
+                    <i class="fas fa-user"></i>
+                    <div class="sidebar-text">
+                        <p>Your Information</p>
+                        <p>Reviewed</p>
+                    </div>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-users"></i>
+                    <div class="sidebar-text">
+                        <p>People</p>
+                        <p>Not Available</p>
+                    </div>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-home"></i>
+                    <div class="sidebar-text">
+                        <p>Household Details</p>
+                        <p>Not Available</p>
+                    </div>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-dollar-sign"></i>
+                    <div class="sidebar-text">
+                        <p>Income</p>
+                        <p>Not Available</p>
+                    </div>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-wallet"></i>
+                    <div class="sidebar-text">
+                        <p>Expenses</p>
+                        <p>Not Available</p>
+                    </div>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-coins"></i>
+                    <div class="sidebar-text">
+                        <p>Assets</p>
+                        <p>Not Available</p>
+                    </div>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <div class="sidebar-text">
+                        <p>Other Situations</p>
+                        <p>Not Available</p>
+                    </div>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-upload"></i>
+                    <div class="sidebar-text">
+                        <p>Document Upload</p>
+                        <p>Not Available</p>
+                    </div>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-check-circle"></i>
+                    <div class="sidebar-text">
+                        <p>Review and Submit</p>
+                        <p>Not Available</p>
+                    </div>
+                </div>
+            </aside>
+            <section class="content">
+                <h1>What's your name?</h1>
+                <p><strong>(Nice to meet you!)</strong></p>
+            
+                <div class="info-box">
+                    <i class="fas fa-question-circle"></i>
+                    <a href="#">Who should fill out this application?</a>
+                </div>
+            
+                <form id="step-form">
+                    <label for="first-name">First Name <span>(required)</span></label>
+                    <input type="text" id="first-name" name="first-name" required>
+            
+                    <label for="middle-name">Middle Name</label>
+                    <input type="text" id="middle-name" name="middle-name">
+            
+                    <label for="last-name">Last Name <span>(required)</span></label>
+                    <input type="text" id="last-name" name="last-name" required>
+            
+                    <label for="suffix">Suffix</label>
+                    <select id="suffix" name="suffix">
+                        <option value="">-Select One-</option>
+                    </select>
+            
+                    <label for="other-names">Other Names</label>
+                    <input type="text" id="other-names" name="other-names">
+                    <small>Maiden, Nicknames, etc.</small>
+            
+                    <div class="navigation-buttons">
+                        <button type="button" class="back-btn" id="back-btn">&lt;</button>
+                        <button type="button" class="next-btn" id="next-btn">Next</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3 class="footer-title">Contact Us</h3>
+                <a href="#" class="footer-link">Need support from your county office?<span class="external-link-icon"></span></a>
+                <a href="#" class="footer-link">Technical issues using this website?<span class="external-link-icon"></span></a>
+                <a href="#" class="footer-link">Find an Office <span class="external-link-icon"></span></a>
+                <a href="#" class="footer-link"></a>We want to hear from you!<span class="external-link-icon"></span></a>
+                <a href="#" class="footer-link"></a>Have any comments about the site?<span class="external-link-icon"></span></a>
+                <a href="#" class="footer-link">Share your feedback <span class="external-link-icon"></span></a>
+            </div>
+            <div class="footer-section">
+                <h3 class="footer-title">Help & Resources</h3>
+                <a href="#" class="footer-link">Frequently Asked Questions <span class="external-link-icon"></span></a>
+                <a href="#" class="footer-link">Programs <span class="external-link-icon"></span></a>
+                <a href="#" class="footer-link">Register to Vote <span class="external-link-icon"></span></a>
+            </div>
+            <div class="footer-section">
+                <h3 class="footer-title">BenefitsCal</h3>
+                <a href="#" class="footer-link">BenefitsCal is a portal where Californians can get and manage benefits online. This includes food assistance (CalFresh), cash aid (CalWORKS), and affordable health insurance (Medi-Cal).</a>
+                <a class="footer-link" href="#">Learn more about BenefitsCal</a>
+                <a href="#" class="footer-link"></a>Sponsored by CalSAWS, the Department of Social Services (CDSS) and the Department of Health Care Services (DHCS).</a>
+                <a class="footer-link" href="#">State of California Official Website</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="footer-bottom">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Accessibility Policy</a>
+        <a href="#">Terms & Conditions</a>
+    </div>
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const section = document.querySelector(".content");
+            let step = 1;
+        
+            function renderStep1() {
+                section.innerHTML = `
+                    <h1>What's your name?</h1>
+                    <p><strong>(Nice to meet you!)</strong></p>
+        
+                    <div class="info-box">
+                        <i class="fas fa-question-circle"></i>
+                        <a href="#">Who should fill out this application?</a>
+                    </div>
+        
+                    <form id="step-form">
+                        <label for="first-name">First Name <span style="color: red;">(required)</span></label>
+                        <input type="text" id="first-name" name="first-name" required>
+        
+                        <label for="middle-name">Middle Name</label>
+                        <input type="text" id="middle-name" name="middle-name">
+        
+                        <label for="last-name">Last Name <span style="color: red;">(required)</span></label>
+                        <input type="text" id="last-name" name="last-name" required>
+        
+                        <label for="suffix">Suffix</label>
+                        <select id="suffix" name="suffix">
+                            <option value="">-Select One-</option>
+                        </select>
+        
+                        <label for="other-names">Other Names</label>
+                        <input type="text" id="other-names" name="other-names">
+                        <small>Maiden, Nicknames, etc.</small>
+        
+                        <div class="navigation-buttons">
+                            <button type="button" class="back-btn" id="back-btn">&lt;</button>
+                            <button type="button" class="next-btn" id="next-btn">Next</button>
+                        </div>
+                    </form>
+                `;
+                attachEventListeners();
+            }
+        
+            function renderStep2() {
+                section.innerHTML = `
+                    <h1>Where do you currently live?</h1>
+        
+                    <form id="step-form">
+                        <label for="address-line-1">Address Line 1 <span style="color: red;">(required)</span></label>
+                        <input type="text" id="address-line-1" name="address-line-1" required>
+        
+                        <label for="address-line-2">Address Line 2</label>
+                        <input type="text" id="address-line-2" name="address-line-2">
+                        <small>This could be an apartment, unit or dorm room number.</small>
+        
+                        <label for="city">City <span style="color: red;">(required)</span></label>
+                        <input type="text" id="city" name="city" required>
+        
+                        <label for="county">County <span style="color: red;">(required)</span></label>
+                        <select id="county" name="county">
+                            <option value="">-Select One-</option>
+                        </select>
+        
+                        <label for="state">State</label>
+                        <select id="state" name="state" disabled>
+                            <option value="california">California</option>
+                        </select>
+        
+                        <label for="zip-code">Zip Code <span style="color: red;">(required)</span></label>
+                        <input type="text" id="zip-code" name="zip-code" required>
+        
+                        <div class="navigation-buttons">
+                            <button type="button" class="back-btn" id="back-btn">&lt;</button>
+                            <button type="button" class="next-btn" id="next-btn">Next</button>
+                        </div>
+                    </form>
+                `;
+                attachEventListeners();
+            }
+        
+            function attachEventListeners() {
+                const nextBtn = document.getElementById("next-btn");
+                const backBtn = document.getElementById("back-btn");
+        
+                if (nextBtn) {
+                    nextBtn.addEventListener("click", function () {
+                        if (step === 1) {
+                            step++;
+                            renderStep2();
+                        }
+                    });
+                }
+        
+                if (backBtn) {
+                    backBtn.addEventListener("click", function () {
+                        if (step === 2) {
+                            step--;
+                            renderStep1();
+                        }
+                    });
+                }
+            }
+        
+            // 初始加载 Step 1
+            renderStep1();
+        });
+        </script>        
+        
+</body>
+</html>

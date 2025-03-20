@@ -1,0 +1,450 @@
+body, header, nav, main, footer, .sidebar-item, .language-preferences, .navigation-buttons, .footer-section {
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+header {
+    background-color: #224870; /* Dark blue background */
+    color: white;
+    padding: 15px 20px;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px; /* Limit width for larger screens */
+    margin: 0 auto; /* Center the header */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px; /* Adjust logo size */
+    margin-right: 10px;
+}
+
+.logo span {
+    font-size: 1.5em; /* Adjust BenefitsCal text size */
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em; /* Adjust menu item size */
+}
+
+.language-select {
+    background-color: white;
+    color: #333;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+}
+
+.login-btn {
+    background-color: #E2583E; /* Orange button */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.search-btn {
+    background-color: #3A6363; /* Teal button */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.create-account-link {
+    color: white;
+    text-decoration: underline;
+    margin-left: 10px;
+    font-size: 0.9em;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.main-container {
+    display: flex;
+    width: 1200px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 侧边栏整体样式 */
+.sidebar {
+    width: 250px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* 进度条样式 */
+.progress-bar {
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Sidebar 单项样式 */
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    border-radius: 6px;
+    background-color: white;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+/* 激活状态 */
+.sidebar-item.active {
+    background-color: #007bff;
+    color: white;
+}
+
+/* 图标样式 */
+.sidebar-item i {
+    font-size: 20px;
+    width: 24px;
+}
+
+/* 大字号文本 */
+.sidebar-item p:first-child {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+
+/* 小字号文本 */
+.sidebar-item p:last-child {
+    font-size: 12px;
+    color: gray;
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+
+/* 文字容器 */
+.sidebar-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* 让所有子元素左对齐 */
+    text-align: left; /* 确保文本内容左对齐 */
+}
+
+/* 激活状态的小字号文本 */
+.sidebar-item.active p:last-child {
+    color: white;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 30px;
+}
+
+.language-preferences {
+    max-width: 600px;
+}
+
+.language-preferences h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.language-preferences label, .language-preferences select {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.language-preferences select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="black" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+}
+
+.language-help {
+    margin-top: 20px;
+}
+
+.language-help-btn {
+    background-color: #e9ecef;
+    color: #333;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.language-help-btn::after {
+    content: '>';
+    font-size: 18px;
+    transform: rotate(90deg);
+    transition: transform 0.3s ease;
+}
+
+.language-help-btn.active::after {
+    transform: rotate(-90deg);
+}
+
+.language-help-content {
+    display: none;
+    background-color: #f8f9fa;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #555;
+}
+
+.language-help-btn.active + .language-help-content {
+    display: block;
+}
+
+.navigation-buttons {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.navigation-buttons button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.navigation-buttons button.back-btn {
+    background-color: #e9ecef;
+    color: #333;
+}
+
+footer {
+    background-color: #224870; /* Dark blue background */
+    color: white;
+    padding: 30px 20px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    width: 45%; /* Adjust width as needed */
+    text-align: left;
+}
+
+.footer-title {
+    color: #F8C25E; /* Orange title */
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.footer-link {
+    color: white;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.external-link-icon::after {
+    content: '\2197'; /* Unicode for northeast arrow */
+    font-size: 0.8em;
+    margin-left: 5px;
+}
+
+.social-icons img {
+    height: 30px;
+    margin-right: 15px;
+}
+
+/* Optional: Add hover effect to links */
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+
+.footer-bottom {
+    border-top: 1px solid #e0e0e0;
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;  /* 水平居中 */
+    gap: 20px;  /* 使链接之间有间距 */
+    padding-bottom: 10px;
+}
+
+.footer-bottom a {
+    margin: 0 10px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+
+/* 主要内容区域 */
+.content {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+}
+
+/* 标题样式 */
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1c3c5d;
+    margin-bottom: 5px;
+}
+
+p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* 信息提示框 */
+.info-box {
+    background-color: #f5f8fa;
+    padding: 10px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #1c3c5d;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.info-box i {
+    font-size: 18px;
+    color: #1c3c5d;
+}
+
+/* 表单样式 */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* 标签样式 */
+label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* 输入框样式 */
+input, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+/* 必填字段标记 */
+label span {
+    color: red;
+    font-size: 14px;
+}
+
+/* 说明文本 */
+small {
+    font-size: 12px;
+    color: gray;
+}
+
+/* 按钮样式 */
+.navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.back-btn {
+    background-color: #ffffff;
+    border: 2px solid #ccc;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.next-btn {
+    background-color: #e6614c;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.back-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.next-btn:hover {
+    background-color: #d9534f;
+}
+
