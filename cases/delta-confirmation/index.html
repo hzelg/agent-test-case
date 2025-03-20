@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delta Airlines - Find Your Trip</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-left">
+                <img src="Delta-Logo.svg" alt="Delta Logo" class="delta-logo">
+                <nav>
+                    <ul>
+                        <li><a href="#">BOOK</a></li>
+                        <li><a href="#">CHECK-IN</a></li>
+                        <li><a href="#">MY TRIPS</a></li>
+                        <li><a href="#">FLIGHT STATUS</a></li>
+                        <li><a href="#">TRAVEL INFO</a></li>
+                        <li><a href="#">SKYMILES</a></li>
+                        <li><a href="#">NEED HELP?</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="header-right">
+                <a href="#">SIGN UP</a>
+                <a href="#">LOG IN</a>
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <section class="find-trip">
+        <div class="container">
+            <h1>Find Your Trip</h1>
+            <div class="trip-form">
+                <p><strong>Look Up a Trip</strong></p>
+                <p>Enter your information to look up a trip. You can search by confirmation number, credit/debit card number, or ticket number.</p>
+                <p><strong>All fields required</strong></p>
+                
+                <div class="input-group">
+                    <label for="trip-type"><strong>Find Your Trip By</strong></label>
+                    <select id="trip-type">
+                        <option value="confirmation">Confirmation Number</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="confirmation-number">&nbsp;</label>
+                    <input type="text" id="confirmation-number" placeholder="ex. SFTORB">
+                </div>
+                <div class="input-group">
+                    <label for="first-name">&nbsp;</label>
+                    <input type="text" id="first-name" placeholder="First Name">
+                </div>
+                <div class="input-group">
+                    <label for="last-name">&nbsp;</label>
+                    <input type="text" id="last-name" placeholder="Last Name">
+                </div>
+    
+                <div class="trip-links">
+                    <a href="#">Delta Stays</a> |
+                    <a href="#">Delta Car Rentals</a>
+                </div>
+    
+                <button>Search</button>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="hero">
+        <img src="delta-plane.png" alt="Delta Plane">
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="search-bar">
+                <input type="text" placeholder="Search for a topic...">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <div class="popular-topics">
+                <a href="#">Popular Topics</a>
+                <a href="#">Help Center</a>
+                <a href="#">Delta Discover Map</a>
+                <a href="#">eCredits</a>
+            </div>
+            <div class="footer-columns">
+                <div class="column">
+                    <h3>ABOUT DELTA</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">News Hub</a></li>
+                        <li><a href="#">Investor Relations</a></li>
+                        <li><a href="#">Business Travel</a></li>
+                        <li><a href="#">Travel Agents</a></li>
+                        <li><a href="#">Mobile App</a></li>
+                        <li><a href="#">Delta Studio</a></li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h3>CUSTOMER SERVICE</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Message Us</a></li>
+                        <li><a href="#">Comment / Complaint</a></li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h3>SITE SUPPORT</h3>
+                    <ul>
+                        <li><a href="#">Login Help</a></li>
+                        <li><a href="#">Site Map</a></li>
+                        <li><a href="#">Browser Compatibility</a></li>
+                        <li><a href="#">Accessibility</a></li>
+                        <li><a href="#">Booking Information</a></li>
+                        <li><a href="#">Tracking Preferences</a></li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h3>POLICIES</h3>
+                    <ul>
+                        <li><a href="#">Customer Commitment</a></li>
+                        <li><a href="#">Tarmac Delay Plan</a></li>
+                        <li><a href="#">Legal</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Contract of Carriage</a></li>
+                        <li><a href="#">Cookies, Privacy & Security</a></li>
+                        <li><a href="#">Combatting Modern Slavery (PDF)</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

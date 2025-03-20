@@ -1,0 +1,403 @@
+/* style.css */
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header Styling */
+header {
+    background-color: #11172b; /* Dark background */
+    padding: 10px 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Header Container */
+header .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Left Section - Logo and Navigation */
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+/* Delta Logo */
+.delta-logo {
+    height: 35px;
+    margin-right: 20px;
+}
+
+/* Navigation Menu */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 0.9em;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+nav ul li a:hover {
+    color: #c8102e;
+}
+
+/* Right Section - Sign Up, Log In, Notifications, and Search */
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+/* Sign Up & Log In */
+.header-right a {
+    color: #ffffff;
+    font-size: 0.9em;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.header-right a:last-child {
+    background-color: #c8102e;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+.header-right a:last-child:hover {
+    background-color: #a60d25;
+}
+
+/* Notification Icon */
+.header-right .notification {
+    position: relative;
+    margin-right: 20px;
+}
+
+.header-right .notification i {
+    color: #ffffff;
+    font-size: 1.2em;
+}
+
+.header-right .notification .badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #c8102e;
+    color: #ffffff;
+    font-size: 0.7em;
+    font-weight: 700;
+    border-radius: 50%;
+    padding: 3px 6px;
+}
+
+/* Search Icon */
+.header-right button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.header-right button i {
+    color: #ffffff;
+    font-size: 1.2em;
+}
+
+.header-right button:hover i {
+    color: #c8102e;
+}
+
+
+/* General Section Styling */
+.find-trip {
+    background-color: #ffffff;
+    padding: 50px 0;
+}
+
+.find-trip .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Heading Styling */
+.find-trip h1 {
+    font-size: 2.5em;
+    color: #0c2340;
+    font-weight: 700;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #c8102e;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* Trip Form */
+.find-trip .trip-form {
+    background-color: #ffffff;
+    padding:50px 50px 100px 50px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+}
+
+.find-trip p {
+    font-size: 1em;
+    color: #0c2340;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.find-trip p strong {
+    font-weight: 700;
+}
+
+/* Input Fields Layout */
+.find-trip .input-group {
+    display: inline-block;
+    width: 23%;
+    margin-right: 1%;
+    vertical-align: top;
+}
+
+/* Last input should have no right margin */
+.find-trip .input-group:last-child {
+    margin-right: 0;
+}
+
+/* Dropdown Styling */
+.find-trip select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+/* Input Fields */
+.find-trip input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+    background-color: #ffffff;
+}
+
+.find-trip input[type="text"]::placeholder {
+    color: #666;
+    font-size: 0.9em;
+}
+
+/* Delta Stays & Delta Car Rentals Links */
+.find-trip .trip-links {
+    margin-top: 20px;
+    font-size: 1em;
+    color: #0c2340;
+}
+
+.find-trip .trip-links a {
+    text-decoration: none;
+    color: #0c2340;
+    font-size: 0.9em;
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+.find-trip .trip-links a:hover {
+    text-decoration: underline;
+}
+
+/* Search Button Styling */
+.find-trip button {
+    background-color: #c8102e;
+    color: #ffffff;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 1em;
+    font-weight: 700;
+    text-transform: uppercase;
+    float: right;
+}
+
+.find-trip button:hover {
+    background-color: #a60d25;
+}
+
+
+
+.hero img {
+    width: 100%;
+    display: block;
+}
+
+.search-topics {
+    padding: 30px 0;
+    text-align: center;
+    background-color: #fff;
+}
+
+.search-topics .search-bar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.search-topics .search-bar input[type="text"] {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+
+.search-topics .search-bar .search-icon {
+    height: 20px;
+    margin-left: -30px; /* Overlap input */
+    cursor: pointer;
+}
+
+.search-topics .popular-topics {
+    margin-top: 20px;
+}
+
+.search-topics .popular-topics a {
+    text-decoration: none;
+    color: #0057a4;
+    margin: 0 15px;
+    font-size: 0.9em;
+}
+
+/* Footer General Styling */
+footer {
+    background-color: #11172b; /* Dark background */
+    color: #ffffff;
+    padding: 50px 0;
+    font-family: Arial, sans-serif;
+}
+
+footer .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Search Bar Styling */
+footer .search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+footer .search-bar input[type="text"] {
+    width: 50%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    background-color: #ffffff;
+    color: #333;
+    text-align: center;
+}
+
+footer .search-bar i {
+    font-size: 1.2em;
+    color: #ffffff;
+    margin-left: -40px; /* Overlapping search icon */
+    cursor: pointer;
+}
+
+/* Popular Topics Links */
+footer .popular-topics {
+    margin-bottom: 30px;
+    font-size: 1em;
+}
+
+footer .popular-topics a {
+    color: #b0b3bd;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 500;
+}
+
+footer .popular-topics a:first-child {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+footer .popular-topics a:hover {
+    text-decoration: underline;
+}
+
+/* Footer Columns */
+.footer-columns {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 30px;
+}
+
+/* Footer Column Titles */
+.footer-columns .column h3 {
+    font-size: 0.9em;
+    color: #b0b3bd;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/* Footer Column Links */
+.footer-columns .column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-columns .column ul li {
+    margin-bottom: 8px;
+}
+
+.footer-columns .column ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: 400;
+}
+
+.footer-columns .column ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Ensure proper spacing and alignment */
+.footer-columns .column {
+    flex: 1;
+    text-align: left;
+    padding: 0 15px;
+}
