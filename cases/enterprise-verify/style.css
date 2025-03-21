@@ -1,0 +1,196 @@
+/* General Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Top Bar */
+.top-bar {
+    background-color: #004d30;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.top-links {
+    display: flex;
+    gap: 20px;
+}
+
+.top-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.external-link {
+    font-size: 10px;
+}
+
+.globe-icon,
+.location-icon {
+    font-size: 16px;
+    margin-right: 5px;
+}
+
+/* Sign In Button */
+.sign-in-btn {
+    background: none;
+    border: 2px solid white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+/* Main Navigation */
+.main-nav {
+    background-color: #008c5f;
+    padding: 15px 0;
+    text-align: center;
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.main-nav ul li {
+    display: inline;
+}
+
+.main-nav ul li a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    background: white;
+    padding: 10px 30px;
+    font-size: 14px;
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    color: #008c5f;
+    font-weight: bold;
+}
+
+.breadcrumb span {
+    color: black;
+}
+
+
+
+/* Reservation Lookup Section */
+.reservation-lookup {
+    background: #f4f4f4;
+    padding: 40px;
+    border-radius: 10px;
+    max-width: 700px;
+    margin: auto;
+    text-align: left;
+}
+
+.reservation-lookup h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #000;
+}
+
+.reservation-lookup p {
+    font-size: 16px;
+    color: #000;
+}
+
+.reserve-link {
+    color: #006241;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.required-text {
+    font-size: 14px;
+    color: #666;
+    margin-top: -10px;
+}
+
+/* Form Labels */
+label {
+    font-weight: bold;
+    font-size: 14px;
+    display: block;
+    margin: 10px 0 5px;
+    color: #000;
+}
+
+/* Input Fields */
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: white;
+}
+
+/* Name Container - First and Last Name */
+.name-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.name-box {
+    width: 48%;
+}
+
+/* Search Button */
+.search-btn {
+    width: 150px;
+    background: #006241;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    padding: 15px;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.search-btn:hover {
+    background: #004d30;
+}
+
+
+
+
+
+
+
+/* Footer */
+.footer {
+    background: #006241;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.footer-links a {
+    color: #fff;
+}

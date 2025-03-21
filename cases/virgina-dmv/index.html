@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DMV Customer Information</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="VirginiaDMVLogo.svg" alt="DMV Logo">
+            <h1>Virginia Department of Motor Vehicles</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">My ETickets & Appointments</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+        <section class="info">
+            <p><strong>Step 6 of 8: Customer Information</strong></p>
+            <p><strong>Location:</strong> Abingdon - 25552 Lee Highway, Abingdon, VA 24211</p>
+            <p><strong>Service Type:</strong> Motorcycle Skills Test Appointments</p>
+            <p><strong>Appointment Type:</strong> Skills Test - Motorcycle</p>
+            <p><strong>Date and Time:</strong> Monday March 24, 2025, 8:30 AM</p>
+        </section>
+        <section class="form-container">
+            <h2>Customer Information</h2>
+            <p>Please enter your information below.</p>
+            <form>
+                <div class="form-group">
+                    <label for="first-name">First Name *</label>
+                    <input type="text" id="first-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="last-name">Last Name *</label>
+                    <input type="text" id="last-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-email">Confirm Email *</label>
+                    <input type="email" id="confirm-email" required>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="sms-alerts">
+                    <label for="sms-alerts">I would like to receive SMS text alerts. Standard text and messaging rates apply.</label>
+                </div>
+                <div class="buttons">
+                    <button type="button" class="back">Back</button>
+                    <button type="submit" class="next">Next</button>
+                </div>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>Privacy Policy</p>
+    </footer>
+</body>
+</html>

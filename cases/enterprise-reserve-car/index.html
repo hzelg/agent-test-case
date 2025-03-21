@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rental - Enterprise</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="top-bar">
+            <div class="logo">
+                <img src="logo-enterprise.avif" alt="Enterprise Logo">
+            </div>
+            <div class="top-links">
+                <a href="#">Careers <span class="external-link">⧉</span></a>
+                <a href="#">Help</a>
+                <a href="#">USD ($)</a>
+                <a href="#"><span class="globe-icon">🌐</span> USA (English)</a>
+                <a href="#"><span class="location-icon">📍</span> Find a Location</a>
+                <a href="#" class="sign-in-btn">SIGN IN / JOIN</a>
+            </div>
+        </div>
+    
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#">Reservations</a></li>
+                <li><a href="#">Vehicles</a></li>
+                <li><a href="#">Locations</a></li>
+                <li><a href="#">Car Sales</a></li>
+                <li><a href="#">For Business</a></li>
+                <li><a href="#">Learn</a></li>
+            </ul>
+        </nav>
+    
+        <div class="breadcrumb">
+            <a href="#">Home</a> /
+            <a href="#">Car Rental Locations</a> /
+            <a href="#">United States</a> /
+            <a href="#">Massachusetts</a> /
+            <span>Boston Revere Hotel</span>
+        </div>
+    </header>
+    
+
+    <section class="reservation">
+        <h2>Reserve a Vehicle</h2>
+    
+        <form>
+            <!-- Location Input -->
+            <label for="pickup-location">Pick-up & Return Location (ZIP, City or Airport)*</label>
+            <div class="input-container">
+                <input type="text" id="pickup-location" value="Boston Revere Hotel">
+                <button type="button" class="clear-btn">×</button>
+            </div>
+    
+            <!-- Return to a different location Checkbox -->
+            <div class="checkbox-container">
+                <input type="checkbox" id="different-location">
+                <label for="different-location">Return to a different location <span class="info-icon">ⓘ</span></label>
+            </div>
+    
+            <!-- Pick-up, Return, and Renter Age Row -->
+            <div class="date-renter-container">
+                <!-- Pick-up -->
+                <div class="date-time">
+                    <label for="pickup-date">Pick-up*</label>
+                    <div class="date-time-box">
+                        <div class="date-box">
+                            <input type="date" id="pickup-date" value="2025-03-21">
+                        </div>
+                        <div class="time-box">
+                            <input type="time" id="pickup-time" value="12:00">
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Return -->
+                <div class="date-time">
+                    <label for="return-date">Return*</label>
+                    <div class="date-time-box">
+                        <div class="date-box">
+                            <input type="date" id="return-date" value="2025-03-22">
+                        </div>
+                        <div class="time-box">
+                            <input type="time" id="return-time" value="12:00">
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Renter Age -->
+                <div class="renter-age">
+                    <label for="renter-age">Renter Age <span class="policy-link">Policy*</span></label>
+                    <select id="renter-age">
+                        <option>25+</option>
+                        <option>21-24</option>
+                        <option>18-20</option>
+                    </select>
+                </div>
+            </div>
+    
+            <!-- Corporate Account Number & Vehicle Class Row -->
+            <div class="corporate-vehicle-container">
+                <!-- Corporate Account -->
+                <div class="corporate-account">
+                    <label for="corporate-account">Corporate Account Number <span class="info-icon">ⓘ</span></label>
+                    <input type="text" id="corporate-account">
+                </div>
+    
+                <!-- Vehicle Class -->
+                <div class="vehicle-class">
+                    <label for="vehicle-class">Vehicle Class <span class="info-icon">ⓘ</span></label>
+                    <select id="vehicle-class">
+                        <option>All Vehicles</option>
+                    </select>
+                </div>
+            </div>
+    
+            <!-- Browse Vehicles Button -->
+            <button type="submit" class="browse-btn">Browse Vehicles</button>
+        </form>
+    </section>
+    
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+            <a href="#">Contact Us</a>
+        </div>
+        <p>© 2025 Enterprise Holdings, Inc. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

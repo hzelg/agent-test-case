@@ -1,0 +1,298 @@
+/* General Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Top Bar */
+.top-bar {
+    background-color: #004d30;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.top-links {
+    display: flex;
+    gap: 20px;
+}
+
+.top-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.external-link {
+    font-size: 10px;
+}
+
+.globe-icon,
+.location-icon {
+    font-size: 16px;
+    margin-right: 5px;
+}
+
+/* Sign In Button */
+.sign-in-btn {
+    background: none;
+    border: 2px solid white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+/* Main Navigation */
+.main-nav {
+    background-color: #008c5f;
+    padding: 15px 0;
+    text-align: center;
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.main-nav ul li {
+    display: inline;
+}
+
+.main-nav ul li a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    background: white;
+    padding: 10px 30px;
+    font-size: 14px;
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    color: #008c5f;
+    font-weight: bold;
+}
+
+.breadcrumb span {
+    color: black;
+}
+
+
+
+/* Reservation Section */
+.reservation {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 1000px;
+    margin: 40px auto;
+}
+
+.reservation h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+}
+
+/* Labels */
+label {
+    font-weight: bold;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 5px;
+    color: #000;
+}
+
+/* Input Container */
+.input-container {
+    position: relative;
+    width: 100%;
+}
+
+.input-container input {
+    width: 97.5%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+}
+
+.clear-btn {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #888;
+    cursor: pointer;
+}
+
+/* Checkbox */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.checkbox-container input {
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+}
+
+.info-icon {
+    font-size: 14px;
+    color: #006241;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+/* Pick-up, Return, and Renter Age Row */
+.date-renter-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.date-time {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+/* Date & Time on Same Row */
+.date-time .date-time-box {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.date-box, .time-box {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 18px;
+    background-color: #f9f9f9;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #006241;
+}
+
+.date-box input,
+.time-box input {
+    border: none;
+    background: none;
+    font-size: 16px;
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+    color: #006241;
+}
+
+/* Renter Age */
+.renter-age {
+    width: 30%;
+}
+
+.renter-age select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+}
+
+/* Corporate Account Number & Vehicle Class Row */
+.corporate-vehicle-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.corporate-account {
+    width: 48%;
+}
+
+.corporate-account input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+}
+
+.vehicle-class {
+    width: 48%;
+}
+
+.vehicle-class select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+}
+
+/* Browse Vehicles Button */
+.browse-btn {
+    width: 100%;
+    background: #006241;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    padding: 15px;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.browse-btn:hover {
+    background: #004d30;
+}
+
+
+
+
+
+
+/* Footer */
+.footer {
+    background: #006241;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.footer-links a {
+    color: #fff;
+}
