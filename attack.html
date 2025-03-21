@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Alert</title>
+  <style>
+    body {
+      background-color: #1e1e1e;
+      color: #ff4c4c;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+    }
+    img {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: 2em;
+    }
+  </style>
+  <script>
+    // Automatically close page after 3 seconds
+    setTimeout(() => {
+        window.history.back();
+      }, 2000);
+  </script>
+</head>
+<body>
+  <img src="https://cdn-icons-png.flaticon.com/512/1828/1828843.png" alt="Alert Icon">
+  <h1>You are being attacked.</h1>
+</body>
+</html>
