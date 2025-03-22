@@ -1,57 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Cases - Home</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 50px;
-        }
-        h1 {
-            color: #333;
-        }
-        .test-case-list {
-            list-style: none;
-            padding: 0;
-        }
-        .test-case-list li {
-            margin: 10px 0;
-        }
-        .link-button {
-            display: inline-block;
-            background-color: #0073e6;
-            color: white;
-            padding: 12px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 16px;
-            font-weight: bold;
-        }
-        .link-button:hover {
-            background-color: #005bb5;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Test Cases - Home</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 40px 20px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    p {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .test-case-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .link-button {
+      display: block;
+      background-color: #0073e6;
+      color: white;
+      padding: 14px 20px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      text-align: center;
+    }
+
+    .link-button:hover {
+      background-color: #005bb5;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 500px) {
+      body {
+        padding: 20px 10px;
+      }
+
+      .link-button {
+        font-size: 14px;
+        padding: 12px 16px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <div class="container">
     <h1>Test Cases</h1>
     <p>Select a test case to view:</p>
-    <ul class="test-case-list">
-        <li><a href="cases/aa-check/index.html" class="link-button">AA Check-in</a></li>
-        <li><a href="cases/aa-view-credit/index.html" class="link-button">AA View Credit</a></li>
-        <li><a href="cases/aa-refund-status/index.html" class="link-button">AA Refund Status</a></li>
-        <li><a href="cases/aa-receipt/index.html" class="link-button">AA Receipts</a></li>
-        <li><a href="cases/ca-gov/index.html" class="link-button">CA Benefits</a></li>
-        <li><a href="cases/delta-confirmation/index.html" class="link-button">Delta Confirmation Number</a></li>
-        <li><a href="cases/delta-ticket/index.html" class="link-button">Delta Ticket Number</a></li>
-        <li><a href="cases/enterprise-reserve-car/index.html" class="link-button">Enterprise Reservation</a></li>
-        <li><a href="cases/enterprise-signup/index.html" class="link-button">Enterprise Sign Up</a></li>
-        <li><a href="cases/enterprise-verify/index.html" class="link-button">Enterprise Verification</a></li>
-        <li><a href="cases/virgina-dmv/index.html" class="link-button">DMV test appointment</a></li>
-        <li><a href="cases/kayak-Madurai-Chennai/index.html" class="link-button">Kayak round trip</a></li>
-        <li><a href="cases/kayak-NY-Paris/" class="link-button">Kayak one trip</a></li>
+    <ul class="test-case-grid">
+      <li><a href="cases/aa-check/index.html" class="link-button">AA Check-in</a></li>
+      <li><a href="cases/aa-view-credit/index.html" class="link-button">AA View Credit</a></li>
+      <li><a href="cases/aa-refund-status/index.html" class="link-button">AA Refund Status</a></li>
+      <li><a href="cases/aa-receipt/index.html" class="link-button">AA Receipts</a></li>
+      <li><a href="cases/ca-gov/index.html" class="link-button">CA Benefits</a></li>
+      <li><a href="cases/delta-confirmation/index.html" class="link-button">Delta Confirmation</a></li>
+      <li><a href="cases/delta-ticket/index.html" class="link-button">Delta Ticket</a></li>
+      <li><a href="cases/enterprise-reserve-car/index.html" class="link-button">Enterprise Reservation</a></li>
+      <li><a href="cases/enterprise-signup/index.html" class="link-button">Enterprise Sign Up</a></li>
+      <li><a href="cases/enterprise-verify/index.html" class="link-button">Enterprise Verification</a></li>
+      <li><a href="cases/virgina-dmv/index.html" class="link-button">DMV Appointment</a></li>
+      <li><a href="cases/kayak-Madurai-Chennai/index.html" class="link-button">Kayak Round Trip</a></li>
+      <li><a href="cases/kayak-NY-Paris/" class="link-button">Kayak One Trip</a></li>
     </ul>
+  </div>
 </body>
 </html>
