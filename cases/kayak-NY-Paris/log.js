@@ -1,71 +1,62 @@
-let userActions = [];
-    let lastInputValues = {}; // Store final input values
+document.addEventListener("DOMContentLoaded", function () {
+    let interactionLogs = [];
 
-    function logAction(eventType, details) {
-        userActions.push({
-            event: eventType,
-            details: details,
-            timestamp: new Date().toISOString()
-        });
-    }
-
-    function checkInput() {
-        let ticketNumber = document.getElementById('ticket-number').value.trim();
-        let lastName = document.getElementById('last-name').value.trim();
-        let searchBtn = document.getElementById('search-btn');
-        searchBtn.disabled = !(ticketNumber && lastName);
-    }
-
-    function showPopup(event) {
-        event.preventDefault();
-        alert("Task complete!");
-        logAction("click", { 
-            element: "button", 
-            id: "search-btn", 
-            position: { x: event.clientX, y: event.clientY }
-        });
-    }
-
-    function downloadLog() {
-        if (userActions.length === 0) return; // Don't download if log is empty
-        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(userActions, null, 2));
-        const downloadAnchor = document.createElement("a");
-        downloadAnchor.setAttribute("href", dataStr);
-        downloadAnchor.setAttribute("download", "activity_log.json");
-        document.body.appendChild(downloadAnchor);
-        downloadAnchor.click();
-        document.body.removeChild(downloadAnchor);
-    }
-
-    document.addEventListener("DOMContentLoaded", function () {
-        document.getElementById("search-btn").addEventListener("click", showPopup);
-
-        // Listen for clicks, log position
-        document.addEventListener("click", (event) => {
-            if (event.target.tagName.toLowerCase() !== "input") { // Avoid redundant input logs
-                logAction("click", { 
-                    element: event.target.tagName, 
-                    id: event.target.id || "none", 
-                    position: { x: event.clientX, y: event.clientY }
-                });
-            }
-        });
-
-        // Listen for input events, record only the last value
-        document.querySelectorAll("input").forEach(input => {
-            input.addEventListener("input", (event) => {
-                lastInputValues[event.target.id] = event.target.value; // Only store final value
-            });
-        });
-
-        // When user leaves page, record final input values & trigger download
-        window.addEventListener("beforeunload", function () {
-            for (const [fieldId, value] of Object.entries(lastInputValues)) {
-                logAction("input", { 
-                    fieldId: fieldId, 
-                    finalValue: value 
-                });
-            }
-            downloadLog();
-        });
+    // 监听点击事件
+    document.addEventListener("click", function (event) {
+        logInteraction("click", event);
     });
+
+    // 监听输入事件
+    document.addEventListener("input", function (event) {
+        logInteraction("input", event);
+    });
+
+    // 监听输入框失焦事件（确保记录最终内容）
+    document.addEventListener("change", function (event) {
+        logInteraction("input-final", event);
+    });
+
+    function logInteraction(type, event) {
+        const interaction = {
+            type: type,
+            x: event.clientX || null,  // 对于 `input` 事件，`clientX` 可能是 `undefined`
+            y: event.clientY || null,
+            target: getElementDetails(event.target),
+            value: type.includes("input") ? event.target.value : null, // 仅对输入框记录 value
+            timestamp: new Date().toISOString(),
+        };
+
+        // 存入日志数组
+        interactionLogs.push(interaction);
+
+        // 存储日志到 localStorage
+        localStorage.setItem("interactionLogs", JSON.stringify(interactionLogs));
+
+        console.log(interaction); // 仅用于调试
+    }
+
+    function getElementDetails(element) {
+        let details = element.tagName.toLowerCase();
+        if (element.id) details += `#${element.id}`;
+        if (element.className) details += `.${element.className.replace(/\s+/g, '.')}`;
+        if (element.name) details += `[name="${element.name}"]`;
+        return details;
+    }
+
+    // 当用户关闭页面时，触发日志下载
+    window.addEventListener("beforeunload", function () {
+        if (interactionLogs.length > 0) {
+            downloadLogAsJSON(interactionLogs);
+        }
+    });
+
+    function downloadLogAsJSON(data) {
+        const jsonBlob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(jsonBlob);
+        link.download = "activity_log.json";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+});

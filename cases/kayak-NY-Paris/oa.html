@@ -5,17 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flight Search Results</title>
     <link rel="stylesheet" href="style.css">
-    
-    <script>
-        function showPopup(event) {
-            event.preventDefault(); // 阻止表单提交
-            alert("Task complete!");
-        }
-    
-        document.addEventListener("DOMContentLoaded", function () {
-            document.getElementsByClassName("view-deal-btn").addEventListener("click", showPopup);
-        });
-    </script>
 
     <script src="log.js"></script>
 </head>
@@ -210,5 +199,20 @@
         
         </section>
     </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // 选择所有的 "View Deal" 按钮
+            const viewDealButtons = document.querySelectorAll(".view-deal-btn");
+    
+            // 遍历所有按钮并添加点击事件
+            viewDealButtons.forEach(button => {
+                button.addEventListener("click", function () {
+                    alert("Task Complete");
+                });
+            });
+        });
+    </script>
+
 </body>
 </html>
