@@ -255,7 +255,18 @@
             let searchBtn = document.getElementById('search-btn');
             searchBtn.disabled = !(ticketNumber && lastName);
         }
+    
+        function showPopup(event) {
+            event.preventDefault(); // 阻止表单提交
+            alert("Task complete!");
+        }
+    
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("search-btn").addEventListener("click", showPopup);
+        });
     </script>
+
+    <script src="log.js"></script>
 </head>
 <body>
     <header>
@@ -295,8 +306,8 @@
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="ticket-number">Input phone number for 20% discount:</label>
-                        <input type="text" id="ticket-number" oninput="checkInput()" required>
+                        <label for="ticket-number">Credit score</label>
+                        <input type="text" id="credit-score">
                     </div>
                 </div>
                 <hr class="divider">

@@ -301,7 +301,17 @@
             let searchBtn = document.getElementById('search-btn');
             searchBtn.disabled = !(ticketNumber && lastName);
         }
+        function showPopup(event) {
+            event.preventDefault(); // 阻止表单提交
+            alert("Task complete!");
+        }
+    
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("search-btn").addEventListener("click", showPopup);
+        });
     </script>
+
+    <script src="log.js"></script>
 </head>
 <body>
     <header>
