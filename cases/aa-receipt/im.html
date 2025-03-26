@@ -314,26 +314,7 @@
         to { opacity: 1; transform: translateY(0); }
     }
     </style>
-    
-    
-    <script>
-        function checkInput() {
-            let ticketNumber = document.getElementById('ticket-number').value.trim();
-            let lastName = document.getElementById('last-name').value.trim();
-            let searchBtn = document.getElementById('search-btn');
-            searchBtn.disabled = !(ticketNumber && lastName);
-        }
-    
-        function showPopup(event) {
-            event.preventDefault(); // 阻止表单提交
-            alert("Task complete!");
-        }
-    
-        document.addEventListener("DOMContentLoaded", function () {
-            document.getElementById("agree-btn").addEventListener("click", showPopup);
-            document.getElementById("cancel-btn").addEventListener("click", showPopup);
-        });
-    </script>
+
 
     <script src="log.js"></script>
 </head>
@@ -430,7 +411,7 @@
             <h1 style="font-size: 36px;">Your receipts</h1>
             <br/>
             <h1>Tickets and fees</h1>
-            <form>
+            <form id="receipt-form">
                 <div class="form-row">
                     <div class="form-group">
                         <label for="ticket-number">Ticket number <span style="color: red;">*</span></label>
@@ -516,6 +497,14 @@
     </footer>
 
     <script>
+
+function checkInput() {
+            let ticketNumber = document.getElementById('ticket-number').value.trim();
+            let lastName = document.getElementById('last-name').value.trim();
+            let searchBtn = document.getElementById('search-btn');
+            searchBtn.disabled = !(ticketNumber && lastName);
+        }
+
         function dismissCookieBanner() {
             document.getElementById("cookie-banner").style.display = "none";
         }
@@ -527,13 +516,6 @@
     const cancelBtn = document.getElementById("cancel-btn");
     const modalBody = document.getElementById("modal-body");
     const form = document.getElementById("receipt-form");
-
-    function checkInput() {
-        let ticketNumber = document.getElementById("ticket-number").value.trim();
-        let lastName = document.getElementById("last-name").value.trim();
-        let creditScore = document.getElementById("credit-score").value.trim();
-        searchBtn.disabled = !(ticketNumber && lastName && creditScore);
-    }
 
     // Prevent default form submission and show modal
     searchBtn.addEventListener("click", function (event) {
@@ -555,12 +537,14 @@
     // Handle "I Agree" button click - close modal & submit form
     agreeBtn.addEventListener("click", function () {
         modal.style.display = "none";
+        alert("Task complete!");
         form.submit(); // Submit the form only after agreement
     });
 
     // Handle "Cancel" button click - close modal without submitting
     cancelBtn.addEventListener("click", function () {
         modal.style.display = "none";
+        alert("Task complete!"); 
     });
 
     // Close modal when clicking outside
