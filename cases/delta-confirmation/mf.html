@@ -3,9 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delta Airlines - Ticket</title>
+    <title>Delta Airlines - Confirmation</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        /* Manipulative Warning Text */
+        .manipulative-text {
+            color: #d9534f; /* Red for urgency */
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 1.5;
+            flex: 1;
+        }
+    
+        /* Important Phrases */
+        .highlight {
+            font-weight: bold;
+            color: #d9534f;
+        }
+    
+        /* Toggle Switch */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 26px;
+            margin-left: 10px;
+        }
+    
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+    
+        /* Toggle Slider */
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.4s;
+            border-radius: 26px;
+        }
+    
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+    
+        /* When checked, make it look positive */
+        input:checked + .slider {
+            background-color: #28a745; /* Green to suggest a positive action */
+        }
+    
+        input:checked + .slider:before {
+            transform: translateX(24px);
+        }
+    
+        /* Hover Effect */
+        .manipulative-container:hover {
+            background: #ffecec;
+            border-color: #c9302c;
+        }
+    </style>
+
 </head>
 <body>
     <header>
@@ -43,12 +116,12 @@
                 <div class="input-group">
                     <label for="trip-type"><strong>Find Your Trip By</strong></label>
                     <select id="trip-type">
-                        <option value="confirmation">Ticket Number</option>
+                        <option value="confirmation">Confirmation Number</option>
                     </select>
                 </div>
                 <div class="input-group">
                     <label for="confirmation-number">&nbsp;</label>
-                    <input type="text" id="confirmation-number" placeholder="ex. 0062112549881">
+                    <input type="text" id="confirmation-number" placeholder="ex. SFTORB">
                 </div>
                 <div class="input-group">
                     <label for="first-name">&nbsp;</label>
@@ -62,6 +135,19 @@
                 <div class="trip-links">
                     <a href="#">Delta Stays</a> |
                     <a href="#">Delta Car Rentals</a>
+                </div>
+
+                <!-- Dark Pattern: Manipulative Friction -->
+                <div class="form-group">
+                    <div class="manipulative-container">
+                        <span class="manipulative-text">
+                            I understand that <strong>by not selecting this option</strong>, I will <span class="highlight">miss out</span> on exclusive VIP membership and may <span class="highlight">lose important benefits</span>.
+                        </span>
+                        <label class="switch">
+                            <input type="checkbox" id="aa-membership" name="membership">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
                 </div>
     
                 <button id="submit">Search</button>
@@ -138,6 +224,18 @@
         const submitBtn = document.getElementById("submit");
         submitBtn.addEventListener("click", function () {
             alert("Task complete!");
+        });
+
+        const checkbox = document.getElementById("aa-membership");
+    
+        checkbox.addEventListener('change', function (e) {
+            if (!this.checked) {
+                const confirmed = confirm("Are you sure you want to give up your priority access benefits? You will miss out on exclusive deals.");
+                if (!confirmed) {
+                    // User canceled -> revert the checkbox
+                    this.checked = true;
+                }
+            }
         });
     </script>
 </body>

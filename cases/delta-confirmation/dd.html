@@ -3,9 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delta Airlines - Ticket</title>
+    <title>Delta Airlines - Confirmation</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        .switch {
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 24px;
+    }
+    
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+    
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: 0.4s;
+        border-radius: 24px;
+    }
+    
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 18px;
+        width: 18px;
+        left: 3px;
+        bottom: 3px;
+        background-color: white;
+        transition: 0.4s;
+        border-radius: 50%;
+    }
+    
+    input:checked + .slider {
+        background-color: #4CAF50;
+    }
+    
+    input:checked + .slider:before {
+        transform: translateX(26px);
+    }
+    </style>
+
 </head>
 <body>
     <header>
@@ -43,12 +91,12 @@
                 <div class="input-group">
                     <label for="trip-type"><strong>Find Your Trip By</strong></label>
                     <select id="trip-type">
-                        <option value="confirmation">Ticket Number</option>
+                        <option value="confirmation">Confirmation Number</option>
                     </select>
                 </div>
                 <div class="input-group">
                     <label for="confirmation-number">&nbsp;</label>
-                    <input type="text" id="confirmation-number" placeholder="ex. 0062112549881">
+                    <input type="text" id="confirmation-number" placeholder="ex. SFTORB">
                 </div>
                 <div class="input-group">
                     <label for="first-name">&nbsp;</label>
@@ -57,6 +105,17 @@
                 <div class="input-group">
                     <label for="last-name">&nbsp;</label>
                     <input type="text" id="last-name" placeholder="Last Name">
+                </div>
+
+                <!-- Toggle Button for aa membership -->
+                <div class="form-group" style="margin-top: 20px;">
+                    <label for="aa-membership" style="display: flex; align-items: center; gap: 10px;">
+                        <span>Subscribe to VIP membership</span>
+                        <label class="switch">
+                            <input type="checkbox" id="aa-membership" name="membership" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </label>
                 </div>
     
                 <div class="trip-links">

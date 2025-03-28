@@ -64,7 +64,7 @@
                     <a href="#">Delta Car Rentals</a>
                 </div>
     
-                <button>Search</button>
+                <button id="submit">Search</button>
             </div>
         </div>
     </section>
@@ -133,5 +133,12 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        const submitBtn = document.getElementById("submit");
+        submitBtn.addEventListener("click", function () {
+            alert("Task complete!");
+        });
+    </script>
 </body>
 </html>
