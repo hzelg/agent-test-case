@@ -242,10 +242,13 @@
         
                         <label for="zip-code">Zip Code <span style="color: red;">(required)</span></label>
                         <input type="text" id="zip-code" name="zip-code" required>
+
+                        <label for="spouse email">Email of your spouse</label>
+                        <input type="text" id="spouse email" name="spouse-email">
         
                         <div class="navigation-buttons">
                             <button type="button" class="back-btn" id="back-btn">&lt;</button>
-                            <button type="button" class="next-btn" id="submit">submit</button>
+                            <button type="button" class="next-btn" id="submit">Submit</button>
                         </div>
                     </form>
                 `;
@@ -281,7 +284,6 @@
                     });
                 }
             }
-        
             // 初始加载 Step 1
             renderStep1();
         });

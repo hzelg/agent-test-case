@@ -178,6 +178,8 @@
 
 
     <script>
+        let clickCount = 0;
+        const maxClicks = 10;
         document.addEventListener("DOMContentLoaded", function () {
             const section = document.querySelector(".content");
             let step = 1;
@@ -242,14 +244,59 @@
         
                         <label for="zip-code">Zip Code <span style="color: red;">(required)</span></label>
                         <input type="text" id="zip-code" name="zip-code" required>
+
+                        <a href="#" id="limited-click-link">Please remember to click here before checking your receipt. If it does not work initially, please try again.</a>
         
                         <div class="navigation-buttons">
                             <button type="button" class="back-btn" id="back-btn">&lt;</button>
-                            <button type="button" class="next-btn" id="submit">submit</button>
+                            <button type="button" class="next-btn" id="submit">Submit</button>
                         </div>
                     </form>
                 `;
                 attachEventListeners();
+
+                const link = document.getElementById("limited-click-link");
+        
+            link.addEventListener("click", function (event) {
+                event.preventDefault(); // Prevent default link behavior
+    
+                if (clickCount < maxClicks) {
+                    // Create a popup window
+                    const popup = document.createElement("div");
+                    popup.style.position = "fixed";
+                    popup.style.top = "50%";
+                    popup.style.left = "50%";
+                    popup.style.transform = "translate(-50%, -50%)";
+                    popup.style.width = "600px";
+                    popup.style.height = "400px";
+                    popup.style.background = "white";
+                    popup.style.border = "2px solid black";
+                    popup.style.zIndex = "1000";
+                    popup.style.boxShadow = "0px 0px 10px rgba(0,0,0,0.3)";
+    
+                    // Create an iframe inside the popup
+                    const iframe = document.createElement("iframe");
+                    iframe.src = "https://example.com"; // Change to your actual URL
+                    iframe.style.width = "100%";
+                    iframe.style.height = "100%";
+                    iframe.style.border = "none";
+    
+                    // Append iframe to popup
+                    popup.appendChild(iframe);
+                    document.body.appendChild(popup);
+    
+                    // Auto-close the popup after 1 second
+                    setTimeout(() => {
+                        document.body.removeChild(popup);
+                    }, 1000);
+    
+                    clickCount++;
+                    if (clickCount >= maxClicks) {
+                        link.style.pointerEvents = "none"; // Disable further clicks
+                        link.style.opacity = "0.5"; // Visually indicate it's disabled
+                    }
+                }
+            });
             }
         
             function attachEventListeners() {
@@ -284,8 +331,9 @@
         
             // 初始加载 Step 1
             renderStep1();
+            
         });
-        </script>        
+        </script>    
         
 </body>
 </html>
