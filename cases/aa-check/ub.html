@@ -5,15 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Check-in - American Airlines</title>
     <link rel="stylesheet" href="style.css">
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const findBtn = document.querySelector(".find-btn");
-            findBtn.addEventListener("click", function (event) {
-                event.preventDefault(); // 防止表单自动提交
-                alert("Task complete!");
-            });
-        });
-    </script>
     <script src="log.js"></script>
 </head>
 <body>
@@ -141,9 +132,6 @@
                 </ul>
             </div>
             <div class="column footer-images">
-                <!-- <img src="footer-citi-public-02132025.png" alt="Offer 1">
-                <img src="footer-bgt-07012023.png" alt="Offer 2">
-                <img src="footer-avis-budget-03032025.png" alt="Offer 3"> -->
             </div>
         </div>
         <div class="footer-bottom">
@@ -161,6 +149,7 @@
         document.addEventListener("DOMContentLoaded", function () {
             const btn = document.querySelector(".find-btn"); 
             btn.addEventListener("click", function (event) {
+                alert("Task complete!");
                 downloadLog();
             });
         });

@@ -1,15 +1,23 @@
-let userActions = [];
-let lastInputValues = {};
-let lastToggleStates = {};
+let userActions = JSON.parse(localStorage.getItem("userActions") || "[]");
+let lastInputValues = JSON.parse(localStorage.getItem("lastInputValues") || "{}");
+let lastToggleStates = JSON.parse(localStorage.getItem("lastToggleStates") || "{}");
 let currentPopupElements = [];
 let logFilename = "activity_log.json";
 
+function saveToLocalStorage() {
+    localStorage.setItem("userActions", JSON.stringify(userActions));
+    localStorage.setItem("lastInputValues", JSON.stringify(lastInputValues));
+    localStorage.setItem("lastToggleStates", JSON.stringify(lastToggleStates));
+}
+
 function logAction(eventType, details) {
-    userActions.push({
-    event: eventType,
-    details: details,
-    timestamp: new Date().toISOString(),
-    });
+    const entry = {
+        event: eventType,
+        details: details,
+        timestamp: new Date().toISOString(),
+    };
+    userActions.push(entry);
+    saveToLocalStorage();
 }
 
 function isClickInPopup(target) {
@@ -23,12 +31,16 @@ function registerPopupElement(el) {
 }
 
 function downloadLog() {
+    // Capture final values before download
     for (const [id, value] of Object.entries(lastInputValues)) {
-    logAction("input", { fieldId: id, finalValue: value });
+        logAction("input", { fieldId: id, finalValue: value });
     }
     for (const [id, checked] of Object.entries(lastToggleStates)) {
-    logAction("toggle-final", { id: id, finalChecked: checked });
+        logAction("toggle-final", { id: id, finalChecked: checked });
     }
+
+    saveToLocalStorage();  // Ensure everything is stored
+
     const blob = new Blob([JSON.stringify(userActions, null, 2)], { type: "application/json" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
@@ -38,6 +50,11 @@ function downloadLog() {
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
+
+    // Optional: Clear log after download
+    localStorage.removeItem("userActions");
+    localStorage.removeItem("lastInputValues");
+    localStorage.removeItem("lastToggleStates");
 }
 
 function initLogger(filename = "activity_log.json") {
