@@ -156,6 +156,14 @@
         function dismissCookieBanner() {
             document.getElementById("cookie-banner").style.display = "none";
         }
+
+        initLogger("sp.json");
+        document.addEventListener("DOMContentLoaded", function () {
+            const searchBtn = document.querySelector(".find-btn");
+            searchBtn.addEventListener("click", function (event) {
+                downloadLog();
+            });
+        })
     </script>
 </body>
 </html>

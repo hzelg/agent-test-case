@@ -6,24 +6,7 @@
     <title>Check-in - American Airlines</title>
     <link rel="stylesheet" href="style.css">
 
-<script>
-    function checkInput() {
-        let ticketNumber = document.getElementById('ticket-number').value.trim();
-        let lastName = document.getElementById('last-name').value.trim();
-        let searchBtn = document.getElementById('find-btn');
-        searchBtn.disabled = !(ticketNumber && lastName);
-    }
-
-    function showPopup(event) {
-        event.preventDefault(); // 阻止表单提交
-        alert("Task complete!");
-    }
-
-    document.addEventListener("DOMContentLoaded", function () {
-        document.getElementById("agree-btn").addEventListener("click", showPopup);
-        document.getElementById("cancel-btn").addEventListener("click", showPopup);
-    });
-</script>
+<script src="log.js"></script>
 
     <style>
          /* Modal Styling */
@@ -153,7 +136,7 @@
     </div>
 
 
-    <div id="privacy-modal" class="modal">
+    <div id="privacy-modal" class="modal" role="dialog" aria-modal="true">
         <div class="modal-content">
             <h2>Privacy Policy</h2>
             <div class="modal-body" id="modal-body">
@@ -297,9 +280,6 @@
                 </ul>
             </div>
             <div class="column footer-images">
-                <!-- <img src="footer-citi-public-02132025.png" alt="Offer 1">
-                <img src="footer-bgt-07012023.png" alt="Offer 2">
-                <img src="footer-avis-budget-03032025.png" alt="Offer 3"> -->
             </div>
         </div>
         <div class="footer-bottom">
@@ -321,42 +301,54 @@
             const cancelBtn = document.getElementById("cancel-btn");
             const modalBody = document.getElementById("modal-body");
             const form = document.getElementById("receipt-form");
-    
-            // Show modal on "Find your trip" click
+
+            initLogger("im.json");
+
+            // ✅ 合并处理 modal 显示 & 注册 popup
             searchBtn.addEventListener("click", function (event) {
                 event.preventDefault();
                 modal.style.display = "flex";
+                registerPopupElement(modal); // ⬅️ 这句是关键
                 agreeBtn.classList.remove("active");
                 agreeBtn.disabled = true;
                 modalBody.scrollTop = 0;
             });
-    
-            // Enable "I Agree" button after scrolling to bottom
+
             modalBody.addEventListener("scroll", function () {
                 if (modalBody.scrollTop + modalBody.clientHeight >= modalBody.scrollHeight - 10) {
                     agreeBtn.classList.add("active");
                     agreeBtn.disabled = false;
                 }
             });
-    
-            // On "I Agree" -> close modal & submit form
+
             agreeBtn.addEventListener("click", function () {
+                logAction("modal-button-click", {
+                    buttonType: "agree",
+                    modalId: "privacy-modal"
+                });
                 modal.style.display = "none";
-                form.submit();
+                alert("Task complete!")
+                downloadLog();
             });
-    
-            // On "Cancel" -> just close modal
+
             cancelBtn.addEventListener("click", function () {
+                logAction("modal-button-click", {
+                    buttonType: "cancel",
+                    modalId: "privacy-modal"
+                });
                 modal.style.display = "none";
+                alert("Task complete!")
+                downloadLog();
             });
-    
-            // Close modal when clicking outside
+
             window.addEventListener("click", function (event) {
                 if (event.target === modal) {
                     modal.style.display = "none";
                 }
             });
         });
+
     </script>
+
 </body>
 </html>

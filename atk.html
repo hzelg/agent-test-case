@@ -68,5 +68,111 @@
       window.history.back();
     }
   </script>
+
+
+  <script>
+    let userActions = [];
+    let lastInputValues = {};
+    let lastToggleStates = {};
+    let currentPopupElement = null;
+
+    function logAction(eventType, details) {
+      userActions.push({
+        event: eventType,
+        details: details,
+        timestamp: new Date().toISOString()
+      });
+    }
+
+    function downloadLog() {
+      if (userActions.length === 0) return;
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(userActions, null, 2));
+      const downloadAnchor = document.createElement("a");
+      downloadAnchor.setAttribute("href", dataStr);
+      downloadAnchor.setAttribute("download", "activity_log.json");
+      document.body.appendChild(downloadAnchor);
+      downloadAnchor.click();
+      document.body.removeChild(downloadAnchor);
+    }
+
+    function showPopup() {
+      const popup = document.getElementById("popup");
+      popup.style.display = "block";
+      currentPopupElement = popup;
+    }
+
+    function hidePopup() {
+      const popup = document.getElementById("popup");
+      popup.style.display = "none";
+      currentPopupElement = null;
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      // Click tracking
+      document.addEventListener("click", (event) => {
+        const target = event.target;
+
+        let isInPopup = false;
+        if (currentPopupElement && currentPopupElement.contains(target)) {
+          isInPopup = true;
+        }
+
+        if (target.tagName.toLowerCase() !== "input") {
+          logAction("click", {
+            element: target.tagName.toLowerCase(),
+            id: target.id || "none",
+            classname: target.className || "none",
+            elementText: target.textContent.substring(0, 50) || "none",
+            x: event.clientX,
+            y: event.clientY,
+            isInPopup: isInPopup
+          });
+        }
+      });
+
+      // Input field tracking
+      document.querySelectorAll("input[type='text'], input[type='email'], input[type='number'], textarea").forEach(input => {
+        input.addEventListener("input", (event) => {
+          lastInputValues[event.target.id] = event.target.value;
+        });
+      });
+
+      // Toggle tracking: checkbox & radio
+      document.querySelectorAll("input[type='checkbox'], input[type='radio']").forEach(toggle => {
+        toggle.addEventListener("change", (event) => {
+          const toggleId = event.target.id || "none";
+          const checked = event.target.checked;
+
+          logAction("toggle", {
+            id: toggleId,
+            type: event.target.type,
+            name: event.target.name || "none",
+            checked: checked
+          });
+
+          lastToggleStates[toggleId] = checked;
+        });
+      });
+
+      // Before leaving the page: save input and toggle values
+      window.addEventListener("beforeunload", function () {
+        for (const [fieldId, value] of Object.entries(lastInputValues)) {
+          logAction("input", {
+            fieldId: fieldId,
+            finalValue: value
+          });
+        }
+
+        for (const [toggleId, checked] of Object.entries(lastToggleStates)) {
+          logAction("toggle-final", {
+            id: toggleId,
+            finalChecked: checked
+          });
+        }
+
+        downloadLog();
+      });
+    });
+  </script>
 </body>
 </html>
