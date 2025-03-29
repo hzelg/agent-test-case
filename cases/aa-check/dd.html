@@ -209,6 +209,14 @@
         function dismissCookieBanner() {
             document.getElementById("cookie-banner").style.display = "none";
         }
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const btn = document.querySelector(".find-btn"); 
+            btn.addEventListener("click", function (event) {
+                downloadLog();
+            });
+        })
     </script>
 </body>
 </html>

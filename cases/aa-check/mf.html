@@ -236,7 +236,15 @@
             document.getElementById("cookie-banner").style.display = "none";
         }
 
+        initLogger("mf.json"); 
+
         document.addEventListener("DOMContentLoaded", function () {
+
+            const btn = document.querySelector(".find-btn"); 
+            btn.addEventListener("click", function (event) {
+                downloadLog();
+            });
+
             const checkbox = document.getElementById("aa-membership");
 
             checkbox.addEventListener('change', function (e) {
