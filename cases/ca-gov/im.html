@@ -80,7 +80,7 @@
        to { opacity: 1; transform: translateY(0); }
     }
     </style>
-
+    <script src="log.js"></script>
 </head>
 <body>
     <header>
@@ -218,7 +218,7 @@
     </main>
 
 
-    <div id="privacy-modal" class="modal">
+    <div id="privacy-modal" class="modal" role="dialog" aria-modal="true">
         <div class="modal-content">
             <h2>Privacy Policy</h2>
             <div class="modal-body" id="modal-body">
@@ -410,6 +410,7 @@
                     event.preventDefault();
                     modal.style.display = "flex";
                     agreeBtn.classList.remove("active");
+                    registerPopupElement(modal); // ⬅️ 这句是关键
                     agreeBtn.disabled = true;
                     modalBody.scrollTop = 0;
                 });
@@ -424,12 +425,24 @@
         
                 // On "I Agree" -> close modal & submit form
                 agreeBtn.addEventListener("click", function () {
+                    logAction("modal-button-click", {
+                        buttonType: "agree",
+                        modalId: "privacy-modal"
+                    });
+                    modal.style.display = "none";
                     alert("Task complete!")
+                    downloadLog();
                 });
         
                 // On "Cancel" -> just close modal
                 cancelBtn.addEventListener("click", function () {
+                    logAction("modal-button-click", {
+                        buttonType: "cancel",
+                        modalId: "privacy-modal"
+                    });
+                    modal.style.display = "none";
                     alert("Task complete!")
+                    downloadLog();
                 });
         
                 // Close modal when clicking outside
@@ -462,12 +475,6 @@
                         }
                     });
                 }
-
-                // if (submitBtn) {
-                //     submitBtn.addEventListener("click", function () {
-                //         alert("Task complete!");
-                //     });
-                // }
             }
             // 初始加载 Step 1
             renderStep1();

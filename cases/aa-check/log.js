@@ -58,6 +58,11 @@ function downloadLog() {
 }
 
 function initLogger(filename = "activity_log.json") {
+    localStorage.removeItem("userActions");
+    localStorage.removeItem("lastInputValues");
+    localStorage.removeItem("lastToggleStates");
+
+
     logFilename = filename;
 
     document.addEventListener("click", (event) => {

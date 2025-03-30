@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DMV Customer Information</title>
     <link rel="stylesheet" href="style.css">
+    <script src="log.js"></script>
 </head>
 <body>
     <header>
@@ -71,9 +72,13 @@
     </footer>
 
     <script>
-        const submitBtn = document.getElementById("submit");
-        submitBtn.addEventListener("click", function () {
-            alert("Task complete!");
+        initLogger("ub.json");
+        document.addEventListener("DOMContentLoaded", function () {
+            const submitBtn = document.getElementById("submit");
+            submitBtn.addEventListener("click", function () {
+                alert("Task complete!");
+                downloadLog();
+            });
         });
     </script>
 </body>

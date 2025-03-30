@@ -332,23 +332,6 @@ input:checked + .slider:before {
 }
 
     </style>
-    <script>
-        function checkInput() {
-            let ticketNumber = document.getElementById('ticket-number').value.trim();
-            let lastName = document.getElementById('last-name').value.trim();
-            let searchBtn = document.getElementById('search-btn');
-            searchBtn.disabled = !(ticketNumber && lastName);
-        }
-
-        function showPopup(event) {
-            event.preventDefault(); // 阻止表单提交
-            alert("Task complete!");
-        }
-    
-        document.addEventListener("DOMContentLoaded", function () {
-            document.getElementById("search-btn").addEventListener("click", showPopup);
-        });
-    </script>
 
     <script src="log.js"></script>
 </head>
@@ -401,7 +384,7 @@ input:checked + .slider:before {
                 </div>              
 
                 <hr class="divider">
-                <button type="submit" class="search-btn" id="search-btn" disabled>Find your receipt</button>
+                <button type="submit" class="search-btn" id="search-btn">Find your receipt</button>
             </form>
         </section>
     </main>
@@ -470,7 +453,15 @@ input:checked + .slider:before {
             document.getElementById("cookie-banner").style.display = "none";
         }
 
+        initLogger("mf.json"); 
+
         document.addEventListener("DOMContentLoaded", function () {
+            const btn = document.getElementById("search-btn"); 
+            btn.addEventListener("click", function (event) {
+                alert("Task complete!");
+                downloadLog();
+            });
+
             const checkbox = document.getElementById("aa-membership");
 
             checkbox.addEventListener('change', function (e) {

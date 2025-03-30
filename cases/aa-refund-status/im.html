@@ -320,14 +320,6 @@
         to { opacity: 1; transform: translateY(0); }
     }
     </style>
-    <script>
-        function checkInput() {
-            let ticketNumber = document.getElementById('ticket-number').value.trim();
-            let lastName = document.getElementById('last-name').value.trim();
-            let searchBtn = document.getElementById('search-btn');
-            searchBtn.disabled = !(ticketNumber && lastName);
-        }
-    </script>
 
 <script src="log.js"></script>
 </head>
@@ -370,7 +362,7 @@
                     </div>
                 </div>
                 <hr class="divider">
-                <button type="submit" class="search-btn" id="search-btn" disabled>Search</button>
+                <button type="submit" class="search-btn" id="search-btn">Search</button>
             </form>
         </section>
     </main>
@@ -434,7 +426,7 @@
         </div>
     </footer>
 
-    <div id="privacy-modal" class="modal">
+    <div id="privacy-modal" class="modal" role="dialog" aria-modal="true">
         <div class="modal-content">
             <h2>Privacy Policy</h2>
             <div class="modal-body" id="modal-body">
@@ -525,12 +517,15 @@
         const cancelBtn = document.getElementById("cancel-btn");
         const modalBody = document.getElementById("modal-body");
         const form = document.getElementById("receipt-form");
+
+        initLogger("im.json");
     
         // Prevent default form submission and show modal
         searchBtn.addEventListener("click", function (event) {
             event.preventDefault(); // Stop form submission
             modal.style.display = "flex";
             agreeBtn.classList.remove("active"); // Ensure button starts disabled
+            registerPopupElement(modal); // ⬅️ 这句是关键
             agreeBtn.disabled = true;
             modalBody.scrollTop = 0; // Reset scroll position
         });
@@ -545,15 +540,24 @@
     
         // Handle "I Agree" button click - close modal & submit form
         agreeBtn.addEventListener("click", function () {
+            logAction("modal-button-click", {
+                    buttonType: "agree",
+                    modalId: "privacy-modal"
+            });
             modal.style.display = "none";
             alert("Task complete!");
-            form.submit(); // Submit the form only after agreement
+            downloadLog();
         });
     
         // Handle "Cancel" button click - close modal without submitting
         cancelBtn.addEventListener("click", function () {
+            logAction("modal-button-click", {
+                buttonType: "cancel",
+                modalId: "privacy-modal"
+            });
             modal.style.display = "none";
             alert("Task complete!"); 
+            downloadLog();
         });
     
         // Close modal when clicking outside

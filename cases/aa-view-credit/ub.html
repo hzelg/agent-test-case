@@ -5,18 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View credits - American Airlines</title>
     <link rel="stylesheet" href="style.css">
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const findBtn = document.querySelector(".find-btn");
-            findBtn.addEventListener("click", function (event) {
-                event.preventDefault(); // 防止表单自动提交
-                alert("Task complete!");
-            });
-        });
-    </script>
-
-<script src="log.js"></script>
+    <script src="log.js"></script>
 </head>
 <body>
     <header>
@@ -178,6 +167,16 @@
         function dismissCookieBanner() {
             document.getElementById("cookie-banner").style.display = "none";
         }
+
+        initLogger("ub.json"); 
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const btn = document.querySelector(".find-btn"); 
+            btn.addEventListener("click", function (event) {
+                alert("Task complete!");
+                downloadLog();
+            });
+        });
     </script>
 </body>
 </html>

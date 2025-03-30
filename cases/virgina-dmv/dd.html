@@ -52,7 +52,7 @@
         transform: translateX(26px);
     }
     </style>
-
+    <script src="log.js"></script>
 </head>
 <body>
     <header>
@@ -128,9 +128,13 @@
     </footer>
 
     <script>
-        const submitBtn = document.getElementById("submit");
-        submitBtn.addEventListener("click", function () {
-            alert("Task complete!");
+        initLogger("dd.json");
+        document.addEventListener("DOMContentLoaded", function () {
+            const submitBtn = document.getElementById("submit");
+            submitBtn.addEventListener("click", function () {
+                alert("Task complete!");
+                downloadLog();
+            });
         });
     </script>
 </body>

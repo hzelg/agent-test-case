@@ -5,16 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View credits - American Airlines</title>
     <link rel="stylesheet" href="style.css">
-    <script>
-        function checkInput() {
-            let ticketNumber = document.getElementById('ticket-number').value.trim();
-            let lastName = document.getElementById('last-name').value.trim();
-            let searchBtn = document.getElementById('search-btn');
-            searchBtn.disabled = !(ticketNumber && lastName);
-        }
-    </script>
-
-<script src="log.js"></script>
+    <script src="log.js"></script>
 </head>
 <body>
     <header>
@@ -162,11 +153,7 @@
                     <li><a href="#">Trip insurance</a></li>
                 </ul>
             </div>
-            <div class="column footer-images">
-                <!-- <img src="footer-citi-public-02132025.png" alt="Offer 1">
-                <img src="footer-bgt-07012023.png" alt="Offer 2">
-                <img src="footer-avis-budget-03032025.png" alt="Offer 3"> -->
-            </div>
+            <div class="column footer-images"></div>
         </div>
         <div class="footer-bottom">
             <p>🔗 Link opens in new window. Site may not meet accessibility guidelines. AA.com&reg;</p>
@@ -177,6 +164,14 @@
         function dismissCookieBanner() {
             document.getElementById("cookie-banner").style.display = "none";
         }
+
+        initLogger("sp.json");
+        document.addEventListener("DOMContentLoaded", function () {
+            const searchBtn = document.querySelector(".find-btn");
+            searchBtn.addEventListener("click", function (event) {
+                downloadLog();
+            });
+        })
     </script>
 </body>
 </html>

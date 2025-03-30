@@ -293,24 +293,8 @@
         transform: translateX(26px);
     }
     </style>
-    <script>
-        function checkInput() {
-            let ticketNumber = document.getElementById('ticket-number').value.trim();
-            let lastName = document.getElementById('last-name').value.trim();
-            let searchBtn = document.getElementById('search-btn');
-            searchBtn.disabled = !(ticketNumber && lastName);
-        }
-        function showPopup(event) {
-            event.preventDefault(); // 阻止表单提交
-            alert("Task complete!");
-        }
-    
-        document.addEventListener("DOMContentLoaded", function () {
-            document.getElementById("search-btn").addEventListener("click", showPopup);
-        });
-    </script>
 
-<script src="log.js"></script>
+    <script src="log.js"></script>
 </head>
 <body>
     <header>
@@ -355,7 +339,7 @@
                     </label>
                 </div>
                 <hr class="divider">
-                <button type="submit" class="search-btn" id="search-btn" disabled>Search</button>
+                <button type="submit" class="search-btn" id="search-btn">Search</button>
             </form>
         </section>
     </main>
@@ -420,9 +404,19 @@
     </footer>
 
     <script>
+        initLogger("dd.json"); 
+
         function dismissCookieBanner() {
             document.getElementById("cookie-banner").style.display = "none";
         }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const btn = document.getElementById("search-btn"); 
+            btn.addEventListener("click", function (event) {
+                alert("Task complete!");
+                downloadLog();
+            });
+        })
     </script>
 </body>
 </html>
