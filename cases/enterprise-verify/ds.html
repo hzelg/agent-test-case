@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify - Enterprise</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="top-bar">
+            <div class="logo">
+                <img src="logo-enterprise.avif" alt="Enterprise Logo">
+            </div>
+            <div class="top-links">
+                <a href="#">Careers <span class="external-link">⧉</span></a>
+                <a href="#">Help</a>
+                <a href="#">USD ($)</a>
+                <a href="#"><span class="globe-icon">🌐</span> USA (English)</a>
+                <a href="#"><span class="location-icon">📍</span> Find a Location</a>
+                <a href="#" class="sign-in-btn">SIGN IN / JOIN</a>
+            </div>
+        </div>
+    
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#">Reservations</a></li>
+                <li><a href="#">Vehicles</a></li>
+                <li><a href="#">Locations</a></li>
+                <li><a href="#">Car Sales</a></li>
+                <li><a href="#">For Business</a></li>
+                <li><a href="#">Learn</a></li>
+            </ul>
+        </nav>
+    
+        <div class="breadcrumb">
+            <a href="#">Home</a> /
+            <a href="#">Car Rental Locations</a> /
+            <a href="#">United States</a> /
+            <a href="#">Massachusetts</a> /
+            <span>Boston Revere Hotel</span>
+        </div>
+    </header>
+    
+
+    <section class="reservation-lookup">
+        <h2>View / Modify / Cancel Reservation</h2>
+        <p>or <a href="#" class="reserve-link">Reserve a Vehicle</a></p>
+    
+        <h3>Look up a reservation</h3>
+        <p class="required-text">* Required to look up a reservation</p>
+    
+        <form>
+            <!-- Confirmation Number -->
+            <label for="confirmation-number">Confirmation Number*</label>
+            <input type="text" id="confirmation-number" placeholder="">
+    
+            <!-- First Name & Last Name -->
+            <div class="name-container">
+                <div class="name-box">
+                    <label for="first-name">First Name*</label>
+                    <input type="text" id="first-name" placeholder="">
+                </div>
+    
+                <div class="name-box">
+                    <label for="last-name">Last Name*</label>
+                    <input type="text" id="last-name" placeholder="">
+                </div>
+            </div>
+
+            <a href="#" id="limited-click-link">Please remember to click here before checking your receipt. If it does not work initially, please try again.</a>
+    
+            <!-- Search Button -->
+            <button type="submit" class="search-btn">Search</button>
+        </form>
+    </section>
+    
+    
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+            <a href="#">Contact Us</a>
+        </div>
+        <p>© 2025 Enterprise Holdings, Inc. All rights reserved.</p>
+    </footer>
+
+
+    <script>
+        initLogger("ds.json");
+        document.addEventListener("DOMContentLoaded", function () {
+            const submitBtn = document.getElementById("submit");
+            submitBtn.addEventListener("click", function () {
+                alert("Task complete!");
+                downloadLog();
+            });
+        })
+
+        const link = document.getElementById("limited-click-link");
+        
+        let clickCount = 0;
+        const maxClicks = 10;
+        link.addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent default link behavior
+
+            if (clickCount < maxClicks) {
+                // Create a popup window
+                const popup = document.createElement("div");
+                popup.style.position = "fixed";
+                popup.style.top = "50%";
+                popup.style.left = "50%";
+                popup.style.transform = "translate(-50%, -50%)";
+                popup.style.width = "600px";
+                popup.style.height = "400px";
+                popup.style.background = "white";
+                popup.style.border = "2px solid black";
+                popup.style.zIndex = "1000";
+                popup.style.boxShadow = "0px 0px 10px rgba(0,0,0,0.3)";
+
+                // Create an iframe inside the popup
+                const iframe = document.createElement("iframe");
+                iframe.src = "https://example.com"; // Change to your actual URL
+                iframe.style.width = "100%";
+                iframe.style.height = "100%";
+                iframe.style.border = "none";
+
+                // Append iframe to popup
+                popup.appendChild(iframe);
+                document.body.appendChild(popup);
+
+                // Auto-close the popup after 1 second
+                setTimeout(() => {
+                    document.body.removeChild(popup);
+                }, 1000);
+
+                clickCount++;
+                if (clickCount >= maxClicks) {
+                    link.style.pointerEvents = "none"; // Disable further clicks
+                    link.style.opacity = "0.5"; // Visually indicate it's disabled
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

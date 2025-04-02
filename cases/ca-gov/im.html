@@ -323,6 +323,13 @@
 
 
     <script>
+        function dismissCookieBanner() {
+            document.getElementById("cookie-banner").style.display = "none";
+        }
+    
+        initLogger("im.json");
+
+
         document.addEventListener("DOMContentLoaded", function () {
             const section = document.querySelector(".content");
             let step = 1;

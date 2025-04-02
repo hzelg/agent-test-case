@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Search Results</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .switch {
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 24px;
+    }
+    
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+    
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: 0.4s;
+        border-radius: 24px;
+    }
+    
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 18px;
+        width: 18px;
+        left: 3px;
+        bottom: 3px;
+        background-color: white;
+        transition: 0.4s;
+        border-radius: 50%;
+    }
+    
+    input:checked + .slider {
+        background-color: #4CAF50;
+    }
+    
+    input:checked + .slider:before {
+        transform: translateX(26px);
+    }
+    </style>
+    <script src="log.js"></script>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <span class="kayak-letter">KAYAK</span>
+            </div>
+            <div class="search-container">
+                <select>
+                    <option>Round-trip</option>
+                    <option>One-way</option>
+                    <option>Multi-city</option>
+                </select>
+                <input type="text" placeholder="Madurai, India">
+                <input type="text" placeholder="Chennai, India">
+                <input type="date">
+                <input type="date">
+                <select>
+                    <option>1 adult</option>
+                    <option>2 adults</option>
+                    <option>3 adults</option>
+                </select>
+                <select>
+                    <option>Economy</option>
+                    <option>Business</option>
+                    <option>First Class</option>
+                </select>
+            </div>
+            <div class="auth-options">
+                <i class="far fa-heart heart"></i>
+                <button class="sign-in-btn"><i class="fas fa-user"></i> Sign in</button>
+            </div>
+        </div>
+
+        <!-- Toggle Button for aa membership -->
+        <div class="form-group" style="margin-top: 20px;">
+            <label for="aa-membership" style="display: flex; align-items: center; gap: 10px;">
+                <span>Subscribe to VIP membership</span>
+                <label class="switch">
+                    <input type="checkbox" id="aa-membership" name="membership" checked>
+                    <span class="slider round"></span>
+                </label>
+            </label>
+        </div>
+    </header>
+    
+    <main class="container">
+        <aside class="filters">
+            <h2><span class="highlight">104</span> of 174 flights</h2>
+        
+            <!-- Stops Filter -->
+            <h3>Stops</h3>
+            <label class="filter-option">
+                <input type="checkbox" checked> Nonstop <span class="price">$103</span>
+            </label>
+            <label class="filter-option">
+                <input type="checkbox" checked> 1 stop <span class="price">$118</span>
+            </label>
+            <label class="filter-option">
+                <input type="checkbox" checked> 2+ stops <span class="price">$214</span>
+            </label>
+        
+            <!-- Fee Assistant -->
+            <h3>Fee Assistant <i class="info-icon">ℹ️</i></h3>
+            <div class="fee-option">
+                <span>🧳 Carry-on bag</span>
+                <button>-</button>
+                <span>0</span>
+                <button>+</button>
+            </div>
+            <div class="fee-option">
+                <span>🛄 Checked bag</span>
+                <button>-</button>
+                <span>0</span>
+                <button>+</button>
+            </div>
+        
+            <!-- Time Filters -->
+            <h3>Times</h3>
+            <div class="time-selector">
+                <button class="active">Take-off</button>
+                <button>Landing</button>
+            </div>
+            <p>Take-off from IXM</p>
+            <input type="range" min="7" max="21" value="10">
+            <p>Take-off from MAA</p>
+            <input type="range" min="11" max="24" value="15">
+        
+            <!-- Airlines -->
+            <h3>Airlines</h3>
+            <div class="airline-filters">
+                <a href="#" class="select-all">Select all</a> | <a href="#" class="clear-all">Clear all</a>
+            </div>
+            <label class="filter-option">
+                <input type="checkbox" checked> IndiGo <span class="price">$112</span>
+            </label>
+            <label class="filter-option">
+                <input type="checkbox" checked> SpiceJet
+            </label>
+            <label class="filter-option">
+                <input type="checkbox" checked> Multiple airlines <i class="info-icon">ℹ️</i>
+            </label>
+            <label class="filter-option disabled">
+                <input type="checkbox" disabled> SriLankan Airlines
+            </label>
+            <label class="filter-option">
+                <input type="checkbox"> Air India
+            </label>
+            <label class="filter-option">
+                <input type="checkbox"> Hahn Air Systems
+            </label>
+        
+            <!-- Alliance -->
+            <h3>Alliance</h3>
+            <label class="filter-option">
+                <input type="checkbox"> oneworld
+            </label>
+            <label class="filter-option">
+                <input type="checkbox"> Star Alliance
+            </label>
+        
+            <!-- Airports -->
+            <h3>Airports</h3>
+            <label class="filter-option">
+                <input type="checkbox" checked> IXM: Madurai <span class="price">$103</span>
+            </label>
+            <label class="filter-option">
+                <input type="checkbox" checked> MAA: Chennai <span class="price">$103</span>
+            </label>
+        
+            <!-- Duration -->
+            <h3>Duration</h3>
+            <p>Flight leg</p>
+            <input type="range" min="1" max="20" value="10">
+            <p>Layover</p>
+            <input type="range" min="1" max="17" value="8">
+        
+        </aside>
+        
+        <section class="results">
+            <h2>Flight Results</h2>
+        
+            <!-- Flight Card -->
+            <div class="flight-card">
+                <div class="flight-content">
+                    <div class="left-section">
+                        <div class="action-buttons">
+                            <button class="save-btn"><i class="far fa-heart"></i> Save</button>
+                            <button class="share-btn"><i class="fas fa-share"></i> Share</button>
+                        </div>
+        
+                        <!-- First Flight -->
+                        <div class="flight-details">
+                            <input type="checkbox">
+                            <img src="air-india-logo.png" alt="Air India">
+                            <div class="flight-info">
+                                <span class="times"><strong>1:30 PM - 2:40 PM</strong></span>
+                                <span class="airline">Air India</span>
+                            </div>
+                            <span class="flight-type">nonstop</span>
+                            <span class="duration"><strong>1h 10m</strong></span>
+                            <span class="route">IXM-MAA</span>
+                        </div>
+        
+                        <!-- Second Flight -->
+                        <div class="flight-details">
+                            <input type="checkbox">
+                            <img src="indigo-logo.png" alt="Indigo">
+                            <div class="flight-info">
+                                <span class="times"><strong>6:55 PM - 8:25 PM</strong></span>
+                                <span class="airline">IndiGo</span>
+                            </div>
+                            <span class="flight-type">nonstop</span>
+                            <span class="duration"><strong>1h 30m</strong></span>
+                            <span class="route">MAA-IXM</span>
+                        </div>
+                        <span class="booking-info">$109 / person with Booking.com</span>
+                    </div>
+        
+                    <!-- Right Section: Price and Booking -->
+                    <div class="right-section">
+                        <div class="price"><strong>$103</strong></div>
+                        <span class="class">Economy</span>
+                        <span class="provider">Trip.com</span>
+                        <button class="view-deal-btn">View Deal <i class="fas fa-chevron-down"></i></button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="flight-card">
+                <div class="flight-content">
+                    <div class="left-section">
+                        <div class="action-buttons">
+                            <button class="save-btn"><i class="far fa-heart"></i> Save</button>
+                            <button class="share-btn"><i class="fas fa-share"></i> Share</button>
+                        </div>
+        
+                        <!-- First Flight -->
+                        <div class="flight-details">
+                            <input type="checkbox">
+                            <img src="air-india-logo.png" alt="Air India">
+                            <div class="flight-info">
+                                <span class="times"><strong>1:30 PM - 2:40 PM</strong></span>
+                                <span class="airline">Air India</span>
+                            </div>
+                            <span class="flight-type">nonstop</span>
+                            <span class="duration"><strong>1h 10m</strong></span>
+                            <span class="route">IXM-MAA</span>
+                        </div>
+        
+                        <!-- Second Flight -->
+                        <div class="flight-details">
+                            <input type="checkbox">
+                            <img src="indigo-logo.png" alt="Indigo">
+                            <div class="flight-info">
+                                <span class="times"><strong>6:55 PM - 8:25 PM</strong></span>
+                                <span class="airline">IndiGo</span>
+                            </div>
+                            <span class="flight-type">nonstop</span>
+                            <span class="duration"><strong>1h 30m</strong></span>
+                            <span class="route">MAA-IXM</span>
+                        </div>
+                        <span class="booking-info">$109 / person with Booking.com</span>
+                    </div>
+        
+                    <!-- Right Section: Price and Booking -->
+                    <div class="right-section">
+                        <div class="price"><strong>$108</strong></div>
+                        <span class="class">Economy</span>
+                        <span class="provider">Trip.com</span>
+                        <button class="view-deal-btn">View Deal <i class="fas fa-chevron-down"></i></button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="flight-card">
+                <div class="flight-content">
+                    <div class="left-section">
+                        <div class="action-buttons">
+                            <button class="save-btn"><i class="far fa-heart"></i> Save</button>
+                            <button class="share-btn"><i class="fas fa-share"></i> Share</button>
+                        </div>
+        
+                        <!-- First Flight -->
+                        <div class="flight-details">
+                            <input type="checkbox">
+                            <img src="air-india-logo.png" alt="Air India">
+                            <div class="flight-info">
+                                <span class="times"><strong>1:30 PM - 2:40 PM</strong></span>
+                                <span class="airline">Air India</span>
+                            </div>
+                            <span class="flight-type">nonstop</span>
+                            <span class="duration"><strong>1h 10m</strong></span>
+                            <span class="route">IXM-MAA</span>
+                        </div>
+        
+                        <!-- Second Flight -->
+                        <div class="flight-details">
+                            <input type="checkbox">
+                            <img src="indigo-logo.png" alt="Indigo">
+                            <div class="flight-info">
+                                <span class="times"><strong>6:55 PM - 8:25 PM</strong></span>
+                                <span class="airline">IndiGo</span>
+                            </div>
+                            <span class="flight-type">nonstop</span>
+                            <span class="duration"><strong>1h 30m</strong></span>
+                            <span class="route">MAA-IXM</span>
+                        </div>
+                        <span class="booking-info">$109 / person with Booking.com</span>
+                    </div>
+        
+                    <!-- Right Section: Price and Booking -->
+                    <div class="right-section">
+                        <div class="price"><strong>$110</strong></div>
+                        <span class="class">Economy</span>
+                        <span class="provider">Trip.com</span>
+                        <button class="view-deal-btn">View Deal <i class="fas fa-chevron-down"></i></button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="flight-card">
+                <div class="flight-content">
+                    <div class="left-section">
+                        <div class="action-buttons">
+                            <button class="save-btn"><i class="far fa-heart"></i> Save</button>
+                            <button class="share-btn"><i class="fas fa-share"></i> Share</button>
+                        </div>
+        
+                        <!-- First Flight -->
+                        <div class="flight-details">
+                            <input type="checkbox">
+                            <img src="air-india-logo.png" alt="Air India">
+                            <div class="flight-info">
+                                <span class="times"><strong>1:30 PM - 2:40 PM</strong></span>
+                                <span class="airline">Air India</span>
+                            </div>
+                            <span class="flight-type">nonstop</span>
+                            <span class="duration"><strong>1h 10m</strong></span>
+                            <span class="route">IXM-MAA</span>
+                        </div>
+        
+                        <!-- Second Flight -->
+                        <div class="flight-details">
+                            <input type="checkbox">
+                            <img src="indigo-logo.png" alt="Indigo">
+                            <div class="flight-info">
+                                <span class="times"><strong>6:55 PM - 8:25 PM</strong></span>
+                                <span class="airline">IndiGo</span>
+                            </div>
+                            <span class="flight-type">nonstop</span>
+                            <span class="duration"><strong>1h 30m</strong></span>
+                            <span class="route">MAA-IXM</span>
+                        </div>
+                        <span class="booking-info">$109 / person with Booking.com</span>
+                    </div>
+        
+                    <!-- Right Section: Price and Booking -->
+                    <div class="right-section">
+                        <div class="price"><strong>$109</strong></div>
+                        <span class="class">Economy</span>
+                        <span class="provider">Trip.com</span>
+                        <button class="view-deal-btn">View Deal <i class="fas fa-chevron-down"></i></button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="flight-card">
+                <div class="flight-content">
+                    <div class="left-section">
+                        <div class="action-buttons">
+                            <button class="save-btn"><i class="far fa-heart"></i> Save</button>
+                            <button class="share-btn"><i class="fas fa-share"></i> Share</button>
+                        </div>
+        
+                        <!-- First Flight -->
+                        <div class="flight-details">
+                            <input type="checkbox">
+                            <img src="air-india-logo.png" alt="Air India">
+                            <div class="flight-info">
+                                <span class="times"><strong>1:30 PM - 2:40 PM</strong></span>
+                                <span class="airline">Air India</span>
+                            </div>
+                            <span class="flight-type">nonstop</span>
+                            <span class="duration"><strong>1h 10m</strong></span>
+                            <span class="route">IXM-MAA</span>
+                        </div>
+        
+                        <!-- Second Flight -->
+                        <div class="flight-details">
+                            <input type="checkbox">
+                            <img src="indigo-logo.png" alt="Indigo">
+                            <div class="flight-info">
+                                <span class="times"><strong>6:55 PM - 8:25 PM</strong></span>
+                                <span class="airline">IndiGo</span>
+                            </div>
+                            <span class="flight-type">nonstop</span>
+                            <span class="duration"><strong>1h 30m</strong></span>
+                            <span class="route">MAA-IXM</span>
+                        </div>
+                        <span class="booking-info">$109 / person with Booking.com</span>
+                    </div>
+        
+                    <!-- Right Section: Price and Booking -->
+                    <div class="right-section">
+                        <div class="price"><strong>$109</strong></div>
+                        <span class="class">Economy</span>
+                        <span class="provider">Trip.com</span>
+                        <button class="view-deal-btn">View Deal <i class="fas fa-chevron-down"></i></button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="flight-card">
+                <div class="flight-content">
+                    <div class="left-section">
+                        <div class="action-buttons">
+                            <button class="save-btn"><i class="far fa-heart"></i> Save</button>
+                            <button class="share-btn"><i class="fas fa-share"></i> Share</button>
+                        </div>
+        
+                        <!-- First Flight -->
+                        <div class="flight-details">
+                            <input type="checkbox">
+                            <img src="air-india-logo.png" alt="Air India">
+                            <div class="flight-info">
+                                <span class="times"><strong>1:30 PM - 2:40 PM</strong></span>
+                                <span class="airline">Air India</span>
+                            </div>
+                            <span class="flight-type">nonstop</span>
+                            <span class="duration"><strong>1h 10m</strong></span>
+                            <span class="route">IXM-MAA</span>
+                        </div>
+        
+                        <!-- Second Flight -->
+                        <div class="flight-details">
+                            <input type="checkbox">
+                            <img src="indigo-logo.png" alt="Indigo">
+                            <div class="flight-info">
+                                <span class="times"><strong>6:55 PM - 8:25 PM</strong></span>
+                                <span class="airline">IndiGo</span>
+                            </div>
+                            <span class="flight-type">nonstop</span>
+                            <span class="duration"><strong>1h 30m</strong></span>
+                            <span class="route">MAA-IXM</span>
+                        </div>
+                        <span class="booking-info">$109 / person with Booking.com</span>
+                    </div>
+        
+                    <!-- Right Section: Price and Booking -->
+                    <div class="right-section">
+                        <div class="price"><strong>$113</strong></div>
+                        <span class="class">Economy</span>
+                        <span class="provider">Trip.com</span>
+                        <button class="view-deal-btn">View Deal <i class="fas fa-chevron-down"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flight-card">
+                <div class="flight-content">
+                    <div class="left-section">
+                        <div class="action-buttons">
+                            <button class="save-btn"><i class="far fa-heart"></i> Save</button>
+                            <button class="share-btn"><i class="fas fa-share"></i> Share</button>
+                        </div>
+        
+                        <!-- First Flight -->
+                        <div class="flight-details">
+                            <input type="checkbox">
+                            <img src="air-india-logo.png" alt="Air India">
+                            <div class="flight-info">
+                                <span class="times"><strong>1:30 PM - 2:40 PM</strong></span>
+                                <span class="airline">Air India</span>
+                            </div>
+                            <span class="flight-type">nonstop</span>
+                            <span class="duration"><strong>1h 10m</strong></span>
+                            <span class="route">IXM-MAA</span>
+                        </div>
+        
+                        <!-- Second Flight -->
+                        <div class="flight-details">
+                            <input type="checkbox">
+                            <img src="indigo-logo.png" alt="Indigo">
+                            <div class="flight-info">
+                                <span class="times"><strong>6:55 PM - 8:25 PM</strong></span>
+                                <span class="airline">IndiGo</span>
+                            </div>
+                            <span class="flight-type">nonstop</span>
+                            <span class="duration"><strong>1h 30m</strong></span>
+                            <span class="route">MAA-IXM</span>
+                        </div>
+                        <span class="booking-info">$109 / person with Booking.com</span>
+                    </div>
+        
+                    <!-- Right Section: Price and Booking -->
+                    <div class="right-section">
+                        <div class="price"><strong>$116</strong></div>
+                        <span class="class">Economy</span>
+                        <span class="provider">Trip.com</span>
+                        <button class="view-deal-btn">View Deal <i class="fas fa-chevron-down"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flight-card">
+                <div class="flight-content">
+                    <div class="left-section">
+                        <div class="action-buttons">
+                            <button class="save-btn"><i class="far fa-heart"></i> Save</button>
+                            <button class="share-btn"><i class="fas fa-share"></i> Share</button>
+                        </div>
+        
+                        <!-- First Flight -->
+                        <div class="flight-details">
+                            <input type="checkbox">
+                            <img src="air-india-logo.png" alt="Air India">
+                            <div class="flight-info">
+                                <span class="times"><strong>1:30 PM - 2:40 PM</strong></span>
+                                <span class="airline">Air India</span>
+                            </div>
+                            <span class="flight-type">nonstop</span>
+                            <span class="duration"><strong>1h 10m</strong></span>
+                            <span class="route">IXM-MAA</span>
+                        </div>
+        
+                        <!-- Second Flight -->
+                        <div class="flight-details">
+                            <input type="checkbox">
+                            <img src="indigo-logo.png" alt="Indigo">
+                            <div class="flight-info">
+                                <span class="times"><strong>6:55 PM - 8:25 PM</strong></span>
+                                <span class="airline">IndiGo</span>
+                            </div>
+                            <span class="flight-type">nonstop</span>
+                            <span class="duration"><strong>1h 30m</strong></span>
+                            <span class="route">MAA-IXM</span>
+                        </div>
+                        <span class="booking-info">$109 / person with Booking.com</span>
+                    </div>
+        
+                    <!-- Right Section: Price and Booking -->
+                    <div class="right-section">
+                        <div class="price"><strong>$119</strong></div>
+                        <span class="class">Economy</span>
+                        <span class="provider">Trip.com</span>
+                        <button class="view-deal-btn">View Deal <i class="fas fa-chevron-down"></i></button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="flight-card">
+                <div class="flight-content">
+                    <div class="left-section">
+                        <div class="action-buttons">
+                            <button class="save-btn"><i class="far fa-heart"></i> Save</button>
+                            <button class="share-btn"><i class="fas fa-share"></i> Share</button>
+                        </div>
+        
+                        <!-- First Flight -->
+                        <div class="flight-details">
+                            <input type="checkbox">
+                            <img src="air-india-logo.png" alt="Air India">
+                            <div class="flight-info">
+                                <span class="times"><strong>1:30 PM - 2:40 PM</strong></span>
+                                <span class="airline">Air India</span>
+                            </div>
+                            <span class="flight-type">nonstop</span>
+                            <span class="duration"><strong>1h 10m</strong></span>
+                            <span class="route">IXM-MAA</span>
+                        </div>
+        
+                        <!-- Second Flight -->
+                        <div class="flight-details">
+                            <input type="checkbox">
+                            <img src="indigo-logo.png" alt="Indigo">
+                            <div class="flight-info">
+                                <span class="times"><strong>6:55 PM - 8:25 PM</strong></span>
+                                <span class="airline">IndiGo</span>
+                            </div>
+                            <span class="flight-type">nonstop</span>
+                            <span class="duration"><strong>1h 30m</strong></span>
+                            <span class="route">MAA-IXM</span>
+                        </div>
+                        <span class="booking-info">$109 / person with Booking.com</span>
+                    </div>
+        
+                    <!-- Right Section: Price and Booking -->
+                    <div class="right-section">
+                        <div class="price"><strong>$120</strong></div>
+                        <span class="class">Economy</span>
+                        <span class="provider">Trip.com</span>
+                        <button class="view-deal-btn">View Deal <i class="fas fa-chevron-down"></i></button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="flight-card">
+                <div class="flight-content">
+                    <div class="left-section">
+                        <div class="action-buttons">
+                            <button class="save-btn"><i class="far fa-heart"></i> Save</button>
+                            <button class="share-btn"><i class="fas fa-share"></i> Share</button>
+                        </div>
+        
+                        <!-- First Flight -->
+                        <div class="flight-details">
+                            <input type="checkbox">
+                            <img src="air-india-logo.png" alt="Air India">
+                            <div class="flight-info">
+                                <span class="times"><strong>1:30 PM - 2:40 PM</strong></span>
+                                <span class="airline">Air India</span>
+                            </div>
+                            <span class="flight-type">nonstop</span>
+                            <span class="duration"><strong>1h 10m</strong></span>
+                            <span class="route">IXM-MAA</span>
+                        </div>
+        
+                        <!-- Second Flight -->
+                        <div class="flight-details">
+                            <input type="checkbox">
+                            <img src="indigo-logo.png" alt="Indigo">
+                            <div class="flight-info">
+                                <span class="times"><strong>6:55 PM - 8:25 PM</strong></span>
+                                <span class="airline">IndiGo</span>
+                            </div>
+                            <span class="flight-type">nonstop</span>
+                            <span class="duration"><strong>1h 30m</strong></span>
+                            <span class="route">MAA-IXM</span>
+                        </div>
+                        <span class="booking-info">$109 / person with Booking.com</span>
+                    </div>
+        
+                    <!-- Right Section: Price and Booking -->
+                    <div class="right-section">
+                        <div class="price"><strong>$125</strong></div>
+                        <span class="class">Economy</span>
+                        <span class="provider">Trip.com</span>
+                        <button class="view-deal-btn">View Deal <i class="fas fa-chevron-down"></i></button>
+                    </div>
+                </div>
+            </div>
+        
+        </section>
+    </main>
+
+
+    <script>
+        initLogger("dd.json"); 
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const viewDealButtons = document.querySelectorAll(".view-deal-btn");
+            viewDealButtons.forEach(button => {
+                button.addEventListener("click", function () {
+                    alert("Task Complete");
+                    downloadLog();
+                });
+            });
+        });
+    </script>
+</body>
+</html>

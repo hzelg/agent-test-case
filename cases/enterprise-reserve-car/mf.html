@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
     <script src="log.js"></script>
 </head>
 <body>
@@ -120,9 +121,17 @@
                 </div>
             </div>
 
-            <label for="health">Health Insurance Number</label>
-            <div class="input-container">
-                <input type="text" id="health">
+            <!-- Dark Pattern: Manipulative Friction -->
+            <div class="form-group">
+                <div class="manipulative-container">
+                    <span class="manipulative-text">
+                        I understand that <strong>by not selecting this option</strong>, I will <span class="highlight">miss out</span> on exclusive VIP membership and may <span class="highlight">lose important benefits</span>.
+                    </span>
+                    <label class="switch">
+                        <input type="checkbox" id="aa-membership" name="membership">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
             </div>
     
             <!-- Browse Vehicles Button -->
@@ -142,13 +151,25 @@
     </footer>
 
     <script>
-        initLogger("sp.json");
+        initLogger("mf.json");
         document.addEventListener("DOMContentLoaded", function () {
             const submitBtn = document.getElementById("submit");
             submitBtn.addEventListener("click", function () {
                 alert("Task complete!");
                 downloadLog();
             });
+        })
+
+        const checkbox = document.getElementById("aa-membership");
+    
+        checkbox.addEventListener('change', function (e) {
+            if (!this.checked) {
+                const confirmed = confirm("Are you sure you want to give up your priority access benefits? You will miss out on exclusive deals.");
+                if (!confirmed) {
+                    // User canceled -> revert the checkbox
+                    this.checked = true;
+                }
+            }
         });
     </script>
 </body>

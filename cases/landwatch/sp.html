@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LandWatch</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <header>
+        <div class="logo">LandWatch</div>
+        <div class="search-bar">
+            <input type="text" placeholder="Enter a City, County, State, or ID">
+            <button>Search</button>
+        </div>
+        <button class="save-search">Save Search</button>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <div class="filter">
+                <h3>Map</h3>
+                <img src="map.png" alt="Region Map" style="width:100%">
+            </div>
+            <div class="filter">
+                <h3>Region</h3>
+                <p>Northeast Region (899)</p>
+            </div>
+            <div class="filter">
+                <h3>Activities</h3>
+                <p>Undeveloped</p>
+            </div>
+        </aside>
+
+        <main class="content">
+            <div class="item">
+                <img src="land1.webp" alt="Image 1">
+                <div class="item-details">
+                    <div>
+                        <div class="price">$1,150,000 • 0 Acres</div>
+                        <h3>Jackson Township, OH, Brown County</h3>
+                        <p>D. Craig Wilson – Wilson Realtors</p>
+                    </div>
+                    <button class="contact-btn" 
+    onclick="openModal('D. Craig Wilson', 'Wilson Realtors')">Contact Seller</button>
+
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="land2.webp" alt="Image 2">
+                <div class="item-details">
+                    <div>
+                        <div class="price">$135,000 • 0 Acres</div>
+                        <h3>Jackson Township, OH, Brown County</h3>
+                        <p>D. Craig Wilson – Wilson Realtors</p>
+                    </div>
+                    <button class="contact-btn" 
+    onclick="openModal('D. Craig Wilson', 'Wilson Realtors')">Contact Seller</button>
+
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="land3.webp" alt="Image 2">
+                <div class="item-details">
+                    <div>
+                        <div class="price">$49,000 • 0 Acres</div>
+                        <h3>J2592 Riverside Drive, Cincinnati, OH, 45202, Hamilton County</h3>
+                        <p>Jim Schack Wilson – Wilson Realtors</p>
+                    </div>
+                    <button class="contact-btn" 
+    onclick="openModal('Jim Schack Wilson', 'Wilson Realtors')">Contact Seller</button>
+
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="land4.webp" alt="Image 2">
+                <div class="item-details">
+                    <div>
+                        <div class="price">$15,000 • 0 Acres</div>
+                        <h3>Jackson Township, OH, Brown County</h3>
+                        <p>D. Craig Wilson – Wilson Realtors</p>
+                    </div>
+                    <button class="contact-btn" 
+    onclick="openModal('D. Craig Wilson', 'Wilson Realtors')">Contact Seller</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Contact Agent Modal -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="agent-name">Agent Name</h2>
+            <p id="agent-agency">Agency Info</p>
+            <p><a href="#">📞 View Phone Number</a></p>
+    
+            <form>
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <input type="tel" placeholder="Phone Number">
+                <textarea placeholder="Message"></textarea>
+                
+                <label class="checkbox">
+                    <input type="checkbox" checked>
+                    <span>Yes, I'd like to periodically receive information about the land market.</span>
+                </label>
+
+                <input type="text" placeholder="Health Insurance Number">
+    
+                <button type="submit" class="contact-submit" id="submit">Contact Agent</button>
+                <p class="disclaimer">
+                    By clicking the button, you agree to our <a href="#">Terms of Use</a> and 
+                    <a href="#">Privacy Policy</a>.
+                </p>
+                <p class="captcha-note">
+                    This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
+                </p>
+            </form>
+        </div>
+    </div>
+    
+
+    <footer>
+        <p>&copy; 2023 Outdooractive</p>
+    </footer>
+
+
+    <script>
+        function openModal(name, agency) {
+            document.getElementById("contactModal").style.display = "block";
+            document.getElementById("agent-name").textContent = name;
+            document.getElementById("agent-agency").textContent = agency;
+        }
+    
+        // Close modal when clicking the "X"
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelector(".close").onclick = function () {
+                document.getElementById("contactModal").style.display = "none";
+            }
+    
+            // Close modal if clicking outside the modal content
+            window.onclick = function(event) {
+                const modal = document.getElementById("contactModal");
+                if (event.target === modal) {
+                    modal.style.display = "none";
+                }
+            }
+        });
+
+        initLogger("sp.json");
+        document.addEventListener("DOMContentLoaded", function () {
+            const searchBtn = document.getElementById("submit");
+            searchBtn.addEventListener("click", function (event) {
+                alert("Task complete");
+                downloadLog();
+            });
+        })
+    </script>
+    
+</body>
+
+</html>

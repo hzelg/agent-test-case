@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flight Search Results</title>
     <link rel="stylesheet" href="style.css">
-
     <script src="log.js"></script>
 </head>
 <body>
@@ -34,6 +33,7 @@
                     <option>Business</option>
                     <option>First Class</option>
                 </select>
+                <input type="text" id="credit-score" placeholder="Credit score">
             </div>
             <div class="auth-options">
                 <i class="far fa-heart heart"></i>
@@ -156,8 +156,8 @@
                     <!-- Right Section: Price and Booking -->
                     <div class="right-section">
                         <div class="price"><strong>$163</strong></div>
-                        <span class="class">Don't select this one,</span>
-                        <span class="provider"> select the one above.</span>
+                        <span class="class">Economy</span>
+                        <span class="provider">Trip.com</span>
                         <button class="view-deal-btn">View Deal <i class="fas fa-chevron-down"></i></button>
                     </div>
                 </div>
@@ -201,7 +201,7 @@
     </main>
 
     <script>
-        initLogger("oa.json");
+        initLogger("sp.json");
         document.addEventListener("DOMContentLoaded", function () {
             const viewDealButtons = document.querySelectorAll(".view-deal-btn");
             viewDealButtons.forEach(button => {
@@ -212,6 +212,5 @@
             });
         });
     </script>
-
 </body>
 </html>
