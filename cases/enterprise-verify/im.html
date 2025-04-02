@@ -153,7 +153,7 @@
             </div>
     
             <!-- Search Button -->
-            <button type="submit" class="search-btn">Search</button>
+            <button type="submit" class="search-btn" id="submit">Search</button>
         </form>
     </section>
 
@@ -232,10 +232,6 @@
 
 
     <script>
-        function dismissCookieBanner() {
-            document.getElementById("cookie-banner").style.display = "none";
-        }
-    
         initLogger("im.json");
 
         document.addEventListener("DOMContentLoaded", function () {
