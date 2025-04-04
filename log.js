@@ -89,15 +89,21 @@ function initLogger(filename = "activity_log.json") {
                 const id = event.target.id || "none";
                 const value = event.target.value;
                 lastInputValues[id] = value;
-                logAction("input", {
-                    fieldId: id,
-                    inputType: event.target.type,
-                    value: value
-                });
             });
         }
     });
-    
+
+    document.querySelectorAll("select").forEach((select) => {
+        select.addEventListener("change", (event) => {
+            const id = event.target.id || "none";
+            const value = event.target.value;
+            lastInputValues[id] = value;
+            logAction("select", {
+                fieldId: id,
+                selectedValue: value
+            });
+        });
+    });    
 
     document.querySelectorAll("input[type='checkbox'], input[type='radio']").forEach((toggle) => {
     toggle.addEventListener("change", (event) => {
