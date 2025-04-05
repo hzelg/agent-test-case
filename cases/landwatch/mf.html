@@ -194,7 +194,7 @@
                     </div>
                 </div>
     
-                <button type="submit" class="contact-submit">Contact Agent</button>
+                <button type="submit" class="contact-submit" id="submit">Contact Agent</button>
                 <p class="disclaimer">
                     By clicking the button, you agree to our <a href="#">Terms of Use</a> and 
                     <a href="#">Privacy Policy</a>.
@@ -241,7 +241,7 @@
         document.addEventListener("DOMContentLoaded", function () {
             const btn = document.getElementById("submit"); 
             btn.addEventListener("click", function (event) {
-                alert("Task complete!");
+                alert("Task complete! Please upload mf.json to Qualtrics, and close the tab.");
                 downloadLog();
             });
 
