@@ -505,15 +505,18 @@
               <input type="tel" class="text-input phone-input">
             </div>
           </div>
-          <div class = "checkbox-group">
-            <span class="manipulative-text">
-              I understand that <strong>by not selecting this option</strong>, I will <span class="highlight">miss out</span> on exclusive VIP deals and may <span class="highlight">lose important benefits</span>.
-          </span>
-
-          <label class="switch">
-            <input type="checkbox" id="ryan-membership" name="membership">
-          </label>
-          </div>
+          <div class="membership-check" style="margin-top: 20px;">
+            <label for="ryan-membership" style="display: flex; align-items: center; gap: 10px;">
+              <label class="switch">
+                <input type="checkbox" id="ryan-membership" name="membership">
+                <span class="slider round"></span>
+            </label>
+              <span class="manipulative-text">
+                I understand that <strong>by not selecting this option</strong>, I will <span class="highlight">miss out</span> on exclusive VIP deals and may <span class="highlight">lose important benefits</span>.
+            </span>
+           
+            </label>
+        </div>
         </div>
         
         <!-- Payment method card -->
