@@ -303,12 +303,13 @@
         <div class="input-container">
           <input
             type="text"
+            id="bookReference"
             placeholder="Booking reference (PNR) Or E-ticket number"
           />
           <div class="help-icon">?</div>
         </div>
         <div class="input-container">
-          <input type="text" placeholder="Last name" />
+          <input type="text" id="lastName" placeholder="Last name" />
         </div>
       </div>
 
@@ -332,11 +333,24 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        initLogger("index-sp.json");
+        initLogger("mf.json");
 
         const btn = document.querySelector(".find-button");
         btn.addEventListener("click", function (event) {
+          alert("Task complete!");
           downloadLog();
+        });
+
+        const checkbox = document.getElementById("aa-membership");
+
+        checkbox.addEventListener('change', function (e) {
+            if (!this.checked) {
+                const confirmed = confirm("Are you sure you want to give up your VIP benefits? You will miss out on exclusive deals and perks.");
+                if (!confirmed) {
+                    // User canceled -> revert the checkbox
+                    this.checked = true;
+                }
+            }
         });
       });
     </script>

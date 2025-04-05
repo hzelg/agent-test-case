@@ -537,25 +537,25 @@
         <div class="form-group">
           <div class="date-group">
             <label class="date-label">Pick-up date</label>
-            <input type="date" class="date-input" value="2025-03-23" />
+            <input type="date" class="date-input" id="pick-up-date" value="2025-03-23" />
           </div>
         </div>
         <div class="form-group">
           <div class="time-group">
             <label class="time-label">Time</label>
-            <input type="time" class="time-input" value="10:00" />
+            <input type="time" class="time-input" id="pick-up-time" value="10:00" />
           </div>
         </div>
         <div class="form-group">
           <div class="date-group">
             <label class="date-label">Drop-off date</label>
-            <input type="date" class="date-input" value="2025-03-26" />
+            <input type="date" class="date-input" id="drop-off-date" value="2025-03-26" />
           </div>
         </div>
         <div class="form-group">
           <div class="time-group">
             <label class="time-label">Time</label>
-            <input type="time" class="time-input" value="10:00" />
+            <input type="time" class="time-input" id="drop-off-time" value="10:00" />
           </div>
         </div>
         <button class="search-btn">
@@ -785,10 +785,23 @@
     </footer>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        initLogger("redfin-sp.json");
+        initLogger("mf.json");
         const btn = document.querySelector(".search-btn");
         btn.addEventListener("click", function (event) {
+          alert("Task complete!");
           downloadLog();
+        });
+
+        const checkbox = document.getElementById("aa-membership");
+
+        checkbox.addEventListener('change', function (e) {
+            if (!this.checked) {
+                const confirmed = confirm("Are you sure you want to give up your VIP benefits? You will miss out on exclusive deals and perks.");
+                if (!confirmed) {
+                    // User canceled -> revert the checkbox
+                    this.checked = true;
+                }
+            }
         });
       });
     </script>

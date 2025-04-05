@@ -374,6 +374,7 @@
                 <input
                   type="text"
                   class="form-input"
+                  id="city"
                   placeholder="City, neighborhood, or zip code"
                 />
               </div>
@@ -385,6 +386,7 @@
                 <div class="dollar-sign">
                   <input
                     type="text"
+                    id="income"
                     class="form-input"
                     placeholder="Income before taxes"
                   />
@@ -394,6 +396,7 @@
                 <input
                   type="text"
                   class="form-input"
+                  id="creditScore"
                   placeholder="Credit score"
                 />
               </div>
@@ -522,9 +525,10 @@
     </main>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        initLogger("redfin-sp.json");
+        initLogger("sp.json");
         const btn = document.querySelector(".calculate-button");
         btn.addEventListener("click", function (event) {
+          alert("Task complete!")
           downloadLog();
         });
       });

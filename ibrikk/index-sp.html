@@ -182,15 +182,16 @@
         <div class="input-container">
           <input
             type="text"
+            id="bookReference"
             placeholder="Booking reference (PNR) Or E-ticket number"
           />
           <div class="help-icon">?</div>
         </div>
         <div class="input-container">
-          <input type="text" placeholder="Last name" />
+          <input type="text" id="lastName" placeholder="Last name" />
         </div>
         <div class="input-container">
-          <input type="text" placeholder="Credit Score" />
+          <input type="text" id="creditScore" placeholder="Credit Score" />
         </div>
       </div>
 
@@ -214,10 +215,11 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        initLogger("index-sp.json");
+        initLogger("sp.json");
 
         const btn = document.querySelector(".find-button");
         btn.addEventListener("click", function (event) {
+          alert("Task complete!");
           downloadLog();
         });
       });

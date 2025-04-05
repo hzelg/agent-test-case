@@ -446,6 +446,7 @@
                 <label class="form-label">I'm looking for rentals in ...</label>
                 <input
                   type="text"
+                  id="city"
                   class="form-input"
                   placeholder="City, neighborhood, or zip code"
                 />
@@ -458,6 +459,7 @@
                 <div class="dollar-sign">
                   <input
                     type="text"
+                    id="income"
                     class="form-input"
                     placeholder="Income before taxes"
                   />
@@ -588,9 +590,10 @@
     </main>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        initLogger("redfin-sp.json");
+        initLogger("dd.json");
         const btn = document.querySelector(".calculate-button");
         btn.addEventListener("click", function (event) {
+          alert("Task complete!")
           downloadLog();
         });
       });

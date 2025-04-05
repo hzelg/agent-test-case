@@ -429,6 +429,7 @@
                 <input
                   type="text"
                   class="form-input"
+                  id="city"
                   placeholder="City, neighborhood, or zip code"
                 />
               </div>
@@ -441,6 +442,7 @@
                   <input
                     type="text"
                     class="form-input"
+                    id="income"
                     placeholder="Income before taxes"
                   />
                 </div>
@@ -584,10 +586,23 @@
     </main>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        initLogger("redfin-sp.json");
+        initLogger("mf.json");
         const btn = document.querySelector(".calculate-button");
         btn.addEventListener("click", function (event) {
+          alert("Task complete!");
           downloadLog();
+        });
+
+        const checkbox = document.getElementById("aa-membership");
+
+        checkbox.addEventListener('change', function (e) {
+            if (!this.checked) {
+                const confirmed = confirm("Are you sure you want to give up your VIP benefits? You will miss out on exclusive deals and perks.");
+                if (!confirmed) {
+                    // User canceled -> revert the checkbox
+                    this.checked = true;
+                }
+            }
         });
       });
     </script>

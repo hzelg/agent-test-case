@@ -488,7 +488,7 @@
           </div>
         </div>
         <div class="form-group location">
-          <input type="text" class="form-control" placeholder="Credit score" />
+          <input type="text" class="form-control" id="creditScore" placeholder="Credit score" />
         </div>
         <button class="search-btn">
           <a href="./rentalcars2.html"> Search </a>
@@ -720,6 +720,7 @@
         initLogger("redfin-sp.json");
         const btn = document.querySelector(".search-btn");
         btn.addEventListener("click", function (event) {
+          alert("Task complete!");
           downloadLog();
         });
       });
