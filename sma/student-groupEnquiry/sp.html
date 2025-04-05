@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Group Enquiry Form</title>
     <link rel="stylesheet" href="style.css">
+    <script src="../../log.js"></script>
 </head>
 <body>
     <header>
@@ -136,7 +137,6 @@
         </form>
     </div>
 
-    <script src="log.js"></script>
     <script>
         const filename = window.location.pathname.split("/").pop().split(".")[0];
         initLogger(`${filename}.json`);

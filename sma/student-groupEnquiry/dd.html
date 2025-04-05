@@ -5,18 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Group Enquiry Form</title>
     <link rel="stylesheet" href="style.css">
-        <script src="log.js"></script>
-    <script>
-        const filename = window.location.pathname.split("/").pop().split(".")[0];
-        initLogger(`${filename}.json`);
-        document.addEventListener("DOMContentLoaded", function () {
-            const submitBtn = document.querySelector('button[type="submit"]');
-            submitBtn.addEventListener("click", function () {
-                alert("Task complete!");
-                downloadLog();
-            });
-        })
-    </script>
+    <script src="../../log.js"></script>
+
 </head>
 <body>
     <header>
@@ -167,5 +157,17 @@
             <button type="submit">Submit</button>
         </form>
     </div>
+
+    <script>
+        const filename = window.location.pathname.split("/").pop().split(".")[0];
+        initLogger(`${filename}.json`);
+        document.addEventListener("DOMContentLoaded", function () {
+            const submitBtn = document.querySelector('button[type="submit"]');
+            submitBtn.addEventListener("click", function () {
+                alert("Task complete!");
+                downloadLog();
+            });
+        })
+    </script>
 </body>
 </html>

@@ -109,6 +109,8 @@
             padding: 10px 0;
         }
     </style>
+
+    <script src="../../log.js"></script>
 </head>
 <body>
     <header>
@@ -183,7 +185,7 @@
     <footer>
         <p>&copy; 2023 Budget. All rights reserved.</p>
     </footer>
-            <script src="log.js"></script>
+            
     <script>
         const filename = window.location.pathname.split("/").pop().split(".")[0];
         initLogger(`${filename}.json`);

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BabyCenter</title>
     <style>
-        body {ÎÎ
+        body {
             font-family: sans-serif;
             margin: 0;
             padding: 0;
@@ -157,6 +157,7 @@
         transform: translateX(26px);
     }
     </style>
+    <script src="../../log.js"></script>
 </head>
 <body>
     <header>
@@ -243,7 +244,6 @@
     <footer>
         <p>&copy; 2023 Budget. All rights reserved.</p>
     </footer>
-    <script src="log.js"></script>
     <script>
         const filename = window.location.pathname.split("/").pop().split(".")[0];
         initLogger(`${filename}.json`);
