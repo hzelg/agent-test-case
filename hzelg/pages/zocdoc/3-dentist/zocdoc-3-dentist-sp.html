@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zocdoc - Book Your Appointment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.5;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-circle {
+            width: 50px;
+            height: 50px;
+            background-color: #f8e71c;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 24px;
+        }
+        
+        .logo-text {
+            margin-left: 10px;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+        .nav {
+            display: flex;
+            align-items: center;
+        }
+        
+        .secure-badge {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+            color: #666;
+        }
+        
+        .login-btn {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        
+        .main-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+        
+        .appointment-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .provider-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-right: 20px;
+            background-color: #f0f0f0;
+        }
+        
+        .provider-info h2 {
+            margin: 0 0 5px 0;
+            font-size: 20px;
+        }
+        
+        .provider-info p {
+            margin: 5px 0;
+            color: #555;
+        }
+        
+        .appt-details {
+            margin-top: 15px;
+        }
+        
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        
+        .name-fields {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .name-field {
+            flex: 1;
+        }
+        
+        .info-icon {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            border: 1px solid #999;
+            text-align: center;
+            line-height: 18px;
+            font-size: 12px;
+            color: #999;
+            margin-left: 5px;
+            cursor: help;
+        }
+        
+        .radio-group {
+            margin-top: 10px;
+        }
+        
+        .radio-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .radio-option input {
+            margin-right: 10px;
+        }
+        
+        .gender-link {
+            display: block;
+            margin-top: 10px;
+            color: #333;
+            text-decoration: underline;
+        }
+        
+        .btn-continue {
+            display: block;
+            width: 100%;
+            background-color: #f8e71c;
+            border: none;
+            padding: 15px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        
+        .divider {
+            text-align: center;
+            margin: 20px 0;
+            color: #888;
+        }
+        
+        .social-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: white;
+            margin-bottom: 15px;
+            cursor: pointer;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .social-icon {
+            margin-right: 10px;
+        }
+        
+        .login-link {
+            text-align: center;
+            margin-top: 15px;
+        }
+        
+        .login-link a {
+            color: #333;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        
+        .footer {
+            background-color: #f8e71c;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-left {
+            display: flex;
+            align-items: center;
+        }
+        
+        .help-text {
+            margin-left: 10px;
+        }
+        
+        .help-center {
+            font-weight: bold;
+            text-decoration: none;
+            color: #333;
+        }
+        
+        .copyright {
+            background-color: #222;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+        }
+        
+        .copyright-links {
+            display: flex;
+        }
+        
+        .copyright-links a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            margin-left: 15px;
+            text-decoration: none;
+        }
+    </style>
+                      <script src="../../script.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <div class="logo-circle">Z</div>
+            <div class="logo-text">Zocdoc</div>
+        </div>
+        <div class="nav">
+            <div class="secure-badge">
+                <span>🔒 Secure</span>
+            </div>
+            <a href="#" class="login-btn">Log in</a>
+        </div>
+    </header>
+    
+    <main class="main-content">
+        <div class="appointment-card">
+            <img src="../../../public/imgs/doctor.jpg" alt="Provider" class="provider-img">
+            <div class="provider-info">
+                <h2>Dr. Rashmi Poreddy, DDS</h2>
+                <p>Dentist</p>
+                <div class="appt-details">
+                    <p>Thu, Apr 10 at 2:30 pm CDT</p>
+                    <p>Dental Consultation</p>
+                </div>
+            </div>
+        </div>
+        
+        <h1>Tell us a bit about you</h1>
+        
+        <p>To book your appointment, we need to verify a few things for Dr. Poreddy's office</p>
+      
+        <form>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" class="form-control" required>
+            </div>
+            
+            <div class="form-group name-fields">
+                <div class="name-field">
+                    <label for="first-name">Legal first name <span class="info-icon">i</span></label>
+                    <input type="text" id="first-name" class="form-control" required>
+                </div>
+                
+                <div class="name-field">
+                    <label for="last-name">Legal last name <span class="info-icon">i</span></label>
+                    <input type="text" id="last-name" class="form-control" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="dob">Date of birth</label>
+                <input type="text" id="dob" class="form-control" placeholder="mm/dd/yyyy" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="sex">Sex <span class="info-icon">i</span></label>
+                
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" id="male" name="sex" required>
+                        <label for="male">Male</label>
+                    </div>
+                    
+                    <div class="radio-option">
+                        <input type="radio" id="female" name="sex">
+                        <label for="female">Female</label>
+                    </div>
+                </div>
+                
+                <a href="#" class="gender-link">Add more sex & gender info (optional)</a>
+            </div>
+
+
+            <div class="membership-check" style = "margin-bottom: 20px;">
+              <input type="checkbox" id="ryan-membership">
+              <span for="subscribe" style="font-size: 14px;">Subscribe to VIP membership</span>
+            </div>
+
+            
+            <button type="submit" class="btn-continue">Continue</button>
+          
+            
+            <div class="login-link">
+                Already have an account? <a href="#">Log in</a>
+            </div>
+        </form>
+    </main>
+    
+    <footer>
+        <div class="footer">
+            <div class="footer-left">
+                <div class="logo-circle" style="width: 40px; height: 40px; font-size: 18px;">Z</div>
+                <div class="help-text">
+                    Need help? <a href="#" class="help-center">Visit our Help Center</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <div class="copyright-links">
+                <span>© 2025 Zocdoc, Inc.</span>
+                <a href="#">Terms</a>
+                <a href="#">Privacy</a>
+                <a href="#">Consumer Health</a>
+                <a href="#">Your privacy choices</a>
+            </div>
+            
+            <div class="social-links">
+                <a href="#">T</a>
+                <a href="#">IG</a>
+                <a href="#">FB</a>
+                <a href="#">LI</a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        initLogger("SP.json");
+        document.addEventListener("DOMContentLoaded", function () {
+          const btn = document.querySelector(".btn-continue");
+          if (btn) {
+            btn.addEventListener("click", function (event) {
+              downloadLog();
+            });
+          }
+        });
+      </script>
+</body>
+</html>

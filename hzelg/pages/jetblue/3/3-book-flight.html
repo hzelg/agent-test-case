@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JetBlue Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        .header {
+            background-color: #052c72;
+            color: white;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .header-right {
+            display: flex;
+            align-items: center;
+        }
+        
+        .sign-in {
+            color: white;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+        
+        .cart {
+            position: relative;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #ff9900;
+            color: white;
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+        
+        .main-container {
+            display: flex;
+            padding: 20px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .booking-form {
+            flex: 1;
+            margin-right: 20px;
+        }
+        
+        .price-summary {
+            width: 350px;
+            background-color: white;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .section-title {
+            color: #052c72;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        
+        .form-select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 16px;
+            appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg fill="%23052c72" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            box-sizing: border-box;
+        }
+        
+        .info-text {
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        
+        .link {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        
+        .dropdown-toggle {
+            color: #0066cc;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        
+        .dropdown-toggle::after {
+            content: '';
+            display: inline-block;
+            width: 0;
+            height: 0;
+            margin-left: 5px;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid #0066cc;
+        }
+        
+        .add-link {
+            color: #0066cc;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .add-link::before {
+            content: '+';
+            margin-right: 5px;
+            font-weight: bold;
+        }
+        
+        .name-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .dob-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .form-row > div {
+            flex: 1;
+        }
+        
+        .helper-text {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .full-width {
+            width: 100%;
+        }
+        
+        .price-title {
+            color: #052c72;
+            font-size: 24px;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e6f2ff;
+        }
+        
+        .flight-info {
+            margin-bottom: 15px;
+        }
+        
+        .flight-route {
+            margin: 5px 0;
+        }
+        
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+        
+        .fare-details {
+            margin-bottom: 10px;
+        }
+        
+        .price-divider {
+            height: 1px;
+            background-color: #e6e6e6;
+            margin: 15px 0;
+        }
+        
+        .total-price {
+            display: flex;
+            justify-content: space-between;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+        
+        .total-amount {
+            color: #052c72;
+            font-size: 26px;
+            font-weight: bold;
+        }
+        
+        .currency-link {
+            color: #0066cc;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            margin-top: 5px;
+        }
+        
+        .button {
+            background-color: #052c72;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            display: inline-block;
+            text-decoration: none;
+        }
+        
+        .info-icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: #0066cc;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            margin-left: 5px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        .dropdown-section {
+            margin-bottom: 20px;
+        }
+        
+        .expandable {
+            cursor: pointer;
+            color: #0066cc;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .expandable::before {
+            content: "+";
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="#" class="logo">jetBlue</a>
+        <div class="header-right">
+            <a href="#" class="sign-in">Sign In</a>
+            <div class="cart">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 18C5.9 18 5.01 18.9 5.01 20C5.01 21.1 5.9 22 7 22C8.1 22 9 21.1 9 20C9 18.9 8.1 18 7 18ZM17 18C15.9 18 15.01 18.9 15.01 20C15.01 21.1 15.9 22 17 22C18.1 22 19 21.1 19 20C19 18.9 18.1 18 17 18ZM7.17 14.75L7.2 14.63L8.1 13H15.55C16.3 13 16.96 12.59 17.3 11.97L21.16 5.96C21.26 5.81 21.39 5.72 21.55 5.67C21.71 5.62 21.86 5.61 22 5.64C22.14 5.67 22.28 5.75 22.4 5.88C22.52 6.01 22.59 6.17 22.6 6.35C22.61 6.51 22.57 6.67 22.5 6.82C22.43 6.97 22.32 7.09 22.15 7.17L18.3 13H8.53L8.4 13.34L8.22 14H19C19.25 14 19.46 14.09 19.63 14.26C19.8 14.43 19.88 14.62 19.87 14.83C19.86 15.04 19.79 15.21 19.66 15.34C19.53 15.47 19.36 15.54 19.15 15.55H7.35C7.12 15.53 6.93 15.44 6.78 15.29C6.63 15.14 6.55 14.95 6.54 14.72L6.53 14.55L6.54 14.45L6.8 13.41L5.5 10H4.25C4.08 10 3.94 9.94 3.82 9.82C3.7 9.7 3.64 9.55 3.64 9.38C3.64 9.2 3.7 9.06 3.82 8.94C3.94 8.82 4.08 8.76 4.25 8.76H6.15C6.27 8.76 6.39 8.79 6.5 8.85C6.61 8.91 6.69 9 6.75 9.13L7.17 14.75ZM16 6.59C16 6.28 15.86 6.02 15.59 5.79C15.32 5.56 15 5.45 14.64 5.46C14.28 5.47 13.96 5.61 13.7 5.88C13.44 6.15 13.31 6.46 13.31 6.82C13.31 7.18 13.45 7.49 13.72 7.76C13.99 8.03 14.31 8.16 14.67 8.16C15.03 8.16 15.34 8.03 15.61 7.77C15.88 7.51 16.01 7.17 16 6.77V6.59ZM11 6.59C11 6.28 10.86 6.02 10.59 5.79C10.32 5.56 10 5.45 9.64 5.46C9.28 5.47 8.96 5.61 8.7 5.88C8.44 6.15 8.31 6.46 8.31 6.82C8.31 7.18 8.45 7.49 8.72 7.76C8.99 8.03 9.31 8.16 9.67 8.16C10.03 8.16 10.34 8.03 10.61 7.77C10.88 7.51 11.01 7.17 11 6.77V6.59Z" fill="white"/>
+                </svg>
+                <span class="cart-count">1</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="main-container">
+        <div class="booking-form">
+            <h1 class="section-title">1. Traveler Details</h1>
+            
+            <p class="info-text">
+                Please enter the following info as it appears on the government-issued ID or travel documents you'll be traveling with. This is a TSA secure flight. 
+                <a href="#" class="link">Learn more ↗</a>
+            </p>
+            
+            <p class="info-text">
+                Please see our <a href="#" class="link">Privacy Policy</a> for information on what personal information we collect and how we use such information.
+            </p>
+            
+            <div class="dropdown-toggle">
+                Six months of passport Validity for international Travel
+            </div>
+            
+            <div class="dropdown-toggle">
+                REAL ID compliant identification required for travel beginning May 7, 2025
+            </div>
+            
+            <div class="form-group">
+                <div class="dropdown-section">
+                    <h3>Traveler 1   Adult</h3>
+                </div>
+                
+                <h2 class="section-title">Personal Information</h2>
+                
+                <div class="form-group">
+                    <label class="form-label">Full name</label>
+                    <div class="name-grid">
+                        <div>
+                            <select class="form-select">
+                                <option>Title</option>
+                                <option>Mr.</option>
+                                <option>Mrs.</option>
+                                <option>Ms.</option>
+                                <option>Dr.</option>
+                            </select>
+                        </div>
+                        <div>
+                            <input type="text" class="form-input" placeholder="First Name">
+                        </div>
+                    </div>
+                    
+                    <input type="text" class="form-input" placeholder="Middle (optional)" style="margin-bottom: 15px;">
+                    <input type="text" class="form-input" placeholder="Last Name">
+                    
+                    <div style="margin-top: 15px;">
+                        <a href="#" class="add-link">Add suffix like Jr. or Sr.</a>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <input type="email" class="form-input" placeholder="Email address">
+                </div>
+                
+                <div class="form-group">
+                    <select class="form-select">
+                        <option>Gender</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Non-binary</option>
+                        <option>Prefer not to say</option>
+                    </select>
+                    <span class="info-icon">?</span>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Date of Birth</label>
+                    <div class="dob-grid">
+                        <select class="form-select">
+                            <option>Month</option>
+                            <option>January</option>
+                            <option>February</option>
+                            <option>March</option>
+                            <option>April</option>
+                            <option>May</option>
+                            <option>June</option>
+                            <option>July</option>
+                            <option>August</option>
+                            <option>September</option>
+                            <option>October</option>
+                            <option>November</option>
+                            <option>December</option>
+                        </select>
+                        <select class="form-select">
+                            <option>Day</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <!-- More days -->
+                            <option>31</option>
+                        </select>
+                        <select class="form-select">
+                            <option>Year</option>
+                            <option>2005</option>
+                            <option>2004</option>
+                            <!-- More years -->
+                            <option>1950</option>
+                        </select>
+                    </div>
+                    <span class="info-icon">?</span>
+                </div>
+                
+                <h2 class="section-title">Contact Info</h2>
+                
+                <div class="form-group">
+                    <input type="text" class="form-input" placeholder="Start typing your address">
+                    <a href="#" class="link" style="display: block; margin-top: 10px;">Enter address manually</a>
+                </div>
+                
+                <div class="form-row">
+                    <div>
+                        <select class="form-select">
+                            <option>Country</option>
+                            <option selected>US</option>
+                            <option>Canada</option>
+                            <!-- More countries -->
+                        </select>
+                    </div>
+                    <div>
+                        <input type="tel" class="form-input" placeholder="Phone number">
+                    </div>
+                </div>
+                
+                <p class="helper-text">
+                    No worries. Your info will only be used if we need to send you updates about your flight. Data rates may apply.
+                </p>
+                
+                <div>
+                    <a href="#" class="add-link">Add a home phone number (optional)</a>
+                </div>
+                
+                <h2 class="section-title">Additional Information</h2>
+                
+                <div>
+                    <a href="#" class="add-link">I have a frequent flyer number</a>
+                </div>
+                
+                <div>
+                    <a href="#" class="add-link">I have a known traveler number and/or redress number</a>
+                </div>
+                
+                <div>
+                    <a href="#" class="add-link">I require wheelchair assistance</a>
+                </div>
+                
+                <div>
+                    <a href="#" class="add-link">Add a special service request</a>
+                </div>
+                
+                <div style="margin-top: 30px; margin-bottom: 30px;">
+                    <a href="#" class="button">Next: Seats & Extras</a>
+                </div>
+                
+                <div class="dropdown-section">
+                    <div class="expandable">Emergency Contact (optional)</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="price-summary">
+            <h2 class="price-title">Price Summary</h2>
+            
+            <div class="flight-info">
+                <h3>Flights</h3>
+                <p class="flight-route">MIA-DOH, May 4, 7:40pm</p>
+                <p class="flight-route">DOH-NBO, May 5, 6:45pm</p>
+                <p class="flight-route">NBO-DOH, May 8, 1:20am</p>
+                <p class="flight-route">DOH-MIA, May 8, 8:05am</p>
+            </div>
+            
+            <div class="price-item">
+                <div class="fare-details">
+                    <span>1</span>
+                    <div>Non-refundable Roundtrip ticket (1 Adult)</div>
+                </div>
+                <div>$1,028.00</div>
+            </div>
+            
+            <div>
+                <a href="#" class="link">Fare restrictions</a>
+            </div>
+            
+            <div class="price-divider"></div>
+            
+            <div class="price-item">
+                <div>Taxes & Fees</div>
+                <div>$198.21</div>
+            </div>
+            
+            <div class="price-divider"></div>
+            
+            <div class="total-price">
+                <div>Total:</div>
+                <div class="total-amount">$1,226.21</div>
+            </div>
+            
+            <a href="#" class="currency-link">View in another currency</a>
+        </div>
+    </div>
+</body>
+</html>

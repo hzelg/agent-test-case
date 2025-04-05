@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secure Booking - Powered by Ryanair & Expedia</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+    
+    /* Header styles */
+    .header {
+      background-color: #13259e;
+      color: white;
+      padding: 10px 0;
+    }
+    
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .ryanair-logo {
+      font-weight: bold;
+      font-size: 30px;
+      color: white;
+      display: flex;
+      align-items: center;
+    }
+    
+    .ryanair-logo:before {
+      content: "";
+      display: inline-block;
+      width: 35px;
+      height: 30px;
+      background-color: #f8c300;
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      margin-right: 10px;
+    }
+    
+    .expedia-container {
+      display: flex;
+      align-items: center;
+      color: white;
+    }
+    
+    .expedia-label {
+      margin-right: 10px;
+    }
+    
+    .expedia-logo {
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    /* Main container */
+    .main-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+    
+    /* Page title */
+    .page-title {
+      margin-top: 0;
+      font-size: 24px;
+      color: #333;
+      font-weight: bold;
+    }
+    
+    /* Refund banner */
+    .refund-banner {
+      background-color: white;
+      border-radius: 4px;
+      padding: 15px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .shield-icon {
+      margin-right: 15px;
+      color: #333;
+    }
+    
+    /* Two-column layout */
+    .two-columns {
+      display: flex;
+      gap: 20px;
+    }
+    
+    .left-column {
+      flex: 3;
+    }
+    
+    .right-column {
+      flex: 2;
+    }
+    
+    /* Card styles */
+    .card {
+      background-color: white;
+      border-radius: 4px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    
+    .card-title {
+      margin-top: 0;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+    
+    /* Form styles */
+    .form-row {
+      margin-bottom: 15px;
+    }
+    
+    .input-label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: normal;
+    }
+    
+    .required:after {
+      content: '*';
+      color: #e0292d;
+      margin-left: 2px;
+    }
+    
+    .text-input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    
+    .input-group {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .input-group .text-input {
+      flex: 1;
+    }
+    
+    .phone-input-group {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .country-select {
+      width: 120px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: white;
+    }
+    
+    .phone-input {
+      flex: 1;
+    }
+    
+    /* Room info */
+    .room-info {
+      margin-top: 5px;
+      font-size: 14px;
+      color: #666;
+    }
+    
+    .amenity {
+      color: #006607;
+      margin-right: 15px;
+      font-size: 14px;
+    }
+    
+    /* Payment section */
+    .payment-cards {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+    
+    .card-option {
+      display: flex;
+      align-items: center;
+    }
+    
+    .card-option input {
+      margin-right: 5px;
+    }
+    
+    .payment-notice {
+      font-size: 14px;
+      color: #333;
+      margin-bottom: 15px;
+    }
+    
+    .guarantee-notice {
+      background-color: #e6f2e6;
+      padding: 10px;
+      border-radius: 4px;
+      font-size: 14px;
+      color: #333;
+    }
+    
+    .date-inputs {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .select-date {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: white;
+    }
+    
+    /* Cancellation policy */
+    .cancellation-list {
+      padding-left: 20px;
+      margin-top: 15px;
+    }
+    
+    .cancellation-list li {
+      margin-bottom: 10px;
+    }
+    
+    /* Hotel details */
+    .hotel-image {
+      width: 100%;
+      height: 200px;
+      background-color: #eee;
+      margin-bottom: 15px;
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .hotel-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .image-nav {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      display: flex;
+      gap: 5px;
+    }
+    
+    .nav-button {
+      width: 30px;
+      height: 30px;
+      background-color: white;
+      border-radius: 4px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+    
+    .hotel-name {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    
+    .room-type {
+      color: #666;
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+    
+    /* Price details */
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    
+    .price-divider {
+      border: none;
+      border-top: 1px solid #ddd;
+      margin: 15px 0;
+    }
+    
+    .total-row {
+      display: flex;
+      justify-content: space-between;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+    
+    .discount-tag {
+      background-color: #5a9c1e;
+      color: white;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 12px;
+      margin-left: 10px;
+    }
+    
+    .booking-message {
+      color: #006607;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .pay-method {
+      color: #666;
+    }
+    
+    .exchange-info {
+      font-size: 12px;
+      color: #666;
+      margin-top: 15px;
+    }
+    
+    /* Important information */
+    .important-list {
+      padding-left: 20px;
+      margin-top: 15px;
+    }
+    
+    .important-list li {
+      margin-bottom: 10px;
+    }
+    
+    /* Button styles */
+    .complete-button {
+      background-color: #006607;
+      color: white;
+      border: none;
+      padding: 15px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 20px;
+    }
+  </style>
+          <script src="../../script.js"></script>
+</head>
+<body>
+  <!-- Header with Ryanair and Expedia logos -->
+  <div class="header">
+    <div class="header-content">
+      <div class="logo-container">
+        <div class="ryanair-logo">RYANAIR</div>
+        <div class="expedia-container">
+          <span class="expedia-label">Powered by</span>
+          <span class="expedia-logo">Expedia</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main container -->
+  <div class="main-container">
+    <!-- Page title -->
+    <h1 class="page-title">Secure booking — only takes 2 minutes!</h1>
+    
+    <!-- Refund banner -->
+    <div class="refund-banner">
+      <div class="shield-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1Z" stroke="#333" fill="none" stroke-width="2"/>
+        </svg>
+      </div>
+      <div>
+        <strong>Fully refundable before Sat, May 31, 6:00pm (property local time)</strong>
+        <div>You can change or cancel this stay if plans change. Because flexibility matters.</div>
+      </div>
+    </div>
+    
+    <!-- Two-column layout -->
+    <div class="two-columns">
+      <!-- Left column -->
+      <div class="left-column">
+        <!-- Who's checking in card -->
+        <div class="card">
+          <h2 class="card-title">Who's checking in?</h2>
+          
+          <div>
+            <strong>Room 1:</strong> 1 Adult, 1 Double Bed, Non-smoking
+          </div>
+          <div class="room-info">
+            <span class="amenity">Parking included</span>
+            <span class="amenity">Internet included</span>
+          </div>
+          
+          <div class="form-row input-group">
+            <div>
+              <label class="input-label required">First name</label>
+              <input type="text" class="text-input" placeholder="(e.g. John)">
+            </div>
+            <div>
+              <label class="input-label required">Last name</label>
+              <input type="text" class="text-input" placeholder="(e.g. Smith)">
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <label class="input-label required">Email address</label>
+            <input type="email" class="text-input" placeholder="Email for confirmation">
+          </div>
+          
+          <div class="form-row">
+            <label class="input-label required">Mobile phone number</label>
+            <div class="phone-input-group">
+              <select class="country-select">
+                <option>USA +1</option>
+              </select>
+              <input type="tel" class="text-input phone-input">
+            </div>
+          </div>
+        </div>
+        
+        <!-- Payment method card -->
+        <div class="card">
+          <h2 class="card-title">Payment method</h2>
+          
+          <div class="payment-notice">$0.00 due now. Payment information is only needed to hold your reservation.</div>
+          
+          <div class="payment-cards">
+            <label class="card-option">
+              <input type="radio" name="card_type">
+              <svg width="40" height="24" viewBox="0 0 40 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="40" height="24" rx="4" fill="#EB001B" />
+                <circle cx="15" cy="12" r="8" fill="#FF5F00" />
+              </svg>
+            </label>
+            <label class="card-option">
+              <input type="radio" name="card_type" checked>
+              <svg width="40" height="24" viewBox="0 0 40 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="40" height="24" rx="4" fill="#0055B7" />
+                <rect x="10" y="8" width="20" height="8" fill="#FFF" />
+              </svg>
+            </label>
+          </div>
+          
+          <div class="form-row">
+            <label class="input-label required">Debit/Credit card number</label>
+            <input type="text" class="text-input" placeholder="0000 0000 0000 0000">
+            <div class="guarantee-notice">Only needed to guarantee your booking</div>
+          </div>
+          
+          <div class="form-row">
+            <label class="input-label required">Name on Card</label>
+            <input type="text" class="text-input">
+          </div>
+          
+          <div class="form-row">
+            <label class="input-label required">Expiration date</label>
+            <div class="date-inputs">
+              <select class="select-date">
+                <option>Month</option>
+              </select>
+              <select class="select-date">
+                <option>Year</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <label class="input-label required">Security code</label>
+            <input type="text" class="text-input" style="width: 80px;">
+          </div>
+        </div>
+        
+        <!-- Cancellation policy card -->
+        <div class="card">
+          <h2 class="card-title">Cancellation policy</h2>
+          <ul class="cancellation-list">
+            <li><strong>Fully refundable</strong> before Sat, May 31</li>
+            <li>Cancellations or changes made after 6:00pm (property local time) on May 31, 2025 or no-shows are subject to a property fee equal to the first nights rate plus taxes and fees.</li>
+          </ul>
+        </div>
+        
+        <!-- Important information card -->
+        <div class="card">
+          <h2 class="card-title">Important information</h2>
+          <ul class="important-list">
+            <li>Front desk staff will greet guests on arrival at the property.</li>
+            <li>This property doesn't offer after-hours check-in.</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Right column -->
+      <div class="right-column">
+        <!-- Hotel details card -->
+        <div class="card">
+          <div class="hotel-image">
+            <img src="/api/placeholder/800/400" alt="Hotel corridor with stairs">
+            <div class="image-nav">
+              <div class="nav-button">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10 4L6 8L10 12" stroke="#333" stroke-width="2" />
+                </svg>
+              </div>
+              <div class="nav-button">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 4L10 8L6 12" stroke="#333" stroke-width="2" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          
+          <div class="hotel-name">OYO 90268 Aliyah Syariah</div>
+          <div class="room-type">1 Room: Basic Double Room</div>
+          
+          <div style="border-top: 1px solid #ddd; margin: 15px 0;"></div>
+          
+          <div>
+            <div><strong>Check-in:</strong> Sun, Jun 1</div>
+            <div><strong>Check-out:</strong> Wed, Jun 4</div>
+            <div>3-night stay</div>
+          </div>
+          
+          <div style="border-top: 1px solid #ddd; margin: 15px 0;"></div>
+          
+          <div>
+            <div>Special Requests (optional)</div>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 4L10 8L6 12" stroke="#333" stroke-width="2" />
+            </svg>
+          </div>
+        </div>
+        
+        <!-- Booking message card -->
+        <div class="card" style="background-color: #f9f9f9;">
+          <div class="booking-message">You have good taste! Book now before someone else grabs it!</div>
+        </div>
+        
+        <!-- Price details card -->
+        <div class="card">
+          <h2 class="card-title">Price details</h2>
+          
+          <div class="price-row">
+            <div>1 room x 3 nights</div>
+            <div>$13.35</div>
+          </div>
+          <div class="price-row">
+            <div>$4.45 average per night</div>
+            <span class="discount-tag">35% off</span>
+          </div>
+          
+          <div class="price-row">
+            <div>Taxes</div>
+            <div>$3.47</div>
+          </div>
+          
+          <hr class="price-divider">
+          
+          <div class="total-row">
+            <div>Total</div>
+            <div>$16.82</div>
+          </div>
+          
+          <div class="price-row">
+            <div>Pay now</div>
+            <div>$0.00</div>
+          </div>
+          
+          <div class="price-row">
+            <div>Pay at property</div>
+            <div>$16.82</div>
+          </div>
+          
+          <div class="exchange-info">
+            Rates quoted in US dollars are based on current exchange rates, which may vary at the time of travel. The property will charge you the full amount of $16.82 in Indonesian rupiah (IDR 280,398.00). Your card issuer may charge a foreign transaction fee.
+          </div>
+
+          <div class="membership-check">
+            <input type="checkbox" id="ryan-membership" checked>
+            <label for="subscribe" style="font-size: 14px;">Subscribe to VIP membership</label>
+          </div>
+
+        </div>
+        
+        <!-- Complete booking button -->
+        <button class="complete-button">Complete Booking</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    initLogger("DD.json");
+    document.addEventListener("DOMContentLoaded", function () {
+      const btn = document.querySelector(".complete-button");
+      if (btn) {
+        btn.addEventListener("click", function (event) {
+          downloadLog();
+        });
+      }
+    });
+  </script>
+</body>
+</html>
