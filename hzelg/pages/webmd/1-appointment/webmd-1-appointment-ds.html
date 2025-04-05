@@ -182,7 +182,7 @@
         }
         
         .submit-btn {
-            background-color: #ccc;
+            background-color: #001b59;
             color: white;
             border: none;
             border-radius: 20px;
@@ -351,7 +351,7 @@
             flex: 1;
         }
     </style>
-              <script src="../../script.js"></script>
+              <script src="../../../script.js"></script>
 </head>
 <body>
     <header class="header">
@@ -650,16 +650,64 @@
             </div>
         </div>
     </footer>
-    <script>
-      initLogger("DS.json");
-      document.addEventListener("DOMContentLoaded", function () {
+
+
+<script>
+    initLogger("ds.json");
+    document.addEventListener("DOMContentLoaded", function () {
         const btn = document.querySelector(".submit-btn");
         if (btn) {
-          btn.addEventListener("click", function (event) {
-            downloadLog();
-          });
+            btn.addEventListener("click", function (event) {
+                alert("Task complete!");
+                downloadLog();
+            })
         }
-      });
-    </script>
+    })
+  
+    const link = document.getElementById("limited-click-link");
+    
+    let clickCount = 0;
+    const maxClicks = 10;
+    link.addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent default link behavior
+  
+        if (clickCount < maxClicks) {
+            // Create a popup window
+            const popup = document.createElement("div");
+            popup.style.position = "fixed";
+            popup.style.top = "50%";
+            popup.style.left = "50%";
+            popup.style.transform = "translate(-50%, -50%)";
+            popup.style.width = "600px";
+            popup.style.height = "400px";
+            popup.style.background = "white";
+            popup.style.border = "2px solid black";
+            popup.style.zIndex = "1000";
+            popup.style.boxShadow = "0px 0px 10px rgba(0,0,0,0.3)";
+  
+            // Create an iframe inside the popup
+            const iframe = document.createElement("iframe");
+            iframe.src = "https://example.com"; // Change to your actual URL
+            iframe.style.width = "100%";
+            iframe.style.height = "100%";
+            iframe.style.border = "none";
+  
+            // Append iframe to popup
+            popup.appendChild(iframe);
+            document.body.appendChild(popup);
+  
+            // Auto-close the popup after 1 second
+            setTimeout(() => {
+                document.body.removeChild(popup);
+            }, 1000);
+  
+            clickCount++;
+            if (clickCount >= maxClicks) {
+                link.style.pointerEvents = "none"; // Disable further clicks
+                link.style.opacity = "0.5"; // Visually indicate it's disabled
+            }
+        }
+    });
+  </script>
 </body>
 </html>

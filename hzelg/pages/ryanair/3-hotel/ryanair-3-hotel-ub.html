@@ -358,7 +358,7 @@
       margin-top: 20px;
     }
   </style>
-          <script src="../../script.js"></script>
+          <script src="../../../script.js"></script>
 </head>
 <body>
   <!-- Header with Ryanair and Expedia logos -->
@@ -410,11 +410,11 @@
           
           <div class="form-row input-group">
             <div>
-              <label class="input-label required">First name</label>
+              <label class="input-label required" id="first-name">First name</label>
               <input type="text" class="text-input" placeholder="(e.g. John)">
             </div>
             <div>
-              <label class="input-label required">Last name</label>
+              <label class="input-label required" id="last-name">Last name</label>
               <input type="text" class="text-input" placeholder="(e.g. Smith)">
             </div>
           </div>
@@ -605,11 +605,12 @@
     </div>
   </div>
   <script>
-    initLogger("UB.json");
+    initLogger("ub.json");
     document.addEventListener("DOMContentLoaded", function () {
       const btn = document.querySelector(".complete-button");
       if (btn) {
         btn.addEventListener("click", function (event) {
+          alert("Task complete!");
           downloadLog();
         });
       }

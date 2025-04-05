@@ -267,7 +267,7 @@
             text-decoration: none;
         }
     </style>
-                      <script src="../../script.js"></script>
+                      <script src="../../../script.js"></script>
 </head>
 <body>
     <header class="header">
@@ -385,11 +385,12 @@
         </div>
     </footer>
     <script>
-        initLogger("SP.json");
+        initLogger("sp.json");
         document.addEventListener("DOMContentLoaded", function () {
           const btn = document.querySelector(".btn-continue");
           if (btn) {
             btn.addEventListener("click", function (event) {
+                alert("Task complete!");
               downloadLog();
             });
           }

@@ -340,7 +340,7 @@
       font-size: 14px;
     }
   </style>
-  <script src="../../script.js"></script>
+  <script src="../../../script.js"></script>
 </head>
 <body>
   <div class="top-bar"></div>
@@ -602,11 +602,12 @@
   </div>
 
   <script>
-    initLogger("DD.json");
+    initLogger("dd.json");
     document.addEventListener("DOMContentLoaded", function () {
       const btn = document.querySelector(".paynow");
       if (btn) {
         btn.addEventListener("click", function (event) {
+          alert("Task complete!")
           downloadLog();
         });
       }

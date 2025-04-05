@@ -221,7 +221,7 @@
             height: 40px;
         }
     </style>
-          <script src="../../script.js"></script>
+    <script src="../../script.js"></script>
 </head>
 <body>
     <header class="header">
@@ -370,11 +370,12 @@
     </footer>
 
     <script>
-        initLogger("UB.json");
+        initLogger("ub.json");
         document.addEventListener("DOMContentLoaded", function () {
           const btn = document.querySelector(".btn-primary");
           if (btn) {
             btn.addEventListener("click", function (event) {
+              alert("Task complete!");
               downloadLog();
             });
           }

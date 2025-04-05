@@ -340,14 +340,22 @@
                 const checkbox = document.getElementById("aa-membership");
     
                 checkbox.addEventListener('change', function (e) {
-                    if (!this.checked) {
-                        const confirmed = confirm("Are you sure you want to give up your priority access benefits? You will miss out on exclusive deals.");
-                        if (!confirmed) {
-                            // User canceled -> revert the checkbox
-                            this.checked = true;
-                        }
+                if (!this.checked) {
+                    const confirmed = confirm("Are you sure you want to give up your VIP benefits? You will miss out on exclusive deals and perks.");
+                    if (!confirmed) {
+                        this.checked = true;
+                        const toggleId = getInputIdentifier(this);
+                        logAction("toggle", {
+                            id: toggleId,
+                            type: this.type,
+                            name: this.name || "none",
+                            checked: true,
+                            reverted: true,
+                        });
+                        lastToggleStates[toggleId] = true;
                     }
-                });
+                }
+            });
             }
         
             function attachEventListeners() {

@@ -202,7 +202,7 @@
             margin: 30px 0;
         }
     </style>
-              <script src="../../script.js"></script>
+              <script src="../../../script.js"></script>
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -240,8 +240,8 @@
         <hr>
         
         <div class="form-container">
-            <input type="text" placeholder="Last name">
-            <input type="text" placeholder="Confirmation code or ticket #">
+            <input type="text" id="lastName" placeholder="Last name">
+            <input type="text" id="confirmationCode" placeholder="Confirmation code or ticket #">
             <div class="example-text">ex. ABCDEF or 2790123456789</div>
 
             <div class="membership-check" style="margin-bottom: 20px;">
@@ -267,14 +267,35 @@
         </div>
     </div>
     <script>
-        initLogger("MF.json");
+        initLogger("mf.json");
         document.addEventListener("DOMContentLoaded", function () {
           const btn = document.querySelector(".continue-btn");
           if (btn) {
             btn.addEventListener("click", function (event) {
+                alert("Task complete!");
               downloadLog();
             });
           }
+        });
+
+        const checkbox = document.getElementById("amazon-membership");
+
+        checkbox.addEventListener('change', function (e) {
+            if (!this.checked) {
+                const confirmed = confirm("Are you sure you want to give up your VIP benefits? You will miss out on exclusive deals and perks.");
+                if (!confirmed) {
+                    this.checked = true;
+                    const toggleId = getInputIdentifier(this);
+                    logAction("toggle", {
+                        id: toggleId,
+                        type: this.type,
+                        name: this.name || "none",
+                        checked: true,
+                        reverted: true,
+                    });
+                    lastToggleStates[toggleId] = true;
+                }
+            }
         });
       </script>
 </body>

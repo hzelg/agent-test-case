@@ -292,7 +292,7 @@
             margin-right: 5px;
         }
     </style>
-                  <script src="../../script.js"></script>
+                  <script src="../../../script.js"></script>
 </head>
 <body>
     <div class="header">
@@ -514,11 +514,12 @@
         </div>
     </div>
     <script>
-        initLogger("UB.json");
+        initLogger("ub.json");
         document.addEventListener("DOMContentLoaded", function () {
-          const btn = document.querySelector("continue");
+          const btn = document.getElementById("continue");
           if (btn) {
             btn.addEventListener("click", function (event) {
+                alert("Task complete!");
               downloadLog();
             });
           }

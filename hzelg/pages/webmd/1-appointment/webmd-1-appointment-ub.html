@@ -182,7 +182,7 @@
         }
         
         .submit-btn {
-            background-color: #ccc;
+            background-color: #001b59;
             color: white;
             border: none;
             border-radius: 20px;
@@ -351,7 +351,7 @@
             flex: 1;
         }
     </style>
-              <script src="../../script.js"></script>
+              <script src="../../../script.js"></script>
 </head>
 <body>
     <header class="header">
@@ -653,11 +653,12 @@
         </div>
     </footer>
     <script>
-      initLogger("UB.json");
+      initLogger("ub.json");
       document.addEventListener("DOMContentLoaded", function () {
         const btn = document.querySelector(".submit-btn");
         if (btn) {
           btn.addEventListener("click", function (event) {
+            alert("Task complete!");
             downloadLog();
           });
         }
