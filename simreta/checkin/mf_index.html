@@ -7,7 +7,79 @@
 	<title>United Airlines Booking</title>
 	<link rel="stylesheet" href="style.css">
 
-	<script src="log.js"></script>
+	<script src="../../log.js"></script>
+
+	<style>
+        /* Manipulative Warning Text */
+        .manipulative-text {
+            color: #d9534f; /* Red for urgency */
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        /* Important Phrases */
+        .highlight {
+            font-weight: bold;
+            color: #d9534f;
+        }
+
+        /* Toggle Switch */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 26px;
+            margin-left: 10px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        /* Toggle Slider */
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.4s;
+            border-radius: 26px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+
+        /* When checked, make it look positive */
+        input:checked + .slider {
+            background-color: #28a745; /* Green to suggest a positive action */
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(24px);
+        }
+
+        /* Hover Effect */
+        .manipulative-container:hover {
+            background: #ffecec;
+            border-color: #c9302c;
+        }
+    </style>
 </head>
 
 <body>
@@ -63,13 +135,13 @@
 							<div class="form-group">
 								<label>From*</label>
 								<div class="input-wrapper">
-									<input type="text" placeholder="South Bend SBN">
+									<input type="text" placeholder="South Bend SBN" id="from">
 									<span class="swap-icon">⇆</span>
 								</div>
 							</div>
 							<div class="form-group">
 								<label>To*</label>
-								<input type="text" placeholder="Destination">
+								<input type="text" placeholder="Destination" id="destination">
 							</div>
 						</div>
 
@@ -77,15 +149,15 @@
 							<div class="form-group">
 								<label>Dates*</label>
 								<div class="input-wrapper">
-									<input type="date">
-									<input type="date">
+									<input type="date" id="startDate">
+									<input type="date" id="endDate">
 								</div>
 							</div>
 						</div>
 
 						<div class="form-row">
 							<div class="form-group">
-								<label>Travelers</label>
+								<label id="travel">Travelers</label>
 								<select>
 									<option>1 Adult</option>
 									<option>2 Adults</option>
@@ -93,7 +165,7 @@
 								</select>
 							</div>
 							<div class="form-group">
-								<label>Cabin</label>
+								<label id="cabin">Cabin</label>
 								<select>
 									<option>Economy</option>
 									<option>Business</option>
@@ -164,6 +236,26 @@
 				alert("Task complete!");
 				downloadLog();
 			});
+
+			const checkbox = document.getElementById("aa-membership");
+
+            checkbox.addEventListener('change', function (e) {
+                if (!this.checked) {
+                    const confirmed = confirm("Are you sure you want to give up your VIP benefits? You will miss out on exclusive deals and perks.");
+                    if (!confirmed) {
+                        this.checked = true;
+                        const toggleId = getInputIdentifier(this);
+                        logAction("toggle", {
+                            id: toggleId,
+                            type: this.type,
+                            name: this.name || "none",
+                            checked: true,
+                            reverted: true,
+                        });
+                        lastToggleStates[toggleId] = true;
+                    }
+                }
+            });
 		})
 	</script>
 </body>

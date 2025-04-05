@@ -114,7 +114,7 @@
 	</style>
 
 
-	<script src="log.js"></script>
+	<script src="../../log.js"></script>
 
 </head>
 
@@ -171,6 +171,7 @@
 	document.addEventListener("DOMContentLoaded", function () {
 		const btn = document.querySelector(".submit-btn"); //bind the downloadLog() with the trigger button
 		btn.addEventListener("click", function (event) {
+			alert("Task complete!");
 			downloadLog();
 		});
 	})

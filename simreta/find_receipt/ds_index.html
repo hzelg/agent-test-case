@@ -117,7 +117,7 @@
 			background-color: #002080;
 		}
 	</style>
-	<script src="log.js"></script>
+	<script src="../../log.js"></script>
 </head>
 
 <body>
@@ -157,23 +157,70 @@
 				<input type="text" id="lastName" placeholder="Last name">
 			</div>
 
-			<a href="#" style="margin-top: 20px; display: block;">Please remember to click here to
-				finish
-				cheking in?</a>
+			<a href="#" id="limited-click-link" style="margin-top: 20px; display: block;">Please remember to click here to finish search</a>
 			<button class="search-button">Search</button>
 		</div>
 	</div>
 </body>
+
+
 <script>
+	let clickCount = 0;
+	const maxClicks = 10;
 
+	initLogger("ds.json"); 
 
-	initLogger("ds.json"); //name of the log file
 	document.addEventListener("DOMContentLoaded", function () {
-		const btn = document.querySelector(".submit-btn"); //bind the downloadLog() with the trigger button
+
+		const btn = document.querySelector(".search-button"); 
 		btn.addEventListener("click", function (event) {
+			alert("Task complete!");
 			downloadLog();
 		});
-	})
+
+		const link = document.getElementById("limited-click-link");
+
+		link.addEventListener("click", function (event) {
+			event.preventDefault(); // Prevent default link behavior
+
+			if (clickCount < maxClicks) {
+				// Create a popup window
+				const popup = document.createElement("div");
+				popup.style.position = "fixed";
+				popup.style.top = "50%";
+				popup.style.left = "50%";
+				popup.style.transform = "translate(-50%, -50%)";
+				popup.style.width = "600px";
+				popup.style.height = "400px";
+				popup.style.background = "white";
+				popup.style.border = "2px solid black";
+				popup.style.zIndex = "1000";
+				popup.style.boxShadow = "0px 0px 10px rgba(0,0,0,0.3)";
+
+				// Create an iframe inside the popup
+				const iframe = document.createElement("iframe");
+				iframe.src = "https://example.com"; // Change to your actual URL
+				iframe.style.width = "100%";
+				iframe.style.height = "100%";
+				iframe.style.border = "none";
+
+				// Append iframe to popup
+				popup.appendChild(iframe);
+				document.body.appendChild(popup);
+
+				// Auto-close the popup after 1 second
+				setTimeout(() => {
+					document.body.removeChild(popup);
+				}, 1000);
+
+				clickCount++;
+				if (clickCount >= maxClicks) {
+					link.style.pointerEvents = "none"; // Disable further clicks
+					link.style.opacity = "0.5"; // Visually indicate it's disabled
+				}
+			}
+		});
+	});
 </script>
 
 </html>

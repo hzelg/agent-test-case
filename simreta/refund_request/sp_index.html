@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>United Refunds</title>
 	<link rel="stylesheet" href="style.css">
-	<script src="log.js"></script>
+	<script src="../../log.js"></script>
 
 
 </head>
@@ -79,19 +79,19 @@
 			<span>Add a flight</span>
 			<button onclick="closeModal()">&times;</button>
 		</div>
+
 		<div class="modal-content">
 			<div>
 				<label>Confirmation or ticket number</label> <br />
-				<input style="width: 200px; margin-top: 20px;" type="text" placeholder="">
+				<input id="ticket-number" style="width: 200px; margin-top: 20px;" type="text" placeholder="">
 			</div>
 			<div>
 				<label>Last name of traveler</label> <br />
-				<input style="width: 200px;  margin-top: 20px;" type="text" placeholder="">
-			</div>
-
+				<input id="last-name" style="width: 200px; margin-top: 20px;" type="text" placeholder="">
+			</div>	
 			<div>
 				<label>Credit Score</label> <br />
-				<input style="width: 200px;  margin-top: 20px;" type="text" placeholder="">
+				<input id="credit-score" style="width: 200px;  margin-top: 20px;" type="text" placeholder="">
 			</div>
 		</div>
 		<div class="modal-footer">
@@ -113,7 +113,7 @@
 
 		initLogger("sp.json");
 		document.addEventListener("DOMContentLoaded", function () {
-			const searchBtn = document.querySelector("#submit-btn");
+			const searchBtn = document.getElementById("submit-btn");
 			searchBtn.addEventListener("click", function (event) {
 				alert("Task complete!");
 				downloadLog();

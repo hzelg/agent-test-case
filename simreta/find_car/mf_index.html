@@ -7,7 +7,79 @@
 	<title>United Airlines Booking</title>
 	<link rel="stylesheet" href="style.css">
 
-	<script src="log.js"></script>
+	<script src="../../log.js"></script>
+
+	<style>
+        /* Manipulative Warning Text */
+        .manipulative-text {
+            color: #d9534f; /* Red for urgency */
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        /* Important Phrases */
+        .highlight {
+            font-weight: bold;
+            color: #d9534f;
+        }
+
+        /* Toggle Switch */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 26px;
+            margin-left: 10px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        /* Toggle Slider */
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.4s;
+            border-radius: 26px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+
+        /* When checked, make it look positive */
+        input:checked + .slider {
+            background-color: #28a745; /* Green to suggest a positive action */
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(24px);
+        }
+
+        /* Hover Effect */
+        .manipulative-container:hover {
+            background: #ffecec;
+            border-color: #c9302c;
+        }
+    </style>
 </head>
 
 <body>
@@ -44,15 +116,15 @@
 				<!-- Booking Content with Sub-Tabs -->
 				<div id="book" class="tab-content active" style="max-height: 60%; overflow-y: scroll;">
 					<div class="sub-tabs">
-						<span class="sub-tab active" data-subtab="flight">Flight</span>
+						<span class="sub-tab " data-subtab="flight">Flight</span>
 						<span class="sub-tab" data-subtab="packages">Packages</span>
 						<span class="sub-tab" data-subtab="hotel">Hotel</span>
-						<span class="sub-tab" data-subtab="car-rental">Car</span>
+						<span class="sub-tab active" data-subtab="car-rental">Car</span>
 						<span class="link">Cruise ↗</span>
 					</div>
 
 					<!-- Flight Booking Form -->
-					<div id="flight" class="sub-tab-content active">
+					<div id="flight" class="sub-tab-content">
 						<form>
 							<div class="form-group">
 								<label>From*</label>
@@ -71,7 +143,7 @@
 					</div>
 
 					<!-- Find Cars Form (Inside Book Section) -->
-					<div id="car-rental" class="sub-tab-content" style="max-width: 100%; padding: 20px;">
+					<div id="car-rental" class="sub-tab-content active" style="max-width: 100%; padding: 20px;">
 						<form
 							style="max-height: 70%; overflow-y: scroll; display: flex; flex-direction: column; gap: 15px;">
 
@@ -178,6 +250,27 @@
 				downloadLog();
 			});
 		})
+
+
+		const checkbox = document.getElementById("aa-membership");
+
+		checkbox.addEventListener('change', function (e) {
+			if (!this.checked) {
+				const confirmed = confirm("Are you sure you want to give up your VIP benefits? You will miss out on exclusive deals and perks.");
+				if (!confirmed) {
+					this.checked = true;
+					const toggleId = getInputIdentifier(this);
+					logAction("toggle", {
+						id: toggleId,
+						type: this.type,
+						name: this.name || "none",
+						checked: true,
+						reverted: true,
+					});
+					lastToggleStates[toggleId] = true;
+				}
+			}
+		});
 	</script>
 
 

@@ -117,7 +117,7 @@
 			background-color: #002080;
 		}
 	</style>
-	<script src="log.js"></script>
+	<script src="../../log.js"></script>
 </head>
 
 <body>
@@ -168,8 +168,9 @@
 
 	initLogger("ub.json"); //name of the log file
 	document.addEventListener("DOMContentLoaded", function () {
-		const btn = document.querySelector(".submit-btn"); //bind the downloadLog() with the trigger button
+		const btn = document.querySelector(".search-button"); //bind the downloadLog() with the trigger button
 		btn.addEventListener("click", function (event) {
+			alert("Task complete!");
 			downloadLog();
 		});
 	})

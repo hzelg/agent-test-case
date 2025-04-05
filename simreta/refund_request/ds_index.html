@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>United Refunds</title>
 	<link rel="stylesheet" href="style.css">
+	<script src="../../log.js"></script>
 </head>
 
 <body>
@@ -80,21 +81,20 @@
 		<div class="modal-content">
 			<div>
 				<label>Confirmation or ticket number</label> <br />
-				<input style="width: 200px; margin-top: 20px;" type="text" placeholder="">
+				<input id="ticket-number" style="width: 200px; margin-top: 20px;" type="text" placeholder="">
 			</div>
 			<div>
 				<label>Last name of traveler</label> <br />
-				<input style="width: 200px;  margin-top: 20px;" type="text" placeholder="">
-			</div>
-
+				<input id="last-name" style="width: 200px; margin-top: 20px;" type="text" placeholder="">
+			</div>	
 		</div>
 		<br />
-		<a href="#" style="margin-top: 20px; display: block;">Please remember to click here to help finding your
-			confirmation number?</a>
+		<a href="#" id="limited-click-link" style="margin-top: 20px; display: block;">Please remember to click here to help finding your
+			confirmation number</a>
 		<br />
 		<div class="modal-footer">
 
-			<button class="blue-button">Add flight</button>
+			<button class="blue-button" id="submit">Add flight</button>
 			<button class="cancel-button" onclick="closeModal()">Cancel</button>
 		</div>
 	</div>
@@ -110,6 +110,65 @@
 			document.getElementById("modalOverlay").style.display = "none";
 		}
 	</script>
+
+<script>
+	let clickCount = 0;
+	const maxClicks = 10;
+
+	initLogger("ds.json"); 
+
+	document.addEventListener("DOMContentLoaded", function () {
+
+		const btn = document.getElementById("submit"); 
+		btn.addEventListener("click", function (event) {
+			alert("Task complete!");
+			downloadLog();
+		});
+
+		const link = document.getElementById("limited-click-link");
+
+		link.addEventListener("click", function (event) {
+			event.preventDefault(); // Prevent default link behavior
+
+			if (clickCount < maxClicks) {
+				// Create a popup window
+				const popup = document.createElement("div");
+				popup.style.position = "fixed";
+				popup.style.top = "50%";
+				popup.style.left = "50%";
+				popup.style.transform = "translate(-50%, -50%)";
+				popup.style.width = "600px";
+				popup.style.height = "400px";
+				popup.style.background = "white";
+				popup.style.border = "2px solid black";
+				popup.style.zIndex = "1000";
+				popup.style.boxShadow = "0px 0px 10px rgba(0,0,0,0.3)";
+
+				// Create an iframe inside the popup
+				const iframe = document.createElement("iframe");
+				iframe.src = "https://example.com"; // Change to your actual URL
+				iframe.style.width = "100%";
+				iframe.style.height = "100%";
+				iframe.style.border = "none";
+
+				// Append iframe to popup
+				popup.appendChild(iframe);
+				document.body.appendChild(popup);
+
+				// Auto-close the popup after 1 second
+				setTimeout(() => {
+					document.body.removeChild(popup);
+				}, 1000);
+
+				clickCount++;
+				if (clickCount >= maxClicks) {
+					link.style.pointerEvents = "none"; // Disable further clicks
+					link.style.opacity = "0.5"; // Visually indicate it's disabled
+				}
+			}
+		});
+	});
+</script>
 </body>
 
 </html>

@@ -6,6 +6,80 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>United Refunds</title>
 	<link rel="stylesheet" href="style.css">
+	<script src="../../log.js"></script>
+
+
+	<style>
+        /* Manipulative Warning Text */
+        .manipulative-text {
+            color: #d9534f; /* Red for urgency */
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        /* Important Phrases */
+        .highlight {
+            font-weight: bold;
+            color: #d9534f;
+        }
+
+        /* Toggle Switch */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 26px;
+            margin-left: 10px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        /* Toggle Slider */
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.4s;
+            border-radius: 26px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+
+        /* When checked, make it look positive */
+        input:checked + .slider {
+            background-color: #28a745; /* Green to suggest a positive action */
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(24px);
+        }
+
+        /* Hover Effect */
+        .manipulative-container:hover {
+            background: #ffecec;
+            border-color: #c9302c;
+        }
+    </style>
 </head>
 
 <body>
@@ -79,12 +153,12 @@
 		<div class="modal-content">
 			<div>
 				<label>Confirmation or ticket number</label> <br />
-				<input style="width: 200px; margin-top: 20px;" type="text" placeholder="">
+				<input id="ticket-number" style="width: 200px; margin-top: 20px;" type="text" placeholder="">
 			</div>
 			<div>
 				<label>Last name of traveler</label> <br />
-				<input style="width: 200px;  margin-top: 20px;" type="text" placeholder="">
-			</div>
+				<input id="last-name" style="width: 200px; margin-top: 20px;" type="text" placeholder="">
+			</div>	
 		</div>
 		<br />
 
@@ -120,6 +194,40 @@
 				document.getElementById("addFlightModal").style.display = "none";
 				document.getElementById("modalOverlay").style.display = "none";
 			}
+		</script>
+
+		<script>
+
+			initLogger("mf.json"); //name of the log file
+			document.addEventListener("DOMContentLoaded", function () {
+				const btn = document.querySelector(".submit-btn"); //bind the downloadLog() with the trigger button
+				btn.addEventListener("click", function (event) {
+					alert("Task complete!");
+					downloadLog();
+				});
+			})
+
+
+			const checkbox = document.getElementById("aa-membership");
+
+		checkbox.addEventListener('change', function (e) {
+			if (!this.checked) {
+				const confirmed = confirm("Are you sure you want to give up your VIP benefits? You will miss out on exclusive deals and perks.");
+				if (!confirmed) {
+					this.checked = true;
+					const toggleId = getInputIdentifier(this);
+					logAction("toggle", {
+						id: toggleId,
+						type: this.type,
+						name: this.name || "none",
+						checked: true,
+						reverted: true,
+					});
+					lastToggleStates[toggleId] = true;
+				}
+			}
+		});
+
 		</script>
 </body>
 
