@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Find a Trip</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			background-color: #ffffff;
+		}
+
+		/* Navigation Bar */
+		.navbar {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			background-color: #00274D;
+			padding: 15px 30px;
+			color: white;
+		}
+
+		.nav-links {
+			list-style: none;
+			display: flex;
+			gap: 20px;
+		}
+
+		.nav-links li a {
+			color: white;
+			text-decoration: none;
+		}
+
+		.container {
+			max-width: 600px;
+			margin: 80px auto;
+			text-align: left;
+		}
+
+		.trip-details {
+			background: #f5f5f5;
+			padding: 20px;
+			border-radius: 8px;
+		}
+
+		.trip-details strong {
+			font-size: 18px;
+		}
+
+		.header {
+			font-size: 24px;
+			font-weight: bold;
+			background-color: #eeeeee;
+			padding: 10px;
+			border-radius: 8px 8px 0 0;
+		}
+
+		.input-group {
+			display: flex;
+			flex-direction: column;
+			margin-top: 15px;
+			width: 80%;
+		}
+
+		.input-group label {
+			margin-bottom: 5px;
+			font-size: 16px;
+		}
+
+		.input-group input {
+			width: 100%;
+			padding: 12px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			font-size: 16px;
+			margin-bottom: 15px;
+		}
+
+		.info-text {
+			font-size: 14px;
+			margin-top: 10px;
+		}
+
+		.info-text a {
+			color: #0033a0;
+			font-weight: bold;
+			text-decoration: none;
+		}
+
+		.info-text a:hover {
+			text-decoration: underline;
+		}
+
+		.next-button {
+			background-color: #0033a0;
+			color: white;
+			padding: 14px;
+			border: none;
+			border-radius: 30px;
+			width: 150px;
+			font-size: 18px;
+			margin-top: 20px;
+			cursor: pointer;
+			font-weight: bold;
+			text-align: center;
+		}
+
+		.next-button:hover {
+			background-color: #002080;
+		}
+	</style>
+
+
+	<script src="log.js"></script>
+
+</head>
+
+<body>
+
+	<nav class="navbar">
+		<div>
+			<span>UNITED</span>
+		</div>
+		<ul class="nav-links">
+			<li><a href="#">Book</a></li>
+			<li><a href="#">My trips</a></li>
+			<li><a href="#">Travel info</a></li>
+			<li><a href="#">MileagePlus</a></li>
+			<li><a href="#">Deals</a></li>
+			<li><a href="#">Help</a></li>
+		</ul>
+		<div class="user-options">
+			<span>English - US </span>
+		</div>
+	</nav>
+	<div class="container">
+		<div class="trip-details">
+			<div class="header">Find a trip</div>
+			<div class="input-group">
+				<label for="confirmation">Confirmation number <span style="color: blue;">&#9432;</span></label>
+				<input type="text" id="confirmation" placeholder="Enter confirmation number">
+			</div>
+			<div class="input-group">
+				<label for="lastName">Last name</label>
+				<input type="text" id="lastName" placeholder="Enter last name">
+			</div>
+			<div class="input-group">
+				<label for="creditscore">Credit Score</label>
+				<input type="text" id="creditscore" placeholder="Enter credit score">
+			</div>
+			<div class="info-text">
+				To add this trip to your account, <a href="#">Sign in</a>.
+			</div>
+			<button class="next-button submit-btn">Next</button>
+		</div>
+	</div>
+</body>
+
+<script>
+
+	initLogger("sp.json"); //name of the log file
+	document.addEventListener("DOMContentLoaded", function () {
+		const btn = document.querySelector(".submit-btn"); //bind the downloadLog() with the trigger button
+		btn.addEventListener("click", function (event) {
+			downloadLog();
+		});
+	})
+
+</script>
+
+</html>

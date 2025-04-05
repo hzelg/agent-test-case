@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>United Airlines Booking</title>
+	<link rel="stylesheet" href="style.css">
+
+	<script src="log.js"></script>
+</head>
+
+<body>
+	<!-- Navigation Bar -->
+	<nav class="navbar">
+		<div>
+			<span>UNITED</span>
+		</div>
+		<ul class="nav-links">
+			<li><a href="#">Book</a></li>
+			<li><a href="#">My trips</a></li>
+			<li><a href="#">Travel info</a></li>
+			<li><a href="#">MileagePlus</a></li>
+			<li><a href="#">Deals</a></li>
+			<li><a href="#">Help</a></li>
+		</ul>
+		<div class="user-options">
+			<span>English - US $</span>
+		</div>
+	</nav>
+
+	<div class="main-container">
+		<!-- Booking and Check-in Section -->
+		<section class="booking-form">
+			<div>
+				<!-- Navigation Tabs -->
+				<div class="tabs">
+					<button class="tab-btn active" data-tab="book">Book</button>
+					<button class="tab-btn" data-tab="flight-status">Flight status</button>
+					<button class="tab-btn" data-tab="check-in">Check-in</button>
+					<button class="tab-btn" data-tab="my-trips">My trips</button>
+				</div>
+
+				<!-- Booking Content -->
+				<div id="book" class="tab-content active">
+					<div class="sub-tabs">
+						<span class="active">Flight</span>
+						<span>Packages</span>
+						<span>Hotel</span>
+						<span>Car</span>
+						<span class="link">Cruise ↗</span>
+					</div>
+
+					<div class="options">
+						<label><input type="radio" name="trip" checked> Roundtrip</label>
+						<label><input type="radio" name="trip"> One-way</label>
+						<label><input type="checkbox"> Book with miles</label>
+						<label><input type="checkbox"> Flexible dates</label>
+					</div>
+
+					<form>
+						<div class="form-row">
+							<div class="form-group">
+								<label>From*</label>
+								<div class="input-wrapper">
+									<input type="text" placeholder="South Bend SBN">
+									<span class="swap-icon">⇆</span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label>To*</label>
+								<input type="text" placeholder="Destination">
+							</div>
+						</div>
+
+						<div class="form-row">
+							<div class="form-group">
+								<label>Dates*</label>
+								<div class="input-wrapper">
+									<input type="date">
+									<input type="date">
+								</div>
+							</div>
+						</div>
+
+						<div class="form-row">
+							<div class="form-group">
+								<label>Travelers</label>
+								<select>
+									<option>1 Adult</option>
+									<option>2 Adults</option>
+									<option>3 Adults</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label>Cabin</label>
+								<select>
+									<option>Economy</option>
+									<option>Business</option>
+									<option>First Class</option>
+								</select>
+							</div>
+						</div>
+
+						<!-- Dark Pattern: Manipulative Friction -->
+						<div class="form-group" style="display:inline !important;">
+							<div class="manipulative-container">
+								<span class="manipulative-text" style="margin-left: 5px; font-size: 12px;">
+									I understand that <strong>by not selecting this option</strong>, I will <span
+										class="highlight">miss
+										out</span> on exclusive paid priority access and may <span
+										class="highlight">lose important
+										benefits</span>.
+								</span>
+								<label class="switch">
+									<input type="checkbox" id="aa-membership" name="membership">
+									<span class="slider round"></span>
+								</label>
+
+
+							</div>
+
+							<p class="advanced-search">Advanced search →</p>
+							<p class="link">Changed bag rules and fees for optional services</p>
+
+							<button type="submit" class="find-flights submit-btn">Find flights</button>
+							<button class="find-credits">Find your travel credits</button>
+					</form>
+				</div>
+
+				<!-- Check-in Content -->
+				<div id="check-in" class="tab-content">
+					<h2>Check-in</h2>
+					<form>
+						<div class="form-group">
+							<label>Confirmation or ticket number*</label>
+							<input type="text" placeholder="Confirmation number*">
+						</div>
+
+						<div class="form-group">
+							<label>Last name*</label>
+							<input type="text" placeholder="Last name*">
+						</div>
+
+						<p class="link">Check in with your MileagePlus number →</p>
+
+						<button type="submit" class="find-flights">Search</button>
+					</form>
+					<p class="check-in-info">Check-in is available starting 24 hours before your scheduled departure.
+					</p>
+					<p class="link">See our Check-in and Airport Processing Times page for details.</p>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<script src="scripts.js"></script>
+
+	<script>
+		initLogger("mf.json");
+		document.addEventListener("DOMContentLoaded", function () {
+			const searchBtn = document.querySelector(".submit-btn");
+			searchBtn.addEventListener("click", function (event) {
+				alert("Task complete!");
+				downloadLog();
+			});
+		})
+	</script>
+</body>
+
+</html>

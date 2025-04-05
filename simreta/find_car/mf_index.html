@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>United Airlines Booking</title>
+	<link rel="stylesheet" href="style.css">
+
+	<script src="log.js"></script>
+</head>
+
+<body>
+	<!-- Navigation Bar -->
+	<nav class="navbar">
+		<div>
+			<span>UNITED</span>
+		</div>
+		<ul class="nav-links">
+			<li><a href="#">Book</a></li>
+			<li><a href="#">My trips</a></li>
+			<li><a href="#">Travel info</a></li>
+			<li><a href="#">MileagePlus</a></li>
+			<li><a href="#">Deals</a></li>
+			<li><a href="#">Help</a></li>
+		</ul>
+		<div class="user-options">
+			<span>English - US $</span>
+		</div>
+	</nav>
+
+	<div class="main-container">
+		<!-- Booking and Check-in Section -->
+		<section class="booking-form">
+			<div>
+				<!-- Navigation Tabs -->
+				<div class="tabs">
+					<button class="tab-btn active" data-tab="book">Book</button>
+					<button class="tab-btn" data-tab="flight-status">Flight status</button>
+					<button class="tab-btn" data-tab="check-in">Check-in</button>
+					<button class="tab-btn" data-tab="my-trips">My trips</button>
+				</div>
+
+				<!-- Booking Content with Sub-Tabs -->
+				<div id="book" class="tab-content active" style="max-height: 60%; overflow-y: scroll;">
+					<div class="sub-tabs">
+						<span class="sub-tab active" data-subtab="flight">Flight</span>
+						<span class="sub-tab" data-subtab="packages">Packages</span>
+						<span class="sub-tab" data-subtab="hotel">Hotel</span>
+						<span class="sub-tab" data-subtab="car-rental">Car</span>
+						<span class="link">Cruise ↗</span>
+					</div>
+
+					<!-- Flight Booking Form -->
+					<div id="flight" class="sub-tab-content active">
+						<form>
+							<div class="form-group">
+								<label>From*</label>
+								<input type="text" placeholder="South Bend SBN">
+							</div>
+							<div class="form-group">
+								<label>To*</label>
+								<input type="text" placeholder="Destination">
+							</div>
+							<div class="form-group">
+								<label>Dates*</label>
+								<input type="date"> - <input type="date">
+							</div>
+							<button type="submit" class="find-flights">Find flights</button>
+						</form>
+					</div>
+
+					<!-- Find Cars Form (Inside Book Section) -->
+					<div id="car-rental" class="sub-tab-content" style="max-width: 100%; padding: 20px;">
+						<form
+							style="max-height: 70%; overflow-y: scroll; display: flex; flex-direction: column; gap: 15px;">
+
+							<!-- Pickup Location -->
+							<div class="form-group" style="display: flex; flex-direction: column;">
+								<label style="font-size: 14px; font-weight: bold;">Pickup
+									location*</label>
+								<input type="text" placeholder="Pickup location*"
+									style="width: 80%; padding: 10px; border: 1px solid #ccc; border-radius: 8px; font-size: 14px; font-style: italic;">
+							</div>
+
+							<!-- Return Car Checkbox -->
+							<div class="checkbox-group" style="display: flex; align-items: center; gap: 8px;">
+								<input type="checkbox" id="return-location" checked
+									style="width: 16px; height: 16px; accent-color: blue;">
+								<label for="return-location" style="font-size: 14px;">Return car to same
+									location</label>
+							</div>
+
+							<!-- Rental Dates -->
+							<div class="form-group" style="display: flex; flex-direction: column;">
+								<label style="font-size: 14px; font-weight: bold;">Rental dates*</label>
+								<div style="display: flex; align-items: center; gap: 10px;">
+									<input type="date"
+										style="flex: 1; padding: 10px; border: 1px solid #ccc; border-radius: 8px; font-size: 14px; font-style: italic;">
+									<span style="font-size: 16px; color: gray;">-</span>
+									<input type="date"
+										style="flex: 1; padding: 10px; border: 1px solid #ccc; border-radius: 8px; font-size: 14px; font-style: italic;">
+									<img src="calendar-icon.png" alt="Calendar" style="width: 18px; height: 18px;">
+								</div>
+							</div>
+
+							<!-- Pickup & Drop-off Time -->
+							<div class="form-row" style="display: flex; justify-content: space-between;">
+								<div class="form-group" style="display: flex; flex-direction: column; flex: 1;">
+									<label style="font-size: 14px; font-weight: bold;">Pickup time</label>
+									<select
+										style="padding: 10px; border: 2px solid blue; border-radius: 8px; font-size: 14px;">
+										<option>7:00 a.m.</option>
+										<option>10:00 a.m.</option>
+										<option>1:00 p.m.</option>
+										<option>6:00 p.m.</option>
+									</select>
+								</div>
+								<div class="form-group" style="display: flex; flex-direction: column; flex: 1;">
+									<label style="font-size: 14px; font-weight: bold;">Drop off time</label>
+									<select
+										style="padding: 10px; border: 1px solid #ccc; border-radius: 8px; font-size: 14px;">
+										<option>7:00 a.m.</option>
+										<option>10:00 a.m.</option>
+										<option>1:00 p.m.</option>
+										<option>6:00 p.m.</option>
+									</select>
+								</div>
+							</div>
+							<div class="manipulative-container">
+								<span class="manipulative-text" style="margin-left: 5px; font-size: 12px;">
+									I understand that <strong>by not selecting this option</strong>, I will <span
+										class="highlight">miss
+										out</span> on exclusive paid priority access and may <span
+										class="highlight">lose important
+										benefits</span>.
+								</span>
+								<label class="switch">
+									<input type="checkbox" id="aa-membership" name="membership">
+									<span class="slider round"></span>
+								</label>
+
+
+							</div>
+
+							<p style="font-size: 14px; color: black;">MileagePlus members get special savings on rentals
+								and earn miles.</p>
+
+							<!-- Book with Miles Checkbox -->
+							<div class="checkbox-group" style="display: flex; align-items: center; gap: 8px;">
+								<input type="checkbox" id="book-miles"
+									style="width: 16px; height: 16px; accent-color: gray;">
+								<label for="book-miles" style="font-size: 14px;">Book with miles</label>
+							</div>
+
+							<!-- Find Cars Button -->
+							<button type="submit" class="submit-btn"
+								style="width: 100%; background-color: blue; color: white; padding: 14px; font-size: 16px; border: none; border-radius: 30px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;">
+								Find cars
+							</button>
+						</form>
+					</div>
+
+					<!-- end of find cars -->
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<script src="scripts.js"></script>
+
+	<script>
+		initLogger("mf.json");
+		document.addEventListener("DOMContentLoaded", function () {
+			const searchBtn = document.querySelector(".submit-btn");
+			searchBtn.addEventListener("click", function (event) {
+				alert("Task complete!");
+				downloadLog();
+			});
+		})
+	</script>
+
+
+</body>
+
+</html>

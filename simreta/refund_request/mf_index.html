@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>United Refunds</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<div class="header">
+		<div>
+			<!-- <img src="united_logo.png" alt="United Logo" width="50"> -->
+			<span>UNITED</span>
+		</div>
+		<div class="menu">
+			<a href="#">BOOK</a>
+			<a href="#">MY TRIPS</a>
+			<a href="#">TRAVEL INFO</a>
+			<a href="#">MILEAGEPLUS PROGRAM</a>
+			<a href="#">DEALS</a>
+			<a href="#">HELP</a>
+		</div>
+	</div>
+
+	<div class="container">
+		<h2>Refunds</h2>
+		<div class="box">
+			<p><strong>MileagePlus account</strong></p>
+			<p>To help you save some time, please <a href="#">sign-in</a> to your MileagePlus account and we can fill in
+				some of your information for you.</p>
+		</div>
+
+		<div class="tab">
+			<div>Request a refund</div>
+			<div>Check status</div>
+		</div>
+
+		<div class="form-container">
+			<div class="purchases-section">
+				<h3>Purchases</h3>
+				<p>Most purchases are linked to your reservation. Add your flight and then select the items you’d like a
+					refund for. You can also manually add receipt details for your purchases.</p>
+				<button class="blue-button" onclick="openModal()">Add trip</button>
+				<button class="outline-button">Enter receipt details</button>
+			</div>
+
+			<div class="subscriptions-section">
+				<h3>Subscriptions and memberships</h3>
+				<p>Please sign-in to view your membership and subscriptions. All United subscriptions are nonrefundable.
+					Existing Wi-Fi and Economy Plus Subscription holders are eligible for a partial refund in the event
+					of a service disruption.</p>
+				<p>If you’d like to upgrade your subscription or modify your renewal settings, please visit <a
+						href="#">My Account</a>.</p>
+			</div>
+
+			<div class="contact-section">
+				<h3>How to get back to you</h3>
+				<p>Please enter the best email address to get back to you at.</p>
+				<label>Email address *</label>
+				<input type="email" placeholder="Enter your email" required>
+				<p>*Confirm who the Wi-Fi provider was for your flight on your Wi-Fi receipt. If provided by Panasonic,
+					Thales or Viasat, you can receive a refund through this form. Contact <a href="#">Inteleci</a> or <a
+						href="#">Gogo</a> directly if they provided the Wi-Fi.</p>
+				<button class="blue-button">Continue</button>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		About United | Products and Services | Popular Destinations | Careers | Important Notices
+	</div>
+	<div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
+	<div class="modal" id="addFlightModal">
+		<div class="modal-header">
+			<span>Add a flight</span>
+			<button onclick="closeModal()">&times;</button>
+		</div>
+		<div class="modal-content">
+			<div>
+				<label>Confirmation or ticket number</label> <br />
+				<input style="width: 200px; margin-top: 20px;" type="text" placeholder="">
+			</div>
+			<div>
+				<label>Last name of traveler</label> <br />
+				<input style="width: 200px;  margin-top: 20px;" type="text" placeholder="">
+			</div>
+		</div>
+		<br />
+
+		<!-- Dark Pattern: Manipulative Friction -->
+		<div class="form-group">
+			<div class="manipulative-container">
+				<label class="switch">
+					<input type="checkbox" id="aa-membership" name="membership">
+					<span class="slider round"></span>
+				</label>
+				<span class="manipulative-text" style="margin-left: 5px; font-size: 12px;">
+					I understand that <strong>by not selecting this option</strong>, I will <span class="highlight">miss
+						out</span> on exclusive paid priority access and may <span class="highlight">lose important
+						benefits</span>.
+				</span>
+
+			</div>
+
+
+			<div class="modal-footer">
+				<button class="blue-button">Add flight</button>
+				<button class="cancel-button" onclick="closeModal()">Cancel</button>
+			</div>
+		</div>
+
+
+		<script>
+			function openModal() {
+				document.getElementById("addFlightModal").style.display = "block";
+				document.getElementById("modalOverlay").style.display = "block";
+			}
+			function closeModal() {
+				document.getElementById("addFlightModal").style.display = "none";
+				document.getElementById("modalOverlay").style.display = "none";
+			}
+		</script>
+</body>
+
+</html>
