@@ -1,0 +1,448 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica', Arial, sans-serif;
+}
+
+body {
+    background-color: #f8f8f8;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Header styles */
+header {
+    background-color: #1a1a1a;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 100;
+}
+
+.logo {
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-item {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    position: relative;
+    font-weight: 600;
+}
+
+.nav-item::after {
+    content: "▼";
+    font-size: 10px;
+    margin-left: 5px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.nav-item.active {
+    color: #f5b042;
+}
+
+.right-nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.subscribe-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.search-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Diet results page styles */
+.diet-results-content {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.diet-results-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.results-title {
+    font-size: 48px;
+    color: #222;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.results-description {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+.rating-link {
+    color: #3a7d8c;
+    text-decoration: none;
+}
+
+.rating-link:hover {
+    text-decoration: underline;
+}
+
+.divider {
+    border: none;
+    height: 1px;
+    background-color: #ddd;
+    margin: 25px 0;
+}
+
+.preferences-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.preferences-title {
+    font-size: 20px;
+    color: #333;
+    margin-right: 15px;
+}
+
+.preference-tag {
+    display: inline-flex;
+    align-items: center;
+    background-color: #f0f7f9;
+    border: 1px solid #3a7d8c;
+    border-radius: 50px;
+    padding: 8px 15px;
+    color: #3a7d8c;
+    font-size: 16px;
+}
+
+.remove-tag {
+    margin-left: 8px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.send-results-section {
+    margin: 30px 0;
+}
+
+.send-results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.send-results-title {
+    font-size: 24px;
+    color: #3a7d8c;
+}
+
+.toggle-button {
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: #3a7d8c;
+    cursor: pointer;
+}
+
+.send-results-description {
+    font-size: 18px;
+    color: #333;
+    margin: 15px 0;
+    line-height: 1.5;
+}
+
+.results-email-form {
+    display: flex;
+    margin: 20px 0;
+}
+
+.results-email-input {
+    flex: 1;
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+}
+
+.results-email-input.error {
+    border-color: #e74c3c;
+    background-color: #fff6f6;
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.send-results-button {
+    background-color: #3a7d8c;
+    color: white;
+    border: none;
+    padding: 0 25px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.results-privacy {
+    font-size: 14px;
+    color: #666;
+}
+
+.privacy-link {
+    color: #3a7d8c;
+    text-decoration: underline;
+}
+
+/* Diet results list styles */
+.diet-results-list {
+    margin-top: 40px;
+}
+
+.diet-result-item {
+    background-color: white;
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.diet-result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.diet-name {
+    font-size: 24px;
+    color: #333;
+}
+
+.diet-rating {
+    display: flex;
+    align-items: center;
+}
+
+.star {
+    color: #f5b042;
+    font-size: 20px;
+    margin-right: 2px;
+}
+
+.star.half {
+    position: relative;
+    overflow: hidden;
+}
+
+.rating-text {
+    margin-left: 5px;
+    color: #666;
+}
+
+.diet-description {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.diet-benefits {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.benefit {
+    background-color: #f9f9f9;
+    padding: 10px 15px;
+    border-radius: 4px;
+}
+
+.benefit-title {
+    font-weight: bold;
+    color: #333;
+    margin-right: 5px;
+}
+
+.benefit-rating {
+    color: #3a7d8c;
+}
+
+.read-more-btn {
+    display: inline-block;
+    color: #3a7d8c;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.read-more-btn:hover {
+    text-decoration: underline;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 50px 20px 20px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.footer-section h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+    list-style: none;
+}
+
+.footer-section a {
+    color: #ccc;
+    transition: color 0.2s;
+}
+
+.footer-section a:hover {
+    color: white;
+}
+
+.copyright {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    color: #999;
+    padding-top: 20px;
+    border-top: 1px solid #444;
+    font-size: 14px;
+}
+
+/* Success Popup Styles */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.success-popup {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 400px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.success-icon {
+    font-size: 60px;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+.success-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.success-message {
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.success-note {
+    font-size: 14px;
+    color: #888;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    nav {
+        width: 100%;
+        justify-content: space-between;
+        overflow-x: auto;
+        font-size: 14px;
+    }
+    
+    .nav-item {
+        font-size: 14px;
+    }
+    
+    .results-title {
+        font-size: 32px;
+    }
+    
+    .results-email-form {
+        flex-direction: column;
+    }
+    
+    .results-email-input, 
+    .send-results-button {
+        width: 100%;
+    }
+    
+    .send-results-button {
+        margin-top: 10px;
+        padding: 15px;
+    }
+    
+    .diet-benefits {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+}

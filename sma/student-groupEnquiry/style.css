@@ -1,0 +1,140 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #f8f8f8;
+    background-image: url('download.jpeg'); ;
+}
+
+.logo img {
+    height: 40px; /* Adjust as needed */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.contact button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* ... (Rest of the CSS is the same as before) ... */
+h2 {
+    margin-bottom: 10px;
+}
+
+fieldset {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+legend {
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    flex: 1;
+    margin-right: 15px;
+}
+
+.form-group:last-child {
+    margin-right: 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+}
+
+input[type="text"], input[type="email"], input[type="tel"], input[type="date"], select, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.note {
+    font-size: 0.8em;
+    color: #888;
+    margin-top: 5px;
+}
+
+.length-stay, .budget {
+    display: flex;
+    flex-direction: column;
+}
+
+.length-stay select, .budget select {
+    width: auto;
+    margin-top: 5px;
+}
+
+.length-stay input, .budget input {
+    margin-right: 5px;
+}
+
+.budget-inputs {
+    display: flex;
+    align-items: center;
+}
+
+.budget-inputs input {
+    width: 45%;
+}
+
+.phone-input {
+    display: flex;
+    align-items: center;
+}
+
+.phone-input select {
+    width: auto;
+    margin-right: 5px;
+}

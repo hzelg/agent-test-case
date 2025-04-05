@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Enquiry Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="download.png" alt="Your Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">List Your Property</a></li>
+                <li><a href="#">Help</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Login</a></li>
+            </ul>
+        </nav>
+        <div class="contact">
+            <button>+44 20 3808 8144</button>
+        </div>
+    </header>
+
+    <div class="form-container">
+        <h2>Get in touch</h2>
+        <p>We are here to help with your accommodation requests, queries and partnership proposals.</p>
+
+        <form id="group-enquiry-form">
+            <fieldset>
+                <legend>Requirements for Booking</legend>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="group-size">Group Size</label>
+                        <select id="group-size" name="group-size">
+                            <option value="">Select group size</option>
+                            <option value="small">Small</option>
+                            <option value="medium">Medium</option>
+                            <option value="large">Large</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="precise-group-size">Precise Group Size (Optional)</label>
+                        <input type="text" id="precise-group-size" name="precise-group-size" placeholder="Input precise group size">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="destination-city">Destination City</label>
+                        <input type="text" id="destination-city" name="destination-city" placeholder="Search destination city">
+                    </div>
+                    <div class="form-group">
+                        <label for="destination-university">Destination University (Optional)</label>
+                        <input type="text" id="destination-university" name="destination-university" placeholder="Input destination university">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="interested-property">Interested Property</label>
+                        <input type="text" id="interested-property" name="interested-property" placeholder="Input Interested Property">
+                    </div>
+                    <div class="form-group">
+                        <label for="desired-movein-date">Desired Move-in Date</label>
+                        <input type="date" id="desired-movein-date" name="desired-movein-date">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="desired-moveout-date">Desired Move-out Date</label>
+                        <input type="date" id="desired-moveout-date" name="desired-moveout-date">
+                    </div>
+                    <div class="form-group length-stay">
+                        <label for="length-of-stay">Length of Stay</label>
+                        <input type="text" id="length-of-stay" name="length-of-stay" placeholder="e.g. 10">
+                        <select id="stay-unit" name="stay-unit">
+                            <option value="weeks">Weeks</option>
+                            <option value="days">Days</option>
+                        </select>
+                        <p class="note">Please note that we usually handle group bookings for 14 days and above.</p>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group budget">
+                        <label for="budget-per-person">Budget Per Person</label>
+                        <div class="budget-inputs">
+                            <input type="text" id="budget-min" name="budget-min" placeholder="e.g. 100">
+                            <span>-</span>
+                            <input type="text" id="budget-max" name="budget-max" placeholder="e.g. 300">
+                        </div>
+                        <select id="budget-unit" name="budget-unit">
+                            <option value="per-month">Per Month</option>
+                            <option value="per-week">Per Week</option>
+                        </select>
+                        <p class="note">Budget is required</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="other-info">Other Information (Optional)</label>
+                    <textarea id="other-info" name="other-info" placeholder="Please leave your comment here"></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Personal Information</legend>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Input your name" required>
+                        <p class="note">Name is required</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="Input email address" required>
+                        <p class="note">Email is required</p>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Phone Number (Optional)</label>
+                        <div class="phone-input">
+                            <select id="phone-country-code" name="phone-country-code">
+                                <option value="+1">+1</option>
+                                </select>
+                            <input type="tel" id="phone" name="phone" placeholder="Phone number">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company / University (Optional)</label>
+                        <input type="text" id="company" name="company" placeholder="Input company / university">
+                    </div>
+
+                                            <div class="form-group">
+                    <div class="manipulative-container">
+                        <span class="manipulative-text">
+                            I understand that <strong>by not selecting this option</strong>, I will <span class="highlight">miss out</span> on exclusive VIP deals and may <span class="highlight">lose important benefits</span>.
+                        </span>
+                        <label class="switch">
+                            <input type="checkbox" id="aa-membership" name="membership">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+                </div>
+            </fieldset>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <script src="log.js"></script>
+    <script>
+        const filename = window.location.pathname.split("/").pop().split(".")[0];
+        initLogger(`${filename}.json`);
+        document.addEventListener("DOMContentLoaded", function () {
+            const submitBtn = document.querySelector('button[type="submit"]');
+            submitBtn.addEventListener("click", function () {
+                alert("Task complete!");
+                downloadLog();
+            });
+        })
+    </script>
+</body>
+</html>
