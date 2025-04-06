@@ -162,12 +162,10 @@
 
         document.addEventListener("DOMContentLoaded", function () {
 
-            const viewDealButtons = document.getElementById("submit");
-            viewDealButtons.forEach(button => {
-                button.addEventListener("click", function () {
-                    alert("Task Complete");
-                    downloadLog();
-                });
+            const btn = document.getElementById("submit"); 
+            btn.addEventListener("click", function (event) {
+                alert("Task complete!");
+                downloadLog();
             });
 
             const link = document.getElementById("limited-click-link");

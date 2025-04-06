@@ -193,9 +193,10 @@ input:checked + .slider:before {
             document.getElementById("agent-name").textContent = name;
             document.getElementById("agent-agency").textContent = agency;
         }
-    
-        // Close modal when clicking the "X"
-        document.addEventListener('DOMContentLoaded', function () {
+
+        initLogger("dd.json"); 
+
+        document.addEventListener("DOMContentLoaded", function () {
             document.querySelector(".close").onclick = function () {
                 document.getElementById("contactModal").style.display = "none";
             }
@@ -207,11 +208,7 @@ input:checked + .slider:before {
                     modal.style.display = "none";
                 }
             }
-        });
 
-        initLogger("dd.json"); 
-
-        document.addEventListener("DOMContentLoaded", function () {
             const btn = document.getElementById("submit"); 
             btn.addEventListener("click", function (event) {
                 alert("Task complete!");
