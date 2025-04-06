@@ -113,7 +113,7 @@
 						<p class="advanced-search">Advanced search →</p>
 						<p class="link">Changed bag rules and fees for optional services</p>
 
-						<button type="submit" class="find-flights">Find flights</button>
+						<button type="submit" class="find-flights" id="submit">Find flights</button>
 						<button class="find-credits">Find your travel credits</button>
 					</form>
 				</div>
@@ -149,7 +149,7 @@
 	<script>
 		initLogger("sp.json");
 		document.addEventListener("DOMContentLoaded", function () {
-			const searchBtn = document.querySelector("#submit-btn");
+			const searchBtn = document.getElementById("submit");
 			searchBtn.addEventListener("click", function (event) {
 				alert("Task complete!");
 				downloadLog();
