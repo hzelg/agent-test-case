@@ -10,9 +10,32 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: #f8f8f8;
-    background-image: url('download.jpeg'); ;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('download.jpeg');
+    background-size: cover;
+    background-position: center;
+    color: white;
 }
+
+header a {
+    color: white !important;
+    text-decoration: none;
+}
+
+header a:hover {
+    text-decoration: underline !important;
+}
+
+header button {
+    color: white !important;
+    background-color: transparent !important;
+    border: 1px solid white !important;
+    cursor: pointer;
+}
+
+header button:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
 
 .logo img {
     height: 40px; /* Adjust as needed */
