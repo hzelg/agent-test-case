@@ -138,14 +138,15 @@
 	</nav>
 	<div class="container">
 		<div class="trip-details">
+			<form>
 			<div class="header">Find a trip</div>
 			<div class="input-group">
 				<label for="confirmation">Confirmation number <span style="color: blue;">&#9432;</span></label>
-				<input type="text" id="confirmation" placeholder="Enter confirmation number">
+				<input type="text" id="confirmation" placeholder="Enter confirmation number" required>
 			</div>
 			<div class="input-group">
 				<label for="lastName">Last name</label>
-				<input type="text" id="lastName" placeholder="Enter last name">
+				<input type="text" id="lastName" placeholder="Enter last name" required>
 			</div>
 			<div class="input-group">
 				<label for="creditscore">Credit Score</label>
@@ -154,7 +155,8 @@
 			<div class="info-text">
 				To add this trip to your account, <a href="#">Sign in</a>.
 			</div>
-			<button class="next-button submit-btn">Next</button>
+			<button class="next-button submit-btn" type="submit">Next</button>
+			</form>
 		</div>
 	</div>
 </body>

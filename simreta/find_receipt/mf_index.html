@@ -215,6 +215,7 @@
 		<div class="sub-header">To view your receipts and request a copy, please enter the requested information into
 			the fields below.</div>
 
+		<form>
 		<div class="purchase-details">
 			<strong>Purchase details</strong>
 			<div class="radio-group">
@@ -222,11 +223,11 @@
 				<label><input type="radio" id="ticket" name="searchBy" checked> Confirmation or eTicket number</label>
 			</div>
 			<label for="eticket">Confirmation or eTicket</label>
-			<input type="text" id="eticket" class="full-width" placeholder="Enter your eTicket number">
+			<input type="text" id="eticket" class="full-width" placeholder="Enter your eTicket number" required>
 
 			<div class="input-group">
-				<input type="text" id="firstName" placeholder="First name">
-				<input type="text" id="lastName" placeholder="Last name">
+				<input type="text" id="firstName" placeholder="First name" required>
+				<input type="text" id="lastName" placeholder="Last name" required>
 			</div>
 			<br />
 
@@ -237,13 +238,14 @@
 						benefits</span>.
 				</span>
 				<label class="switch">
-					<input type="checkbox" id="aa-membership" name="membership">
+					<input type="checkbox" id="united-membership" name="membership">
 					<span class="slider round"></span>
 				</label>
 			</div>
 
-			<button class="search-button">Search</button>
+			<button class="search-button" type="submit">Search</button>
 		</div>
+		</form>
 	</div>
 </body>
 <script>

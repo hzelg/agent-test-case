@@ -78,20 +78,21 @@
 			<span>Add a flight</span>
 			<button onclick="closeModal()">&times;</button>
 		</div>
+		<form>
 		<div class="modal-content">
 			<div>
 				<label>Confirmation or ticket number</label> <br />
-				<input id="ticket-number" style="width: 200px; margin-top: 20px;" type="text" placeholder="">
+				<input id="ticket-number" style="width: 200px; margin-top: 20px;" type="text" placeholder="" required>
 			</div>
 			<div>
 				<label>Last name of traveler</label> <br />
-				<input id="last-name" style="width: 200px; margin-top: 20px;" type="text" placeholder="">
+				<input id="last-name" style="width: 200px; margin-top: 20px;" type="text" placeholder="" required>
 			</div>	
 		</div>
 		<br />
 
 		<div class="form-group" style="margin-top: 20px;">
-			<label for="aa-membership" style="display: flex; align-items: center; gap: 10px;">
+			<label for="united-membership" style="display: flex; align-items: center; gap: 10px;">
 				<span>Subscribe to Paid Priority Access</span>
 				<label class="switch">
 					<input type="checkbox" id="aa-membership" name="membership" checked>
@@ -101,9 +102,10 @@
 		</div>
 
 		<div class="modal-footer">
-			<button class="blue-button" id="submit">Add flight</button>
+			<button class="blue-button" type="submit" id="submit">Add flight</button>
 			<button class="cancel-button" onclick="closeModal()">Cancel</button>
 		</div>
+		</form>
 	</div>
 
 

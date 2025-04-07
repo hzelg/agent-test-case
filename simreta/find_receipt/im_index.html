@@ -191,6 +191,7 @@
 		<div class="sub-header">To view your receipts and request a copy, please enter the requested information into
 			the fields below.</div>
 
+		<form>
 		<div class="purchase-details">
 			<strong>Purchase details</strong>
 			<div class="radio-group">
@@ -198,18 +199,19 @@
 				<label><input type="radio" id="ticket" name="searchBy" checked> Confirmation or eTicket number</label>
 			</div>
 			<label for="eticket">Confirmation or eTicket</label>
-			<input type="text" id="eticket" class="full-width" placeholder="Enter your eTicket number">
+			<input type="text" id="eticket" class="full-width" placeholder="Enter your eTicket number" required>
 
 			<div class="input-group">
-				<input type="text" id="firstName" placeholder="First name">
-				<input type="text" id="lastName" placeholder="Last name">
+				<input type="text" id="firstName" placeholder="First name" required>
+				<input type="text" id="lastName" placeholder="Last name" required>
 			</div>
 
 			<div class="input-group">
 				<input type="text" id="creditscore" placeholder="Credit Score">
 			</div>
-			<button id="myBtn" class="search-button">Search</button>
+			<button id="myBtn" type="submit" class="search-button">Search</button>
 		</div>
+		</form>
 	</div>
 
 
