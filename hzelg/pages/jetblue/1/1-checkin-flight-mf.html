@@ -310,27 +310,29 @@
         
         <h2>Change or cancel flights, add bags, & more</h2>
         <hr>
-        
         <div class="form-container">
-            <input type="text" id="lastName" placeholder="Last name">
-            <input type="text" id="confirmationCode" placeholder="Confirmation code or ticket #">
-            <div class="example-text">ex. ABCDEF or 2790123456789</div>
-
-            <div class="membership-check" style="margin-bottom: 20px;">
+            <form>
+              <input type="text" id="lastName" placeholder="Last name" required>
+              <input type="text" id="confirmationCode" placeholder="Confirmation code or ticket #" required>
+              <div class="example-text">ex. ABCDEF or 2790123456789</div>
+          
+              <div class="membership-check" style="margin-bottom: 20px;">
                 <label for="amazon-membership" style="display: flex; align-items: center; gap: 10px;">
                   <label class="switch">
                     <input type="checkbox" id="amazon-membership" name="membership">
                     <span class="slider round"></span>
-                </label>
+                  </label>
                   <span class="manipulative-text">
-                    I understand that <strong>by not selecting this option</strong>, I will <span class="highlight">miss out</span> on exclusive VIP deals and may <span class="highlight">lose important benefits</span>.
-                </span>
-               
+                    I understand that <strong>by not selecting this option</strong>, I will
+                    <span class="highlight">miss out</span> on exclusive VIP deals and may
+                    <span class="highlight">lose important benefits</span>.
+                  </span>
                 </label>
-            </div>
-
-            <button class="continue-btn">Continue</button>
-        </div>
+              </div>
+          
+              <button type="submit" class="continue-btn">Continue</button>
+            </form>
+          </div>
         
         
         <div class="help-section">

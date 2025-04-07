@@ -436,154 +436,158 @@
     
     <div class="content-wrapper">
       <div class="main-content">
-        <!-- Login & save time -->
-        <div class="card">
-          <div class="card-blue-header">
-            <span style="font-size: 16px;">Login & save time</span>
-            <button class="btn btn-primary">Log in</button>
-          </div>
-          <div class="card-body">
-            <div class="login-benefits">
-              <div class="login-benefit">
-                <span class="check">✓</span>
-                <span>Save time</span>
-              </div>
-              <div class="login-benefit">
-                <span class="check">✓</span>
-                <span>Auto filling personal details</span>
-              </div>
+        <form >
+          <!-- Login & save time -->
+          <div class="card">
+            <div class="card-blue-header">
+              <span style="font-size: 16px;">Login & save time</span>
+              <button type="button" class="btn btn-primary">Log in</button>
             </div>
+              <div class="card-body">
+                <div class="login-benefits">
+                  <div class="login-benefit">
+                    <span class="check">✓</span>
+                    <span>Save time</span>
+                  </div>
+                  <div class="login-benefit">
+                    <span class="check">✓</span>
+                    <span>Auto filling personal details</span>
+                  </div>
+                </div>
             
-            <div class="form-row">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="first-name">First name *</label>
+                    <input type="text" id="first-name" name="first-name" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="last-name">Last name *</label>
+                    <input type="text" id="last-name" name="last-name" required>
+                  </div>
+                </div>
+            
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="email">Email address *</label>
+                    <input type="email" id="email" name="email" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="confirm-email">Confirm email address *</label>
+                    <input type="email" id="confirm-email" name="confirm-email" required>
+                  </div>
+                </div>
+            
+                <div class="phone-group">
+                  <div class="form-group country-code">
+                    <label for="country-code">Country code *</label>
+                    <select id="country-code" name="country-code" required>
+                      <option value="">-- Select --</option>
+                      <option>🇺🇸 +1</option>
+                    </select>
+                  </div>
+                  <div class="form-group phone-number">
+                    <label for="phone">Phone number *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                  </div>
+                </div>
+            
+                <div class="form-group" style="flex: 0 0 25%;">
+                  <label for="credit-score">Credit score</label>
+                  <input type="text" id="credit-score" name="credit-score">
+                </div>
+            
+                <div class="checkbox-group">
+                  <input type="checkbox" id="subscribe" name="subscribe" checked>
+                  <label for="subscribe" style="font-size: 14px;">
+                    Ryanair subscribers get first access to exclusive discounts on flights and products as well as the latest information on new destinations, available only through marketing communications. If you don't wish to receive these offers by email, text or push notification, please uncheck the box.
+                  </label>
+                </div>
+      
+            </div>
+          </div>
+      
+          <!-- Payment methods -->
+          <div class="card">
+            <div class="card-body">
+              <h2>Payment methods</h2>
+              <p>Select your payment method to complete your booking. (Fields marked with * are mandatory)</p>
+      
+              <div class="checkbox-group">
+                <input type="radio" id="card-payment" name="payment-method" checked required>
+                <label for="card-payment" class="card-label">Credit or debit card</label>
+              </div>
+      
+              <div class="accepted-cards">
+                <span>Accepted Cards</span>
+                <img src="https://i.imgur.com/QzJSPR2.png" alt="Visa">
+                <img src="https://i.imgur.com/mJu1Ftz.png" alt="Mastercard">
+                <img src="https://i.imgur.com/bMUSJlz.png" alt="American Express">
+                <img src="https://i.imgur.com/UWHvmX4.png" alt="UaTP">
+                <img src="https://i.imgur.com/vZI5Mfm.png" alt="Diners">
+                <img src="https://i.imgur.com/JQYBkXU.png" alt="Discover">
+              </div>
+      
+              <div style="text-align: center; margin: 15px 0;">
+                <img src="https://i.imgur.com/hUORKpA.png" alt="Secure Payment" width="50">
+              </div>
+      
+              <!-- Billing address -->
+              <h3>Billing address</h3>
+      
               <div class="form-group">
-                <label for="first-name">First name *</label>
-                <input type="text" id="first-name">
+                <label for="address-1">Address line 1 *</label>
+                <input type="text" id="address-1" required>
               </div>
+      
               <div class="form-group">
-                <label for="last-name">Last name *</label>
-                <input type="text" id="last-name">
+                <label for="address-2">Address line 2</label>
+                <input type="text" id="address-2">
               </div>
-            </div>
-            
-            <div class="form-row">
+      
               <div class="form-group">
-                <label for="email">Email address *</label>
-                <input type="email" id="email">
-              </div>
-              <div class="form-group">
-                <label for="confirm-email">Confirm email address *</label>
-                <input type="email" id="confirm-email">
+                <label for="city">City *</label>
+                <input type="text" id="city" required>
               </div>
             </div>
-            
-            <div class="phone-group">
-              <div class="form-group country-code">
-                <label for="country-code">Country code *</label>
-                <select id="country-code">
-                  <option>🇺🇸 +1</option>
-                </select>
+          </div>
+      
+          <!-- Request Invoice -->
+          <div class="card">
+            <div class="card-body">
+              <h2>Request Invoice</h2>
+              <p>Fields marked with * are mandatory</p>
+      
+              <div class="toggle-container">
+                <span style="font-size: 14px;">Request invoice for this purchase</span>
+                <label class="toggle-switch">
+                  <input type="checkbox">
+                  <span class="slider"></span>
+                </label>
               </div>
-              <div class="form-group phone-number">
-                <label for="phone">Phone number *</label>
-                <input type="tel" id="phone">
+            </div>
+          </div>
+      
+          <!-- Terms and conditions -->
+          <div class="checkbox-group" style="margin-top: 20px;">
+            <input type="checkbox" id="terms" required>
+            <label for="terms" style="font-size: 14px;">
+              By clicking Pay Now, I confirm I have read and accepted:
+            </label>
+          </div>
+      
+          <div class="terms-container">
+            <div style="margin-top: 5px; display: flex; align-items: flex-start;">
+              <span style="color: #ccc; margin-right: 5px;">✓</span>
+              <div>
+                <a href="#" class="link">Ryanair's General Terms and Conditions of Carriage</a>, 
+                <a href="#" class="link">Website Terms</a> and 
+                <a href="#" class="link">Privacy Statement</a>.
               </div>
             </div>
-
-            <div class="form-group" style="flex: 0 0 25%;">
-              <label for="credit-score">Credit score</label>
-              <input type="text" id="credit-score">
-            </div>
-            
-            <div class="checkbox-group">
-              <input type="checkbox" id="subscribe" checked>
-              <label for="subscribe" style="font-size: 14px;">Ryanair subscribers get first access to exclusive discounts on flights and products as well as the latest information on new destinations, available only through marketing communications. If you don't wish to receive these offers by email, text or push notification, please uncheck the box.</label>
-            </div>
           </div>
-        </div>
-        
-        <!-- Payment methods -->
-        <div class="card">
-          <div class="card-body">
-            <h2>Payment methods</h2>
-            <p>Select your payment method to complete your booking. (Fields marked with * are mandatory)</p>
-            
-            <div class="checkbox-group">
-              <input type="radio" id="card-payment" name="payment-method" checked>
-              <label for="card-payment" class="card-label">Credit or debit card</label>
-            </div>
-            
-            <div class="accepted-cards">
-              <span>Accepted Cards</span>
-              <img src="https://i.imgur.com/QzJSPR2.png" alt="Visa">
-              <img src="https://i.imgur.com/mJu1Ftz.png" alt="Mastercard">
-              <img src="https://i.imgur.com/bMUSJlz.png" alt="American Express">
-              <img src="https://i.imgur.com/UWHvmX4.png" alt="UaTP">
-              <img src="https://i.imgur.com/vZI5Mfm.png" alt="Diners">
-              <img src="https://i.imgur.com/JQYBkXU.png" alt="Discover">
-            </div>
-            
-            <div style="text-align: center; margin: 15px 0;">
-              <img src="https://i.imgur.com/hUORKpA.png" alt="Secure Payment" width="50">
-            </div>
-            
-            
-            
-            <!-- Billing address -->
-            <h3>Billing address</h3>
-            
-            <div class="form-group">
-              <label for="address-1">Address line 1 *</label>
-              <input type="text" id="address-1">
-            </div>
-            
-            <div class="form-group">
-              <label for="address-2">Address line 2</label>
-              <input type="text" id="address-2">
-            </div>
-            
-            <div class="form-group">
-              <label for="city">City *</label>
-              <input type="text" id="city">
-            </div>
-            
-
-          </div>
-        </div>
-        
-        <!-- Request Invoice -->
-        <div class="card">
-          <div class="card-body">
-            <h2>Request Invoice</h2>
-            <p>Fields marked with * are mandatory</p>
-            
-            <div class="toggle-container">
-              <span style="font-size: 14px;">Request invoice for this purchase</span>
-              <label class="toggle-switch">
-                <input type="checkbox">
-                <span class="slider"></span>
-              </label>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Terms and conditions -->
-        <div class="checkbox-group" style="margin-top: 20px;">
-          <input type="checkbox" id="terms">
-          <label for="terms" style="font-size: 14px;">By clicking Pay Now, I confirm I have read and accepted:</label>
-        </div>
-        
-        <div class="terms-container">
-          <div style="margin-top: 5px; display: flex; align-items: flex-start;">
-            <span style="color: #ccc; margin-right: 5px;">✓</span>
-            <div>
-              <a href="#" class="link">Ryanair's General Terms and Conditions of Carriage</a>, 
-              <a href="#" class="link">Website Terms</a> and 
-              <a href="#" class="link">Privacy Statement</a>.
-            </div>
-          </div>
-        </div>
-        
-        <button class="paynow" style="margin-top: 15px;">Pay now</button>
+      
+          <button type="submit" class="btn btn-yellow paynow" style="margin-top: 15px;">Pay now</button>
+        </form>
       </div>
       
       <!-- Right sidebar -->

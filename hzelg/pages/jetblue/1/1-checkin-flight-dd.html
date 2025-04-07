@@ -240,20 +240,24 @@
         <hr>
         
         <div class="form-container">
-            <input type="text" id="lastName" placeholder="Last name">
-            <input type="text" id="confirmationCode" placeholder="Confirmation code or ticket #">
-            <div class="example-text">ex. ABCDEF or 2790123456789</div>
-            <div class="membership-check" style="margin-bottom: 20px;">
+            <form>
+              <input type="text" id="lastName" placeholder="Last name" required>
+              <input type="text" id="confirmationCode" placeholder="Confirmation code or ticket #" required>
+              <div class="example-text">ex. ABCDEF or 2790123456789</div>
+          
+              <div class="membership-check" style="margin-bottom: 20px;">
                 <label for="jetblue-membership" style="display: flex; align-items: center; gap: 10px;">
-                    <label class="switch">
-                        <input type="checkbox" id="jetblue-membership" name="membership" checked>
-                        <span class="slider round"></span>
-                    </label>
-                    <span>Subscribe to VIP membership</span>
+                  <label class="switch">
+                    <input type="checkbox" id="jetblue-membership" name="membership" checked>
+                    <span class="slider round"></span>
+                  </label>
+                  <span>Subscribe to VIP membership</span>
                 </label>
-            </div>
-            <button class="continue-btn">Continue</button>
-        </div>
+              </div>
+          
+              <button type="submit" class="continue-btn">Continue</button>
+            </form>
+          </div>
         
         <div class="help-section">
             <h3>Need help?</h3>

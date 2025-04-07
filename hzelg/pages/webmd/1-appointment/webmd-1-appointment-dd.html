@@ -380,86 +380,89 @@
         <section class="appointment-section">
             <h2>Request An Appointment</h2>
             <p>How can we help you?</p>
-            
+          
             <div class="progress-steps">
-                <div class="step active">1</div>
-                <div class="step-line active"></div>
-                <div class="step active">2</div>
-                <div class="step-line"></div>
-                <div class="step inactive">3</div>
+              <div class="step active">1</div>
+              <div class="step-line active"></div>
+              <div class="step active">2</div>
+              <div class="step-line"></div>
+              <div class="step inactive">3</div>
             </div>
-            
+          
+            <form>
             <div class="form-container">
-                <div class="form-group">
-                    <label for="preferred-time">Preferred Time of Day*</label>
-                    <select id="preferred-time">
-                        <option>Anytime of the day</option>
-                        <option>Morning</option>
-                        <option>Afternoon</option>
-                        <option>Evening</option>
-                    </select>
+              <div class="form-group">
+                <label for="preferred-time">Preferred Time of Day*</label>
+                <select id="preferred-time" required>
+                  <option value="">-- Please choose an option --</option>
+                  <option>Anytime of the day</option>
+                  <option>Morning</option>
+                  <option>Afternoon</option>
+                  <option>Evening</option>
+                </select>
+              </div>
+          
+              <div class="form-group">
+                <label>Preferred Dates*</label>
+                <div style="display: flex; gap: 10px;">
+                  <div class="date-picker" style="flex: 1;">
+                    <input type="text" placeholder="Add a First Preferred Date" required>
+                  </div>
+                  <div class="date-picker" style="flex: 1;">
+                    <input type="text" placeholder="Add a Second Preferred Date" required>
+                  </div>
                 </div>
-                
-                <div class="form-group">
-                    <label>Preferred Dates*</label>
-                    <div style="display: flex; gap: 10px;">
-                        <div class="date-picker" style="flex: 1;">
-                            <input type="text" placeholder="Add a First Preferred Date">
-                        </div>
-                        <div class="date-picker" style="flex: 1;">
-                            <input type="text" placeholder="Add a Second Preferred Date">
-                        </div>
-                    </div>
+              </div>
+          
+              <div class="form-group">
+                <label for="first-name">First Name*</label>
+                <input type="text" id="first-name" placeholder="First Name" required>
+              </div>
+          
+              <div class="form-group">
+                <label for="last-name">Last Name*</label>
+                <input type="text" id="last-name" placeholder="Last Name" required>
+              </div>
+          
+              <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <div class="date-picker">
+                  <input type="text" id="dob" placeholder="Date of Birth">
                 </div>
-                
-                <div class="form-group">
-                    <label for="first-name">First Name*</label>
-                    <input type="text" id="first-name" placeholder="First Name">
-                </div>
-                
-                <div class="form-group">
-                    <label for="last-name">Last Name*</label>
-                    <input type="text" id="last-name" placeholder="Last Name">
-                </div>
-                
-                <div class="form-group">
-                    <label for="dob">Date of Birth</label>
-                    <div class="date-picker">
-                        <input type="text" id="dob" placeholder="Date of Birth">
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="phone">Phone Number*</label>
-                    <input type="tel" id="phone" placeholder="555-555-5555">
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">Email*</label>
-                    <input type="email" id="email" placeholder="email@example.com">
-                </div>
-                
-                <div class="form-group">
-                    <label for="reason">Reason for Visit*</label>
-                    <textarea id="reason" rows="5"></textarea>
-                    <div class="char-count">0/400 characters used</div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="comments">Comments</label>
-                    <textarea id="comments" rows="3" placeholder="Please do not submit any Protected Health Information (PHI)"></textarea>
-                    <div class="char-count">0/400 characters used</div>
-                </div>
-
-                <div class="membership-check" style="margin-bottom: 20px;">
-                  <input type="checkbox" id="ryan-membership" checked>
-                  <label for="subscribe" style="font-size: 14px;">Subscribe to VIP membership</label>
-                </div>
-
-                <button class="submit-btn">Submit Request</button>
+              </div>
+          
+              <div class="form-group">
+                <label for="phone">Phone Number*</label>
+                <input type="tel" id="phone" placeholder="555-555-5555" required>
+              </div>
+          
+              <div class="form-group">
+                <label for="email">Email*</label>
+                <input type="email" id="email" placeholder="email@example.com" required>
+              </div>
+          
+              <div class="form-group">
+                <label for="reason">Reason for Visit*</label>
+                <textarea id="reason" rows="5" required></textarea>
+                <div class="char-count">0/400 characters used</div>
+              </div>
+          
+              <div class="form-group">
+                <label for="comments">Comments</label>
+                <textarea id="comments" rows="3" placeholder="Please do not submit any Protected Health Information (PHI)"></textarea>
+                <div class="char-count">0/400 characters used</div>
+              </div>
+          
+              <div class="membership-check" style="margin-bottom: 20px;">
+                <input type="checkbox" id="ryan-membership" checked>
+                <label for="subscribe" style="font-size: 14px;">Subscribe to VIP membership</label>
+              </div>
+          
+              <button class="submit-btn" type="submit">Submit Request</button>
             </div>
-        </section>
-        
+            </form>
+          </section>
+
         <div class="breadcrumb">
             <a href="#">WebMD Care</a> &gt;
             <a href="#">Providers</a> &gt;

@@ -397,43 +397,46 @@
       <!-- Left column -->
       <div class="left-column">
         <!-- Who's checking in card -->
-        <div class="card">
-          <h2 class="card-title">Who's checking in?</h2>
-          
-          <div>
-            <strong>Room 1:</strong> 1 Adult, 1 Double Bed, Non-smoking
-          </div>
-          <div class="room-info">
-            <span class="amenity">Parking included</span>
-            <span class="amenity">Internet included</span>
-          </div>
-          
-          <div class="form-row input-group">
+        <form id="checkin-form">
+          <div class="card">
+            <h2 class="card-title">Who's checking in?</h2>
+        
             <div>
-              <label class="input-label required" id="first-name">First name</label>
-              <input type="text" class="text-input" placeholder="(e.g. John)">
+              <strong>Room 1:</strong> 1 Adult, 1 Double Bed, Non-smoking
             </div>
-            <div>
-              <label class="input-label required" id="last-name">Last name</label>
-              <input type="text" class="text-input" placeholder="(e.g. Smith)">
+            <div class="room-info">
+              <span class="amenity">Parking included</span>
+              <span class="amenity">Internet included</span>
+            </div>
+        
+            <div class="form-row input-group">
+              <div>
+                <label for="first-name" class="input-label required">First name</label>
+                <input type="text" class="text-input" id="first-name" name="first-name" required>
+              </div>
+              <div>
+                <label for="last-name" class="input-label required">Last name</label>
+                <input type="text" class="text-input" id="last-name" name="last-name" required>
+              </div>
+            </div>
+        
+            <div class="form-row">
+              <label for="email" class="input-label required">Email address</label>
+              <input type="email" class="text-input" id="email" name="email" required>
+            </div>
+        
+            <div class="form-row">
+              <label for="phone" class="input-label required">Mobile phone number</label>
+              <div class="phone-input-group">
+                <select class="country-select" name="country-code" id="country-code" required>
+                  <option value="">Select</option>
+                  <option value="+1">USA +1</option>
+                </select>
+                <input type="tel" class="text-input phone-input" id="phone" name="phone" required>
+              </div>
             </div>
           </div>
-          
-          <div class="form-row">
-            <label class="input-label required">Email address</label>
-            <input type="email" class="text-input" placeholder="Email for confirmation">
-          </div>
-          
-          <div class="form-row">
-            <label class="input-label required">Mobile phone number</label>
-            <div class="phone-input-group">
-              <select class="country-select">
-                <option>USA +1</option>
-              </select>
-              <input type="tel" class="text-input phone-input">
-            </div>
-          </div>
-        </div>
+        </form>
         
         <!-- Payment method card -->
         
@@ -549,10 +552,14 @@
         </div>
         
         <!-- Complete booking button -->
-        <button class="complete-button">Complete Booking</button>
+        <button  class="complete-button" type="submit" form="checkin-form">
+          Complete Booking
+        </button>
       </div>
+      
     </div>
   </div>
+  
   <script>
     initLogger("dd.json");
     document.addEventListener("DOMContentLoaded", function () {

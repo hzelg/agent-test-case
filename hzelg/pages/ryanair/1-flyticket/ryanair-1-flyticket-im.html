@@ -622,21 +622,22 @@
     Pay in 4 interest-free payments of €20.03. <a href="#">Learn more</a>
   </div>
 
-  <!-- Passengers section -->
-  <div class="passengers-section">
+ <!-- Passengers section -->
+<div class="passengers-section">
+  <form>
     <h3>Passengers</h3>
     <p>Please enter names as they appear on passport or travel documentation</p>
-    
+
     <div class="passenger-form">
       <div class="passenger-header">
         <h4>Passenger 1</h4>
         <span class="passenger-type">Adult</span>
       </div>
-      
+
       <div class="form-row">
         <div class="form-group" style="flex: 0 0 15%;">
           <label for="title">Title</label>
-          <select id="title">
+          <select id="title" required>
             <option value="">-</option>
             <option value="mr">Mr</option>
             <option value="mrs">Mrs</option>
@@ -645,27 +646,28 @@
         </div>
         <div class="form-group" style="flex: 0 0 25%;">
           <label for="first-name">First name</label>
-          <input type="text" id="first-name" placeholder="Enter first name">
+          <input type="text" id="first-name" placeholder="Enter first name" required>
         </div>
         <div class="form-group" style="flex: 0 0 25%;">
           <label for="last-name">Last name</label>
-          <input type="text" id="last-name" placeholder="Enter last name">
+          <input type="text" id="last-name" placeholder="Enter last name" required>
         </div>
         <div class="form-group" style="flex: 0 0 25%;">
           <label for="credit-score">Credit score</label>
-          <input type="text" id="credit-score" placeholder="Enter your crediit score">
+          <input type="number" id="credit-score" placeholder="Enter your credit score" min="300" max="850">
         </div>
       </div>
-      
+
       <div class="assistance-check">
         <input type="checkbox" id="special-assistance">
         <span class="accessibility-icon">♿</span>
         <label for="special-assistance">Need special assistance?</label>
       </div>
     </div>
-    
-    <button class="continue-btn">Continue</button>
-  </div>
+
+    <button type="submit" class="continue-btn">Continue</button>
+  </form>
+</div>
 
   <div id="privacy-modal" class="modal" role="dialog" aria-modal="true">
     <div class="modal-content">

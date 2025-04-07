@@ -329,154 +329,156 @@
                 REAL ID compliant identification required for travel beginning May 7, 2025
             </div>
             
-            <div class="form-group">
-                <div class="dropdown-section">
-                    <h3>Traveler 1   Adult</h3>
-                </div>
-                
-                <h2 class="section-title">Personal Information</h2>
-                
-                <div class="form-group">
+            <div class="form-container">
+                <form>
+                  <div class="dropdown-section">
+                    <h3>Traveler 1 Adult</h3>
+                  </div>
+              
+                  <h2 class="section-title">Personal Information</h2>
+              
+                  <div class="form-group">
                     <label class="form-label">Full name</label>
                     <div class="name-grid">
-                        <div>
-                            <select class="form-select">
-                                <option>Title</option>
-                                <option>Mr.</option>
-                                <option>Mrs.</option>
-                                <option>Ms.</option>
-                                <option>Dr.</option>
-                            </select>
-                        </div>
-                        <div>
-                            <input type="text" class="form-input" placeholder="First Name">
-                        </div>
+                      <div>
+                        <select class="form-select" required>
+                          <option value="">Title</option>
+                          <option>Mr.</option>
+                          <option>Mrs.</option>
+                          <option>Ms.</option>
+                          <option>Dr.</option>
+                        </select>
+                      </div>
+                      <div>
+                        <input type="text" class="form-input" placeholder="First Name" required>
+                      </div>
                     </div>
-                    
+              
                     <input type="text" class="form-input" placeholder="Middle (optional)" style="margin-bottom: 15px;">
-                    <input type="text" class="form-input" placeholder="Last Name">
-                    
+                    <input type="text" class="form-input" placeholder="Last Name" required>
+              
                     <div style="margin-top: 15px;">
-                        <a href="#" class="add-link">Add suffix like Jr. or Sr.</a>
+                      <a href="#" class="add-link">Add suffix like Jr. or Sr.</a>
                     </div>
-                </div>
-                
-                <div class="form-group">
-                    <input type="email" class="form-input" placeholder="Email address">
-                </div>
-                
-                <div class="form-group">
-                    <select class="form-select">
-                        <option>Gender</option>
-                        <option>Male</option>
-                        <option>Female</option>
-                        <option>Non-binary</option>
-                        <option>Prefer not to say</option>
+                  </div>
+              
+                  <div class="form-group">
+                    <input type="email" class="form-input" placeholder="Email address" required>
+                  </div>
+              
+                  <div class="form-group">
+                    <select class="form-select" required>
+                      <option value="">Gender</option>
+                      <option>Male</option>
+                      <option>Female</option>
+                      <option>Non-binary</option>
+                      <option>Prefer not to say</option>
                     </select>
                     <span class="info-icon">?</span>
-                </div>
-                
-                <div class="form-group">
+                  </div>
+              
+                  <div class="form-group">
                     <label class="form-label">Date of Birth</label>
                     <div class="dob-grid">
-                        <select class="form-select">
-                            <option>Month</option>
-                            <option>January</option>
-                            <option>February</option>
-                            <option>March</option>
-                            <option>April</option>
-                            <option>May</option>
-                            <option>June</option>
-                            <option>July</option>
-                            <option>August</option>
-                            <option>September</option>
-                            <option>October</option>
-                            <option>November</option>
-                            <option>December</option>
-                        </select>
-                        <select class="form-select">
-                            <option>Day</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <!-- More days -->
-                            <option>31</option>
-                        </select>
-                        <select class="form-select">
-                            <option>Year</option>
-                            <option>2005</option>
-                            <option>2004</option>
-                            <!-- More years -->
-                            <option>1950</option>
-                        </select>
+                      <select class="form-select" required>
+                        <option value="">Month</option>
+                        <option>January</option>
+                        <option>February</option>
+                        <option>March</option>
+                        <option>April</option>
+                        <option>May</option>
+                        <option>June</option>
+                        <option>July</option>
+                        <option>August</option>
+                        <option>September</option>
+                        <option>October</option>
+                        <option>November</option>
+                        <option>December</option>
+                      </select>
+                      <select class="form-select" required>
+                        <option value="">Day</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <!-- More days -->
+                        <option>31</option>
+                      </select>
+                      <select class="form-select" required>
+                        <option value="">Year</option>
+                        <option>2005</option>
+                        <option>2004</option>
+                        <!-- More years -->
+                        <option>1950</option>
+                      </select>
                     </div>
                     <span class="info-icon">?</span>
-                </div>
-                
-                <h2 class="section-title">Contact Info</h2>
-                
-                <div class="form-group">
-                    <input type="text" class="form-input" placeholder="Start typing your address">
+                  </div>
+              
+                  <h2 class="section-title">Contact Info</h2>
+              
+                  <div class="form-group">
+                    <input type="text" class="form-input" placeholder="Start typing your address" required>
                     <a href="#" class="link" style="display: block; margin-top: 10px;">Enter address manually</a>
-                </div>
-                
-                <div class="form-row">
+                  </div>
+              
+                  <div class="form-row">
                     <div>
-                        <select class="form-select">
-                            <option>Country</option>
-                            <option selected>US</option>
-                            <option>Canada</option>
-                            <!-- More countries -->
-                        </select>
+                      <select class="form-select" required>
+                        <option value="">Country</option>
+                        <option selected>US</option>
+                        <option>Canada</option>
+                        <!-- More countries -->
+                      </select>
                     </div>
                     <div>
-                        <input type="tel" class="form-input" placeholder="Phone number">
+                      <input type="tel" class="form-input" placeholder="Phone number" required>
                     </div>
-                </div>
-                
-                <p class="helper-text">
+                  </div>
+              
+                  <p class="helper-text">
                     No worries. Your info will only be used if we need to send you updates about your flight. Data rates may apply.
-                </p>
-
-                <div class="membership-check" style="margin-bottom: 20px;">
+                  </p>
+              
+                  <div class="membership-check" style="margin-bottom: 20px;">
                     <label for="jetblue-membership" style="display: flex; align-items: center; gap: 10px;">
-                        <label class="switch">
-                            <input type="checkbox" id="jetblue-membership" name="membership" checked>
-                            <span class="slider round"></span>
-                        </label>
-                        <span>Subscribe to VIP membership</span>
+                      <label class="switch">
+                        <input type="checkbox" id="jetblue-membership" name="membership" checked>
+                        <span class="slider round"></span>
+                      </label>
+                      <span>Subscribe to VIP membership</span>
                     </label>
-                </div>
-                
-                <div>
+                  </div>
+              
+                  <div>
                     <a href="#" class="add-link">Add a home phone number (optional)</a>
-                </div>
-                
-                <h2 class="section-title">Additional Information</h2>
-                
-                <div>
+                  </div>
+              
+                  <h2 class="section-title">Additional Information</h2>
+              
+                  <div>
                     <a href="#" class="add-link">I have a frequent flyer number</a>
-                </div>
-                
-                <div>
+                  </div>
+              
+                  <div>
                     <a href="#" class="add-link">I have a known traveler number and/or redress number</a>
-                </div>
-                
-                <div>
+                  </div>
+              
+                  <div>
                     <a href="#" class="add-link">I require wheelchair assistance</a>
-                </div>
-                
-                <div>
+                  </div>
+              
+                  <div>
                     <a href="#" class="add-link">Add a special service request</a>
-                </div>
-                
-                <div style="margin-top: 30px; margin-bottom: 30px;">
-                    <a href="#" class="button" id="continue">Next: Seats & Extras</a>
-                </div>
-                
-                <div class="dropdown-section">
+                  </div>
+              
+                  <div style="margin-top: 30px; margin-bottom: 30px;">
+                    <button type="submit" class="button" id="continue">Next: Seats & Extras</button>
+                  </div>
+              
+                  <div class="dropdown-section">
                     <div class="expandable">Emergency Contact (optional)</div>
-                </div>
-            </div>
+                  </div>
+                </form>
+              </div>
         </div>
         
         <div class="price-summary">

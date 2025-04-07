@@ -259,30 +259,32 @@
         <div class="form-container">
             <h3 class="form-title">Receive news and updates about jobs at Amazon.</h3>
             
-            <div class="form-row">
-                <div class="form-group">
+            <form>
+                <div class="form-row">
+                  <div class="form-group">
                     <label for="email" class="form-label required">Email or phone number</label>
-                    <input type="text" id="email" class="form-input">
-                </div>
-                <div class="form-group">
+                    <input type="text" id="email" class="form-input" required>
+                  </div>
+                  <div class="form-group">
                     <label for="zipcode" class="form-label required">Zipcode</label>
-                    <input type="text" id="zipcode" class="form-input">
+                    <input type="text" id="zipcode" class="form-input" required pattern="\d{5}" title="Please enter a valid 5-digit zipcode.">
+                  </div>
                 </div>
-                
-            </div>
-            <div class="membership-check" style="margin-bottom: 20px;">
-                <label for="amazon-membership" style="display: flex; align-items: center; gap: 10px;">
+              
+                <div class="membership-check" style="margin-bottom: 20px;">
+                  <label for="amazon-membership" style="display: flex; align-items: center; gap: 10px;">
                     <label class="switch">
-                        <input type="checkbox" id="amazon-membership" name="membership" checked>
-                        <span class="slider round"></span>
+                      <input type="checkbox" id="amazon-membership" name="membership" checked>
+                      <span class="slider round"></span>
                     </label>
                     <span>Subscribe to Prime membership</span>
-                </label>
-            </div>
-
-            <div style="text-align: right;">
-                <button class="btn-primary">Sign up for job alerts</button>
-            </div>
+                  </label>
+                </div>
+              
+                <div style="text-align: right;">
+                  <button type="submit" class="btn-primary">Sign up for job alerts</button>
+                </div>
+              </form>
 
             <p class="privacy-text">
                 By signing up to job alerts, you agree to the <a href="#" class="privacy-link">Privacy Policy</a>. By participating, you agree to the <a href="#" class="privacy-link">SMS terms and privacy policy</a> for recurring autodialed marketing messages from Amazon, to the phone number you provide. No consent required to buy. Message and data rates may apply.
