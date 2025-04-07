@@ -178,17 +178,19 @@
       </h2>
       <h2 class="booking-subtitle">Or E-ticket number</h2>
 
+      <form>
       <div class="form-group">
         <div class="input-container">
           <input
             type="text"
             id="bookReference"
             placeholder="Booking reference (PNR) Or E-ticket number"
+            required
           />
           <div class="help-icon">?</div>
         </div>
         <div class="input-container">
-          <input type="text" id="lastName" placeholder="Last name" />
+          <input type="text" id="lastName" placeholder="Last name" required/>
         </div>
       </div>
       <p class="login-text">
@@ -200,6 +202,7 @@
       <div class="button-container">
         <button class="find-button">Find booking</button>
       </div>
+    </form>
     </div>
 
     <div class="skyline"></div>
